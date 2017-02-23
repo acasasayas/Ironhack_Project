@@ -43,7 +43,7 @@ class ClubsController < ApplicationController
   private
 
   def club_params
-    params.permit(:name, :calories)
+    params.permit(:name, :ubication)
   end
 
   def find_club
