@@ -1,8 +1,8 @@
-var TopMenu = React.createClass({
+var Footer = React.createClass({
   render() {
     return (
       <div>
-        <h1>TOP MENU</h1>
+        <h1>FOOTER</h1>
       </div>
     )
   }

@@ -6,8 +6,11 @@ var Main = React.createClass({
           <TopMenu />
         </header>
         <div>
-          <h1>Hello, World!</h1>
+          <h1>MAIN</h1>
         </div>
+        <footer>
+          <Footer />
+        </footer>
       </div>
     )
   }
