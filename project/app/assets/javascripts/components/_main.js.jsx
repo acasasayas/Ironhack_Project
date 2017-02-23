@@ -1,3 +1,4 @@
+
 var Main = React.createClass({
   render() {
     return (
@@ -7,7 +8,6 @@ var Main = React.createClass({
         </header>
         <div>
           <h1>MAIN</h1>
-          <ModalLogin />
         </div>
         <footer>
           <Footer />

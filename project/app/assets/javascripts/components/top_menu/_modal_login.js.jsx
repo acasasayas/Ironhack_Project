@@ -1,28 +1,40 @@
-var ModalLogin = React.createClass({
+const ModalLogin = React.createClass({
+  getInitialState() {
+    return { show: false };
+  },
+
   render() {
+    let close = () => this.setState({ show: false});
+
     return (
-      <div className="modal fade" id="myModal_login" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel">
-          <div className="modal-dialog" role="document">
-              <div className="modal-content">
-                  <div className="modal-body">
-                    <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      <h3>Accede con tu email o <a href="#">Registrate</a></h3>
-                        <div className="row">
-                          <div className="col-xs-6 col-sm-6 col-md-6">
-                            <a href="#" className="btn btn-lg btn-primary btn-block">Facebook</a>
-                          </div>
-                          <div className="col-xs-6 col-sm-6 col-md-6">
-                            <a href="#" className="btn btn-lg btn-info btn-block">Google</a>
-                          </div>
-                        </div>
-                        <div className="login-or">
-                            <hr className="hr-or"></hr>
-                            <span className="span-or">o</span>
-                        </div>
-                  </div>
-              </div>
-            </div>
-        </div>
-    )
+      <div className="modal-container" style={{height: 200}}>
+        <Button
+          bsStyle="primary"
+          bsSize="large"
+          onClick={() => this.setState({ show: true})}
+        >
+          Launch contained modal
+        </Button>
+
+        <Modal
+          show={this.state.show}
+          onHide={close}
+          container={this}
+          aria-labelledby="contained-modal-title"
+        >
+          <Modal.Header closeButton>
+            <Modal.Title id="contained-modal-title">Contained Modal</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            Elit est explicabo ipsum eaque dolorem blanditiis doloribus sed id ipsam, beatae, rem fuga id earum? Inventore et facilis obcaecati.
+          </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={close}>Close</Button>
+          </Modal.Footer>
+        </Modal>
+      </div>
+    );
   }
 });
+
+/*ReactDOM.render(<ModalLogin />, mountNode);*/
