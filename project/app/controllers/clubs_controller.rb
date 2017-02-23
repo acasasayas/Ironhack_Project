@@ -1,4 +1,5 @@
 class ClubsController < ApplicationController
+  # hola
   before_action :find_club
 
   def index
