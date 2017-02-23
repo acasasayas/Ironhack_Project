@@ -2,7 +2,12 @@ var Main = React.createClass({
   render() {
     return (
       <div>
-        <h1>Hello, World!</h1>
+        <header>
+          <TopMenu />
+        </header>
+        <div>
+          <h1>Hello, World!</h1>
+        </div>
       </div>
     )
   }
