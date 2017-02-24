@@ -6,7 +6,7 @@ var Main = React.createClass({
           <TopMenu />
         </header>
         <div>
-          <h1>MAIN</h1>
+          <HomePage />
         </div>
         <footer>
           <Footer />
