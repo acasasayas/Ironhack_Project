@@ -17,10 +17,10 @@ var ModalLogin = React.createClass({
                 <h3>Por favor accede, o <a href="#">Registrate</a></h3>
                   <div className="row">
                     <div className="col-xs-6 col-sm-6 col-md-6">
-                      <a href="#" className="btn btn-lg btn-primary btn-block">Facebook</a>
+                      <a href="#" className="btn btn-lg btn-primary btn-block full-width">Facebook</a>
                     </div>
                     <div className="col-xs-6 col-sm-6 col-md-6">
-                      <a href="#" className="btn btn-lg btn-info btn-block">Google</a>
+                      <a href="#" className="btn btn-lg btn-info btn-block full-width google-color">Google</a>
                     </div>
                   </div>
                   <div className="login-or">

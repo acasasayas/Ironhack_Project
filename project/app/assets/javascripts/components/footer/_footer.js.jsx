@@ -1,9 +1,11 @@
 var Footer = React.createClass({
   render() {
     return (
-      <div>
-        <h1>FOOTER</h1>
-      </div>
+        <div className="container flex footer">
+          <div className="center-box">
+            <h1>Footer</h1>
+          </div>
+        </div>
     )
   }
 });
