@@ -33,7 +33,7 @@ var ModalFooter = React.createClass({
 
 var Modal = React.createClass({
   render: function () {
-    return (<div className="modal fade">
+    return (<div id="Modal" className="modal fade">
         <div className="modal-dialog">
           <div className="modal-content">
             <ModalHeader title="Modal Title"/>

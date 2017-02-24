@@ -5,6 +5,7 @@ var Button = React.createClass({
   render: function(){
     return (
       <div>
+        <li><a href={"#Modal"} data-toggle="modal" className={this.props.className}>modal</a></li>
         <button className="btn btn-default" onClick={this.showModal}>
             Show Modal
         </button>
