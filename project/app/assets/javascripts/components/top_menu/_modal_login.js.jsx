@@ -1,40 +1,46 @@
-const ModalLogin = React.createClass({
-  getInitialState() {
-    return { show: false };
-  },
-
-  render() {
-    let close = () => this.setState({ show: false});
-
+var ModalHeader = React.createClass({
+  render: function () {
     return (
-      <div className="modal-container" style={{height: 200}}>
-        <Button
-          bsStyle="primary"
-          bsSize="large"
-          onClick={() => this.setState({ show: true})}
-        >
-          Launch contained modal
-        </Button>
-
-        <Modal
-          show={this.state.show}
-          onHide={close}
-          container={this}
-          aria-labelledby="contained-modal-title"
-        >
-          <Modal.Header closeButton>
-            <Modal.Title id="contained-modal-title">Contained Modal</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            Elit est explicabo ipsum eaque dolorem blanditiis doloribus sed id ipsam, beatae, rem fuga id earum? Inventore et facilis obcaecati.
-          </Modal.Body>
-          <Modal.Footer>
-            <Button onClick={close}>Close</Button>
-          </Modal.Footer>
-        </Modal>
+      <div className="modal-header">
+        {this.props.title}
+        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-    );
+    )
   }
 });
 
-/*ReactDOM.render(<ModalLogin />, mountNode);*/
+var ModalBody = React.createClass({
+  render: function () {
+    return (
+      <div className="modal-body">
+        {this.props.content}
+      </div>
+    )
+  }
+});
+
+var ModalFooter = React.createClass({
+  render: function () {
+    return (
+      <div className="modal-footer">
+        <button type="button" className="btn btn-primary">Submit</button>
+      </div>
+    )
+  }
+});
+
+var Modal = React.createClass({
+  render: function () {
+    return (<div className="myModal_login fade">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <ModalHeader title="Modal Title"/>
+            <ModalBody content = "Modal Content" />
+            <ModalFooter />
+          </div>
+        </div>
+      </div>)
+  }
+});
