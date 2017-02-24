@@ -1,46 +1,27 @@
-var ModalHeader = React.createClass({
-  render: function () {
+var ModalLogin = React.createClass({
+  showModal: function() {
+     $(ReactDOM.findDOMNode(this.refs.modal)).modal();
+  },
+  render: function(){
     return (
-      <div className="modal-header">
-        {this.props.title}
-        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-    )
-  }
-});
-
-var ModalBody = React.createClass({
-  render: function () {
-    return (
-      <div className="modal-body">
-        {this.props.content}
-      </div>
-    )
-  }
-});
-
-var ModalFooter = React.createClass({
-  render: function () {
-    return (
-      <div className="modal-footer">
-        <button type="button" className="btn btn-primary">Submit</button>
-      </div>
-    )
-  }
-});
-
-var Modal = React.createClass({
-  render: function () {
-    return (<div id="Modal" className="modal fade">
+      <div id="Modal" className="modal fade">
         <div className="modal-dialog">
           <div className="modal-content">
-            <ModalHeader title="Modal Title"/>
-            <ModalBody content = "Modal Content" />
-            <ModalFooter />
+            <div className="modal-header">
+                titulo
+            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div className="modal-body">
+              cuerpo
+            </div>
+              <div className="modal-footer">
+                <button type="button" className="btn btn-primary">Submit</button>
+              </div>
           </div>
         </div>
-      </div>)
+      </div>
+    )
   }
 });
