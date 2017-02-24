@@ -23,7 +23,6 @@ var TopMenu = React.createClass({
                 </nav>
             </div>
           </div>
-          <Modal />
         </div>
     )
   }

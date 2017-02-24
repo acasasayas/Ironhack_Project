@@ -1,8 +1,8 @@
 var Button = React.createClass({
   showModal: function() {
-    $(ReactDOM.findDOMNode(this.refs.modal)).modal();
+     $(ReactDOM.findDOMNode(this.refs.modal)).modal();
   },
-  render : function(){
+  render: function(){
     return (
       <div>
         <button className="btn btn-default" onClick={this.showModal}>

@@ -1,4 +1,3 @@
-
 var Main = React.createClass({
   render() {
     return (
@@ -7,7 +6,7 @@ var Main = React.createClass({
           <TopMenu />
         </header>
         <div>
-          <h1 id='container'>MAIN</h1>
+          <h1>MAIN</h1>
             <Button />
         </div>
         <footer>

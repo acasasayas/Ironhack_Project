@@ -5,3 +5,7 @@
 .modal-container .modal, .modal-container .modal-backdrop {
     position: absolute;
 }
+
+.myModal_login {
+    display: none;
+}
