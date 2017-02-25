@@ -67,6 +67,7 @@ h3 {
 .center-box {
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
 }
 
 .full-width {
@@ -77,4 +78,10 @@ h3 {
     color: #fff;
     background-color: #d9534f;
     border-color: #d9534f;
+}
+
+.image-home {
+    border-radius: 13px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+    margin: 5px!important;
 }

@@ -18,3 +18,4 @@
 //= require components
 //= require_tree .
 //= require react_bootstrap
+//= require react_rails_img
