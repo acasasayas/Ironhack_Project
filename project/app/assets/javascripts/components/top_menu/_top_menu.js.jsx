@@ -4,10 +4,10 @@ var TopMenu = React.createClass({
         <div>
           <div className="row">
             <div className="col-md-12">
-              <nav className="navbar navbar-default navbar-fixed-top">
+              <nav className="navbar navbar-default navbar-fixed-top white-color">
                  <div className="container-fluid">
                       <div className="navbar-header">
-                     <a className="navbar-brand" href="#">IH Project</a>
+                     <a className="navbar-brand color-red" href="#">Play&Sports</a>
                    </div>
                    <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                      <ul className="nav navbar-nav navbar-right">

@@ -15,7 +15,7 @@ var Finder = React.createClass({
             <input type="text" placeholder="Elije el día..." className="inbox" id="inputUsernameEmail"></input>
           </div>
           <div className="finder-inbox vaaa">
-            <a href="#" className="btn btn-lg btn-info btn-block full-width google-color">Buscar</a>
+            <ButtonFind className="btn btn-lg btn-info btn-block full-width google-color" href="#" name="Buscar"/>
           </div>
         </div>
     )

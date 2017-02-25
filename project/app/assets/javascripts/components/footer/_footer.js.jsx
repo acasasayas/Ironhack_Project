@@ -3,7 +3,8 @@ var Footer = React.createClass({
     return (
         <div className="container flex footer">
           <div className="center-box">
-            <h1>Footer</h1>
+            <span><i className="fa fa-twitter" aria-hidden="true"></i></span>
+            <h1></h1>
           </div>
         </div>
     )
