@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: one
+  court_id: one
+  time_start: 2017-02-25 10:48:48
+  time_end: 2017-02-25 10:48:48
+
+two:
+  user_id: two
+  court_id: two
+  time_start: 2017-02-25 10:48:48
+  time_end: 2017-02-25 10:48:48

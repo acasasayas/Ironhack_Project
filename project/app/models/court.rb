@@ -1,4 +1,5 @@
 class Court < ApplicationRecord
   belongs_to :club
-  acts_as_bookable time_type: :range
+  has_many :users, through: :reservations
+  has_many :reservations
 end
