@@ -68,6 +68,7 @@ h3 {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    width: 100%;
 }
 
 .full-width {
@@ -76,12 +77,44 @@ h3 {
 
 .google-color {
     color: #fff;
-    background-color: #d9534f;
-    border-color: #d9534f;
+    background-color: #FF5A5F;
+    border-color: #FF5A5F;
 }
 
 .image-home {
     border-radius: 13px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
     margin: 5px!important;
+}
+
+.finder {
+    border: 1px solid #dce0e0;
+    border-radius: 4px;
+    width: 70%;
+    margin-top: 15px;
+    box-shadow: 0 1px 3px 0 #dce0e0;
+}
+
+.finder-inbox {
+    text-align: left;
+    margin-top: 5px;
+    width: 25%;
+}
+
+.inbox {
+    display: block;
+    width: 100%;
+    height: 34px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid white;
+    border-radius: 0px;
+    padding: 0px!important;
+}
+
+.color-red {
+    font-weight: 700;
+    color: #FF5A5F;
 }
