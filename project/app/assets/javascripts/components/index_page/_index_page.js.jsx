@@ -9,14 +9,14 @@ var IndexPage = React.createClass({
                   <LeftBar />
         				</div>
         				<div className="col-md-10 no-padding-left">
-                  <Finder />
-                  <div className="col-md-8 no-padding-left">
+                  <div className="col-md-6 no-padding-left">
+                    <ItemCenter />
                     <ItemCenter />
                     <ItemCenter />
                     <ItemCenter />
                     <ItemCenter />
           				</div>
-                  <div className="col-md-4 no-padding-left no-padding-right">
+                  <div className="col-md-6 no-padding-left no-padding-right">
                     <GoogleMaps />
           				</div>
         				</div>

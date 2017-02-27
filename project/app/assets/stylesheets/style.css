@@ -133,7 +133,22 @@ h3 {
     height: 100px;
 }
 
-.image-finder {}
+.name-club {}
+
+.dir-club {}
+
+.button-hour {
+    border: 1px solid transparent;
+    width: 55px;
+}
+
+.info-find {
+    margin-left: 10px;
+}
+
+.filter-left-bar {
+    margin-top: 10px;
+}
 
 #leftBar {
     height: 85vh;
@@ -145,5 +160,5 @@ h3 {
 }
 
 #google-maps {
-    height: 73vh;
+    height: 85vh;
 }
