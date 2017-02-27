@@ -1,5 +1,6 @@
 var ButtonFind = React.createClass({
     myClick: function () {
+        ReactDOM.unmountComponentAtNode(document.getElementById('home-page'));
         alert("Hello World!");
     },
     render: function() {

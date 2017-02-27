@@ -1,7 +1,7 @@
 var Finder = React.createClass({
   render() {
     return (
-        <div className="container flex finder">
+        <div id="finder" className="container flex finder">
           <div className="finder-inbox">
             <label htmlFor="inputSport">Deporte</label>
             <input type="text" placeholder="A que quieres jugar...." className="inbox" id="inputUsernameEmail"></input>

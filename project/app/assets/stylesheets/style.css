@@ -83,8 +83,8 @@ h3 {
 
 .finder {
     border: 1px solid #dce0e0;
-    border-radius: 4px;
-    width: 70%;
+    border-radius: 0px;
+    width: 100%;
     margin-top: 15px;
     box-shadow: 0 1px 3px 0 #dce0e0;
 }
@@ -111,4 +111,39 @@ h3 {
 .color-red {
     font-weight: 700;
     color: #FF5A5F;
+}
+
+.index-page {
+    margin-top: 35px;
+}
+
+.no-padding-left {
+    padding-left: 0px;
+}
+
+.no-padding-right {
+    padding-right: 0px;
+}
+
+.item-club {
+    border: 0px solid #dce0e0;
+    width: 100%;
+    margin-top: 15px;
+    box-shadow: 0 5px 15px 0 #dce0e0;
+    height: 100px;
+}
+
+.image-finder {}
+
+#leftBar {
+    height: 85vh;
+}
+
+#center-bar {
+    /*height: 73vh;*/
+    width: 100%;
+}
+
+#google-maps {
+    height: 73vh;
 }
