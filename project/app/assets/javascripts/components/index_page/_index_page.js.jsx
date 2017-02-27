@@ -1,7 +1,7 @@
 var IndexPage = React.createClass({
   render() {
     return (
-        <div id="index-page" className="container-fluid index-page">
+        <div id="index-page" className="container-fluid index-page hidden">
         	<div className="row">
         		<div className="col-md-12">
         			<div className="row">

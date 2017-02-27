@@ -1,7 +1,7 @@
 var HomePage = React.createClass({
   render() {
     return (
-        <div id="home-page" className="container flex home-page">
+        <div id="home-page" className="container flex home-page home">
           <div className="center-box">
             <h1><span>Quieres hacer deporte y</span><span className="color-red"> necesitas una pista?</span></h1>
             <div className="center-box">

@@ -4,6 +4,7 @@ var Main = React.createClass({
     return (
       <div>
           <TopMenu />
+          <HomePage />
           <IndexPage />
           <Footer />
       </div>

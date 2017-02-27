@@ -3,7 +3,9 @@ body {
     font-size: 12px
 }
 
-.white-color {}
+.hidden {
+    display: none;
+}
 
 .main {
     max-width: 400px;
@@ -44,7 +46,7 @@ h3 {
 }
 
 .home-page {
-    width: 100%;
+    width: 60%;
     height: 88vh;
 }
 
