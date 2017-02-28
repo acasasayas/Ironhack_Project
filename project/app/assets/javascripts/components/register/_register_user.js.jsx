@@ -7,12 +7,8 @@ var RegisterUser = React.createClass({
             <h1>Registrarse</h1>
           </div>
             <div className="col-md-12 right">
-                <label className="flex" htmlFor="inputUser">Nick:<input type="text" className="form-control" id="inputUser"></input></label>
-                <label className="flex" htmlFor="inputUser">Nombre:<input type="text" className="form-control" id="inputUser"></input></label>
-                <label className="flex" htmlFor="inputUser">Apellidos:<input type="text" className="form-control" id="inputUser"></input></label>
-                <label className="flex" htmlFor="inputUser">Email:<input type="text" className="form-control" id="inputUser"></input></label>
-                <label className="flex" htmlFor="inputUser">Confirmación Email:<input type="text" className="form-control" id="inputUser"></input></label>
-                
+                <label className="flex label-user" htmlFor="inputUser">Nick:</label>
+                  <input type="text" className="form-user form-control" id="inputUser"></input>
           </div>
       </div>
     )
