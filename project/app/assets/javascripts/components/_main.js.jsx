@@ -2,24 +2,33 @@
 var Main = React.createClass({
   getInitialState: function(){
     return {
-      status: "homepage"
+      status: "home_page"
     }
   },
   showState() {
     console.log(this.state);
   },
   renderContent() {
-    if (this.state.status == "homepage") {
+    switch (this.state.status) {
+      case "home_page":
       return <HomePage />
-    } else if (this.state.status == "indexpage") {
-      return <IndexPage status="indexpage" />
+      break;
+      case "index_page":
+      return <IndexPage />
+      break;
+      case "register_user":
+      return <RegisterUser />
+      break;
+      default:
     }
+
   },
   render() {
     return (
       <div>
+          <ModalLogin />
           <TopMenu />
-          <div id={this.state.status}>{this.renderContent()}</div>
+          {this.renderContent()}
           <h5>Status: {this.state.status}</h5>
       </div>
     )

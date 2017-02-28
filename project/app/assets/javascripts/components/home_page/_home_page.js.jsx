@@ -1,7 +1,7 @@
 var HomePage = React.createClass({
   changeStateMain() {
-    var parent = this._reactInternalInstance._currentElement._owner._instance;
-    parent.setState({status: "indexpage"})
+    var main = this._reactInternalInstance._currentElement._owner._instance;
+    main.setState({status: "index_page"})
   },
   render() {
     return (

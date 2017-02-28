@@ -21,7 +21,6 @@ var TopMenu = React.createClass({
                  </div>
                 </nav>
             </div>
-            <ModalLogin />
           </div>
     )
   }
