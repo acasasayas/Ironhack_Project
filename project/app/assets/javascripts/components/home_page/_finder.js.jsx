@@ -3,6 +3,11 @@ var Finder = React.createClass({
     var parent = this._reactInternalInstance._currentElement._owner._instance;
     parent.changeStateMain();
   },
+
+  changeStatus(){
+    this.props.changeStatus("index_page")
+  },
+
   render() {
     return (
         <div id="finder" className="container flex finder">
@@ -19,7 +24,7 @@ var Finder = React.createClass({
             <input type="text" placeholder="Elije el día..." className="inbox" id="inputUsernameEmail"></input>
           </div>
           <div className="finder-inbox vaaa">
-            <ButtonFind myProp={this.changeStateMain} className="btn btn-lg btn-info btn-block full-width google-color" href="#" name="Buscar"/>
+            <ButtonFind onClick={this.changeStatus} className="btn btn-lg btn-info btn-block full-width google-color" href="#" name="Buscar"/>
           </div>
         </div>
     )

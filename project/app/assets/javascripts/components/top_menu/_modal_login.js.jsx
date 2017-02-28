@@ -2,11 +2,6 @@ var ModalLogin = React.createClass({
   showModal: function() {
      $(ReactDOM.findDOMNode(this.refs.modal)).modal();
   },
-  changeStateMain() {
-    var main = this._reactInternalInstance._currentElement._owner._instance;
-    main.setState({status: "register_user"})
-    debugger;
-  },
   render: function(){
     return (
       <div id="Modal" className="modal fade">
@@ -14,12 +9,12 @@ var ModalLogin = React.createClass({
           <div className="modal-content">
             <div className="modal-header">
               IH Project
-            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" className="close"  aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div className="modal-body">
-                <h3>Por favor accede, o <a onClick={this.changeStateMain} href="#">Registrate</a></h3>
+                <h3>Por favor accede, o <a onClick={()=>this.props.changeStatus("register_user")} data-toggle="modal" href="#">Registrate</a></h3>
                   <div className="row">
                     <div className="col-xs-6 col-sm-6 col-md-6">
                       <a href="#" className="btn btn-lg btn-primary btn-block full-width">Facebook</a>

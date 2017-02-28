@@ -3,6 +3,10 @@ body {
     font-size: 12px
 }
 
+span.img1:hover img {
+    opacity: 0.3;
+}
+
 .hidden {
     display: none;
 }
@@ -95,8 +99,8 @@ h3 {
 
 .google-color {
     color: #fff;
-    background-color: #FF5A5F;
-    border-color: #FF5A5F;
+    background-color: #298A08;
+    border-color: #298A08;
 }
 
 .image-home {
@@ -134,7 +138,7 @@ h3 {
 
 .color-red {
     font-weight: 700;
-    color: #FF5A5F;
+    color: #298A08;
 }
 
 .index-page {
