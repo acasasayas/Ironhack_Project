@@ -1,8 +1,7 @@
 var TopMenu = React.createClass({
   render() {
     return (
-        <div>
-          <div className="row">
+          <div className="row top-menu">
             <div className="col-md-12">
               <nav className="navbar navbar-default navbar-fixed-top white-color">
                  <div className="container-fluid">
@@ -22,9 +21,8 @@ var TopMenu = React.createClass({
                  </div>
                 </nav>
             </div>
+            <ModalLogin />
           </div>
-          <ModalLogin />
-        </div>
     )
   }
 });

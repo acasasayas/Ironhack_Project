@@ -1,4 +1,8 @@
 var HomePage = React.createClass({
+  changeStateMain() {
+    var parent = this._reactInternalInstance._currentElement._owner._instance;
+    parent.setState({status: "indexpage"})
+  },
   render() {
     return (
         <div id="home-page" className="container flex home-page home">
