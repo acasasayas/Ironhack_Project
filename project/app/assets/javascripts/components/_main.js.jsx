@@ -4,17 +4,17 @@ var Main = React.createClass({
   getInitialState: function(){
     return {
       status: "home_page",
-      modal: "off"
+      modal: "on"
     }
   },
 
-  showModal(){
-    this.setState({modal: "on"});
+  showModal(status){
+    this.setState({modal: status});
   },
 
   renderModal(){
     if (this.state.modal == "on") {
-      return <Modal />
+      return <Modal showModal={this.showModal}/>
     }
   },
 
@@ -47,12 +47,9 @@ var Main = React.createClass({
   render() {
     return (
       <div id="main">
-          <TopMenu showModal={this.showModal} />
-          {this.renderModal()}
+          <TopMenu changeStatus={this.changeStatus} />
           {this.renderContent()}
-          <h5>Status: {this.state.status}</h5>
-          <h5>Status modal: {this.state.modal}</h5>
-
+          <h5>Status: {this.state.status} Status modal: {this.state.modal}</h5>
       </div>
     )
   }

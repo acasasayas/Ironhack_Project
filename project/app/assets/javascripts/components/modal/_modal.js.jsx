@@ -1,16 +1,21 @@
 var Modal = React.createClass({
+
+  hideModal(){
+    this.props.showModal("off")
+  },
+
   render() {
     return (
         <div id="modal" className="flex">
           <div id="modal-bp" className="center-box">
             <div className="modal-header">
               IH Project
-            <button type="button" className="close"  aria-label="Close">
+            <button type="button" className="close"  onClick={this.hideModal} aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div className="modal-body">
-                <h3>Por favor accede, o <a onClick={()=>this.props.changeStatus("register_user")} href="#">Registrate</a></h3>
+                <h3>Por favor accede, o <a onClick={()=>this.props.hideModal("register_user")} href="#">Registrate</a></h3>
                   <div className="row">
                     <div className="col-xs-6 col-sm-6 col-md-6">
                       <a href="#" className="btn btn-lg btn-primary btn-block full-width">Facebook</a>

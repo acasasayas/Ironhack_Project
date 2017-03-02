@@ -4,7 +4,7 @@ var ButtonMenu = React.createClass({
         <li>
           <a
              href={this.props.href}
-             onClick={this.props.onClick}
+             onClick={this.props.patata}
              className={this.props.className}>{this.props.name}
           </a>
         </li>
