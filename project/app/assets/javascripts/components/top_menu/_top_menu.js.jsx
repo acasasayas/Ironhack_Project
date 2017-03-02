@@ -16,7 +16,7 @@ var TopMenu = React.createClass({
                    </div>
                    <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                      <ul className="nav navbar-nav navbar-right">
-                       <ButtonMenu href="#" patata={this.showModal} name="Acceder"/>
+                       <ButtonMenu href="http://localhost:3000/search" name="Acceder"/>
                        <ButtonMenu href="" name="Registrarse"/>
                        <ButtonMenu href="el link3" name="Usuario" className="hidden"/>
                        <ButtonMenu href="el link4" name="Cerrar sesión" className="hidden"/>
