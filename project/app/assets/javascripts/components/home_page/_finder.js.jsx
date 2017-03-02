@@ -1,8 +1,4 @@
 var Finder = React.createClass({
-  changeStateMain() {
-    var parent = this._reactInternalInstance._currentElement._owner._instance;
-    parent.changeStateMain();
-  },
 
   changeStatus(){
     this.props.changeStatus("index_page")

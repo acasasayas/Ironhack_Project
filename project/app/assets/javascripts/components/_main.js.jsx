@@ -1,18 +1,34 @@
 // var FontAwesome = require('react-fontawesome');
 var Main = React.createClass({
+
   getInitialState: function(){
     return {
-      status: "home_page"
+      status: "home_page",
+      modal: "off"
     }
   },
-  showState() {
+
+  showModal(){
+    this.setState({modal: "on"});
+  },
+
+  renderModal(){
+    if (this.state.modal == "on") {
+      return <Modal />
+    }
+  },
+
+  showState(){
     console.log(this.state);
   },
+
   changeStatus(status){
     this.setState({status: status});
     console.log("change status ", status, this.constructor.displayName);
   },
+
   renderContent() {
+
     switch (this.state.status) {
       case "home_page":
       return <HomePage changeStatus={this.changeStatus}/>
@@ -27,13 +43,16 @@ var Main = React.createClass({
     }
 
   },
+
   render() {
     return (
-      <div>
-          <ModalLogin changeStatus={this.changeStatus}/>
-          <TopMenu />
+      <div id="main">
+          <TopMenu showModal={this.showModal} />
+          {this.renderModal()}
           {this.renderContent()}
           <h5>Status: {this.state.status}</h5>
+          <h5>Status modal: {this.state.modal}</h5>
+
       </div>
     )
   }
