@@ -13,7 +13,7 @@
   <!-- top_menu -->
     <header class="header">
       <div class="row">
-        <div class="col-md-12">
+        <div id="top-menu" class="col-md-12 ">
           <nav class="navbar navbar-default navbar-fixed-top">
              <div class="container-fluid">
                   <div class="navbar-header">
@@ -24,6 +24,7 @@
                    <li><%=link_to 'Acceder', '#myModal_login', id: :login, 'data-toggle' => "modal" if !current_user%></li>
                    <li><%=link_to 'Registrarse', '#myModal_register', id: :login, 'data-toggle' => "modal" if !current_user%></li>
                    <li><%=link_to current_user.email if current_user%></li>
+                   <li><%=link_to 'Editar perfil', edit_user_registration_path  if current_user%></li>
                    <li><%=link_to 'Cerrar sesión', destroy_user_session_path, method: 'DELETE' if current_user%></li>
                    <li><a href="#">Quienes somos</a></li>
                    <li><a href="#">Condiciones</a></li>
@@ -35,17 +36,17 @@
       </div>
 <!-- modal for login -->
 <div class="modal fade" id="myModal_login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
+    <div id="modal-login" class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h3>Accede con tu email o <a href="#">Registrate</a></h3>
                   <div class="row">
                     <div class="col-xs-6 col-sm-6 col-md-6">
-                      <a href="#" class="btn btn-lg btn-primary btn-block">Facebook</a>
+                      <a href="#" class="btn btn-lg btn-primary btn-block full-width">Facebook</a>
                     </div>
                     <div class="col-xs-6 col-sm-6 col-md-6">
-                      <a href="#" class="btn btn-lg btn-info btn-block">Google</a>
+                      <a href="#" class="btn btn-lg btn-info btn-block full-width">Google</a>
                     </div>
                   </div>
                   <div class="login-or">
