@@ -10,8 +10,79 @@
 
 </script>
   </head>
-  <header>
-    <%= react_component 'TopMenu' %>
+  <!-- top_menu -->
+    <header class="header">
+      <div class="row">
+        <div class="col-md-12">
+          <nav class="navbar navbar-default navbar-fixed-top">
+             <div class="container-fluid">
+                  <div class="navbar-header">
+                 <a class="navbar-brand" href="#">IH Project</a>
+               </div>
+               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                 <ul class="nav navbar-nav navbar-right">
+                   <li><%=link_to 'Acceder', '#myModal_login', id: :login, 'data-toggle' => "modal" if !current_user%></li>
+                   <li><%=link_to 'Registrarse', '#myModal_register', id: :login, 'data-toggle' => "modal" if !current_user%></li>
+                   <li><%=link_to current_user.email if current_user%></li>
+                   <li><%=link_to 'Cerrar sesión', destroy_user_session_path, method: 'DELETE' if current_user%></li>
+                   <li><a href="#">Quienes somos</a></li>
+                   <li><a href="#">Condiciones</a></li>
+                  </ul>
+               </div><!-- /.navbar-collapse -->
+             </div><!-- /.container-fluid -->
+            </nav>
+        </div>
+      </div>
+<!-- modal for login -->
+<div class="modal fade" id="myModal_login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3>Accede con tu email o <a href="#">Registrate</a></h3>
+                  <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                      <a href="#" class="btn btn-lg btn-primary btn-block">Facebook</a>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                      <a href="#" class="btn btn-lg btn-info btn-block">Google</a>
+                    </div>
+                  </div>
+                  <div class="login-or">
+                      <hr class="hr-or">
+                      <span class="span-or">o</span>
+                  </div>
+                <%= render "devise/shared/login" %>
+                <%=link_to 'Olvidaste tu contraseña?', '#recovery_pass', id: :link_recovery_pass, 'data-toggle' => "modal"%>
+            </div>
+        </div>
+      </div>
+  </div>
+<!-- modal for register -->
+<div class="modal fade" id="myModal_register" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3>Registrate y empieza a jugar!</h3>
+                <%= render "devise/shared/signin" %>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- modal for recovery_pass -->
+<div class="modal fade" id="recovery_pass" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h3>Recuperar contraseña</h3>
+              <%= render "devise/shared/recoverypass" %>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- devise_login -->
   </header>
   <body>
     <%= yield %>
