@@ -1,0 +1,2 @@
+class ImageClub < ApplicationRecord
+end
