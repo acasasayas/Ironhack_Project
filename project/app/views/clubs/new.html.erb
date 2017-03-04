@@ -1,0 +1,30 @@
+<div id="home-page" class="container flex">
+  <div class="center-box top-main">
+    <h1><span class="color-red">Nuevo</span><span> Club</span></h1>
+    <div id="new-user" class="center-box edit-user color-transparent">
+
+      <%= form_for @club do |f| %>
+        <%= devise_error_messages! %>
+
+        <div class="field flex">
+          <%= f.label :name, :class => 'float label-user size-label' %><br />
+          <%= f.text_field :name, autofocus: true, class: 'form-control size-input' %>
+        </div>
+        <br />
+        <div class="field flex">
+          <%= f.label :ubication, :class => 'float label-user size-label' %>
+          <%= f.text_field :ubication, autocomplete: "off", class: 'form-control size-input' %>
+        </div>
+        <br />
+        <div class="actions right">
+          <%= f.submit "Registrar club", class: "btn btn btn-primary google-color" %>
+        </div>
+        <br />
+      <% end %>
+      <%= link_to "Volver a página anterior", :back %>
+
+    </div>
+
+
+  </div>
+</div>

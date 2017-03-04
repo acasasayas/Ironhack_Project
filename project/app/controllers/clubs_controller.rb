@@ -1,6 +1,10 @@
 class ClubsController < ApplicationController
   before_action :find_club
 
+  def new
+    @club = Club.new
+  end
+
   def index
     clubs = Club.all
     render json: clubs
@@ -43,7 +47,7 @@ class ClubsController < ApplicationController
   private
 
   def club_params
-    params.permit(:name, :ubication)
+    params.require(:club).permit(:name, :ubication)
   end
 
   def find_club
