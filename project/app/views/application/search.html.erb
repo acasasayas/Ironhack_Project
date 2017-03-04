@@ -39,25 +39,29 @@
         <div class="col-md-10 no-padding-left">
           <div class="col-md-6 no-padding-left">
             <div id="center-bar" class="container flex no-padding-left no-padding-right center-bar">
-              <div id="item-club" class="item-club container flex">
-                    <div>
-                      <img class="image-finder" src="/assets/padel.png" width="85" height="85" />
-                    </div>
-                    <div>
-                      <p>
-                        <a class="info-find name-club" href="el link2">Nombre Club</a>
-                      </p>
-                      <p>
-                        <span class="info-find dir-club">Dirección: Calle, número, etc</span>
-                      </p>
-                      <button class="button-hour info-find google-color">10:00</button>
-                      <button class="button-hour info-find google-color">10:00</button>
-                      <button class="button-hour info-find google-color">10:00</button>
-                      <button class="button-hour info-find google-color">10:00</button>
-                      <button class="button-hour info-find google-color">10:00</button>
-                      <button class="button-hour info-find google-color">10:00</button>
-                    </div>
-              </div>
+              <ul>
+              <% @clubs.each do |item| %>
+                <div id="item-club" class="item-club container flex">
+                      <div>
+                        <%= image_tag item.club_images.first.image.url(:thumb)%>
+                      </div>
+                      <div>
+                        <p>
+                          <%=link_to item.name, '#modal_club', :class => "info-find name-club", 'data-toggle' => "modal", id: "#{item.id}"%>
+                        </p>
+                        <p>
+                          <span class="info-find dir-club"><%=item.ubication%></span>
+                        </p>
+                        <button class="button-hour info-find google-color">10:00</button>
+                        <button class="button-hour info-find google-color">10:00</button>
+                        <button class="button-hour info-find google-color">10:00</button>
+                        <button class="button-hour info-find google-color">10:00</button>
+                        <button class="button-hour info-find google-color">10:00</button>
+                        <button class="button-hour info-find google-color">10:00</button>
+                      </div>
+                </div>
+              <% end %>
+              </ul>
             </div>
           </div>
           <div class="col-md-6 no-padding-left no-padding-right">

@@ -67,4 +67,7 @@ Rails.application.configure do
   # user_name: ENV[“GMAIL_USERNAME”],
   password: "barcelona2017"  # password: ENV[“GMAIL_PASSWORD”]
 }
+
+## Paperclip settings
+Paperclip.options[:command_path] = "/usr/local/bin/convert"
 end

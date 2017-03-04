@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   end
   devise_for :users
   resources :courts
-  resources :clubs
+  resources :clubs do
+    get 'show_modal', on: :collection, as: 'show_modal'
+  end
+  resources :club_images, only: [:index, :create]
   post '/clubs/new', to: 'clubs#create'
   get '/' => 'application#index'
   get '/search' => 'application#search'

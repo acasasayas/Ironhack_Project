@@ -1,2 +1,0 @@
-class ImageClub < ApplicationRecord
-end

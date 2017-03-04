@@ -11,7 +11,12 @@ class ClubsController < ApplicationController
   end
 
   def create
-    club = Club.create(club_params)
+    if club = Club.create(club_params)
+      # club.club_images.create({image: params[:club_images]})
+      params[:club][:club_images].each do |image|
+        club.club_images.create({image: image})
+      end
+    end
     render json: club
   end
 
@@ -44,6 +49,14 @@ class ClubsController < ApplicationController
     render json: @club
   end
 
+def show_modal
+  respond_to do |format|
+    format.js do
+      @club = Club.find(params[:item])
+      render json: @club
+    end
+  end
+end
   private
 
   def club_params

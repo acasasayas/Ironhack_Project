@@ -3,7 +3,7 @@
     <h1><span class="color-red">Nuevo</span><span> Club</span></h1>
     <div id="new-user" class="center-box edit-user color-transparent">
 
-      <%= form_for @club do |f| %>
+      <%= form_for @club, :html => {:multipart => true} do |f| %>
         <%= devise_error_messages! %>
 
         <div class="field flex">
@@ -16,10 +16,14 @@
           <%= f.text_field :ubication, autocomplete: "off", class: 'form-control size-input' %>
         </div>
         <br />
+        <%= f.label :image, "Imagen del club:", :class => 'float label-user center-box' %>
+        <%= f.file_field :club_images, id: "conio", multiple: true %>
+        <br />
         <div class="actions right">
           <%= f.submit "Registrar club", class: "btn btn btn-primary google-color" %>
         </div>
         <br />
+
       <% end %>
       <%= link_to "Volver a página anterior", :back %>
 
