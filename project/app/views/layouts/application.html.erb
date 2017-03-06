@@ -22,7 +22,7 @@
                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                  <ul class="nav navbar-nav navbar-right">
                    <li><%=link_to 'Acceder', '#myModal_login', id: :login, 'data-toggle' => "modal" if !current_user%></li>
-                   <li><%=link_to 'Registrarse', '#myModal_register', id: :login, 'data-toggle' => "modal" if !current_user%></li>
+                   <li><%=link_to 'Registrarse', href='/users/sign_up', id: :login, 'data-toggle' => "modal" if !current_user%></li>
                    <li><%=link_to current_user.email if current_user%></li>
                    <li><%=link_to 'Editar perfil', edit_user_registration_path  if current_user%></li>
                    <li><%=link_to 'Cerrar sesión', destroy_user_session_path, method: 'DELETE' if current_user%></li>
