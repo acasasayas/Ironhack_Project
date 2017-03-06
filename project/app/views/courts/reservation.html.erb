@@ -1,0 +1,30 @@
+<h1>Bienvenido a las reservas de pistas</h1>
+<br>
+
+<%= form_for @new_reservation do |f| %>
+
+  <%= f.label :time_start %>
+  <%= f.time_field :time_start%><br>
+  <%= f.label :time_end %>
+  <%= f.time_field :time_end%><br>
+  <%= f.label :user_id %>
+  <%= f.number_field :user_id %><br>
+
+
+  <br>
+  <%= f.button %>
+<% end %>
+
+
+
+<ul>
+  <h1>Reservas</h1>
+  <% @reservations.each do |reservation| %>
+
+  <li>reserva hecha por: <%= reservation.user.name %><br>
+      club: <%= reservation.court.club.name %> <br>
+    <%= reservation.time_start.strftime('%H:%M') %> - <%= reservation.time_end.strftime('%H:%M') %> </li>
+
+  <% end %>
+
+</ul>
