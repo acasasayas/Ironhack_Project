@@ -3,7 +3,7 @@
     <div class="col-md-12">
       <div class="row">
         <div class="col-md-2">
-          <div id="leftBar" class="container item-club google-maps">
+          <div id="leftBar" class="container item-club google-maps color-transparent">
             <div id="filter-left-bar" class="filter-left-bar">
               <label htmlFor="filter-sort">Ordenar resultados</label>
               <p>
@@ -41,13 +41,16 @@
             <div id="center-bar" class="container flex no-padding-left no-padding-right center-bar">
               <ul>
               <% @clubs.each do |item| %>
-                <div id="item-club" class="item-club container flex">
+                <div id="item-club" class="item-club container flex color-transparent">
                       <div>
                         <%= image_tag item.club_images.first.image.url(:thumb)%>
                       </div>
                       <div>
                         <p>
-                          <%=link_to item.name, '#modal_club', :class => "info-find name-club", 'data-toggle' => "modal", id: "#{item.id}"%>
+                          <%= link_to item.name, '#modal_club',
+                           :'data-id' => "#{item.to_json}",
+                           :'data-url' => "#{item.club_images.first.image.url(:medium)}",
+                           :class => "info-find name-club", 'data-toggle' => "modal"%>
                         </p>
                         <p>
                           <span class="info-find dir-club"><%=item.ubication%></span>

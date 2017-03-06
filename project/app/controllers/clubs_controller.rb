@@ -49,14 +49,6 @@ class ClubsController < ApplicationController
     render json: @club
   end
 
-def show_modal
-  respond_to do |format|
-    format.js do
-      @club = Club.find(params[:item])
-      render json: @club
-    end
-  end
-end
   private
 
   def club_params
