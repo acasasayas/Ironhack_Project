@@ -43,7 +43,12 @@
               <% @clubs.each do |item| %>
                 <div id="item-club" class="item-club container flex color-transparent">
                       <div>
-                        <%= image_tag item.club_images.first.image.url(:thumb)%>
+                        <% if item.club_images %>
+                          <%= image_tag item.club_images.first.image.url(:thumb),alt: "No IMG"%>
+                        <% else %>
+                          <%= image_tag "padel.png", alt: "No IMG"%>
+                        <% end %>
+
                       </div>
                       <div>
                         <p>

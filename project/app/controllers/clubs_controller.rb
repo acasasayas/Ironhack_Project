@@ -12,8 +12,13 @@ class ClubsController < ApplicationController
 
   def create
     if club = Club.create(club_params)
-      # club.club_images.create({image: params[:club_images]})
-      params[:club][:club_images].each do |image|
+      if params[:club][:club_images]
+        params[:club][:club_images].each do |image|
+        club.club_images.create({image: image})
+
+      end
+      else
+        
         club.club_images.create({image: image})
       end
     end
