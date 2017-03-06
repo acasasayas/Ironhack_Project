@@ -26,7 +26,7 @@
             <input type="text" placeholder="Elije el día..." class="inbox" id="inputUsernameEmail"></input>
           </div>
           <div class="finder-inbox vaaa">
-            <button class="btn btn-lg btn-info btn-block full-width google-color" href="#">Buscar</button>
+            <%= button_to "Buscar", search_path, :class => "btn btn-lg btn-info btn-block full-width google-color", :method => "get" %>
           </div>
         </div>
   </div>
