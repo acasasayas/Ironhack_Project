@@ -63,24 +63,22 @@
   <div class="modal fade" id="modal_club" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div id="modal-login" class="modal-dialog" role="document">
           <div class="modal-content">
-              <div id="modal-club" class="modal-body">
-
+            <div class="row">
+              <div id="modal-title" class="col-md-12 modal-title center-box">
+                <!-- nombre del club -->
               </div>
+                <div class="row">
+                  <div id="modal-left" class="col-xs-6 col-sm-6 col-md-6">
+                    <!-- foto del club -->
+                  </div>
+                  <div id="modal-right" class="col-xs-6 col-sm-6 col-md-6">
+                    <!-- direccion y datos del club -->
+                  </div>
+                </div>
+          </div>
           </div>
         </div>
     </div>
-<!-- modal for register -->
-<div class="modal fade" id="myModal_register" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3>Registrate y empieza a jugar!</h3>
-                <%= render "devise/shared/signin" %>
-            </div>
-        </div>
-    </div>
-</div>
 <!-- modal for recovery_pass -->
 <div class="modal fade" id="recovery_pass" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">

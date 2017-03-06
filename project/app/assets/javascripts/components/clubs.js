@@ -3,9 +3,13 @@ $(document).on("click", ".name-club", function () {
      var data = $(this).data('id');
      var url = $(this).data('url');
      debugger;
-     $( "#modal-club" ).append(
-        "<h1>"+data.name+"</h1>",
-        "<img src="+url+"></img>",
+     $( "#modal-title" ).append(
+        "<h1>"+data.name+"</h1>"
+      );
+      $( "#modal-left" ).append(
+         "<img src="+url+"></img>"
+       );
+     $( "#modal-right" ).append(
         "<h3>"+data.ubication+"</h3>"
       );
 });
