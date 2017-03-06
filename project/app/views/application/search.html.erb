@@ -1,0 +1,79 @@
+<div id="index-page" class="container-fluid index-page">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-2">
+          <div id="leftBar" class="container item-club google-maps color-transparent">
+            <div id="filter-left-bar" class="filter-left-bar">
+              <label htmlFor="filter-sort">Ordenar resultados</label>
+              <p>
+                <a class="info-find name-club" href="el link2">Precio</a>
+              </p>
+              <p>
+                <a class="info-find name-club" href="el link2">Distancia</a>
+              </p>
+              <p>
+                <a class="info-find name-club" href="el link2">Ofertas Last Minute</a>
+              </p>
+              <p>
+                <a class="info-find name-club" href="el link2">Valoración clientes</a>
+              </p>
+            </div>
+            <div id="finder-left-bar">
+                <p>
+                  <label htmlFor="inputSport">Deporte</label>
+                  <input type="text" placeholder="A que quieres jugar...." class="inbox" id="inputUsernameEmail"></input>
+                </p>
+                <p>
+                  <label htmlFor="inputWhere">Donde</label>
+                  <input type="text" placeholder="Club, Población, ....." class="inbox" id="inputUsernameEmail"></input>
+                </p>
+                <p>
+                  <label htmlFor="inputWhen">Cuándo</label>
+                  <input type="text" placeholder="Elije el día..." class="inbox" id="inputUsernameEmail"></input>
+                </p>
+                <button class="btn btn-lg btn-info btn-block full-width google-color" href="#" name="Buscar">Buscar</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-10 no-padding-left">
+          <div class="col-md-6 no-padding-left">
+            <div id="center-bar" class="container flex no-padding-left no-padding-right center-bar">
+              <ul>
+              <% @clubs.each do |item| %>
+                <div id="item-club" class="item-club container flex color-transparent">
+                      <div>
+                        <%= image_tag item.club_images.first.image.url(:thumb)%>
+                      </div>
+                      <div>
+                        <p>
+                          <%= link_to item.name, '#modal_club',
+                           :'data-id' => "#{item.to_json}",
+                           :'data-url' => "#{item.club_images.first.image.url(:medium)}",
+                           :class => "info-find name-club", 'data-toggle' => "modal"%>
+                        </p>
+                        <p>
+                          <span class="info-find dir-club"><%=item.ubication%></span>
+                        </p>
+                        <button class="button-hour info-find google-color">10:00</button>
+                        <button class="button-hour info-find google-color">10:00</button>
+                        <button class="button-hour info-find google-color">10:00</button>
+                        <button class="button-hour info-find google-color">10:00</button>
+                        <button class="button-hour info-find google-color">10:00</button>
+                        <button class="button-hour info-find google-color">10:00</button>
+                      </div>
+                </div>
+              <% end %>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6 no-padding-left no-padding-right">
+            <div id="google-maps" class="container flex item-club google-maps">
+              <img class="mapa" src="/assets/mapa.png"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

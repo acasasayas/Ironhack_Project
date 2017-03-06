@@ -1,0 +1,43 @@
+<div id="home-page" class="container flex">
+  <div class="center-box top-main">
+    <h1><span class="color-red">Nuevo</span><span> usuario</span></h1>
+    <%= link_to "Darme de alta como club", "/clubs/new" %>
+
+    <div id="new-user" class="center-box edit-user color-transparent">
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+
+        <div class="field flex">
+          <%= f.label :email, :class => 'float label-user size-label' %><br />
+          <%= f.email_field :email, autofocus: true, class: 'form-control size-input' %>
+        </div>
+        <br />
+        <div class="field flex">
+          <%= f.label :password, :class => 'float label-user size-label' %>
+          <%= f.password_field :password, autocomplete: "off", class: 'form-control size-input' %>
+        </div>
+        <div class="right">
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+        </div>
+
+        <div class="field flex">
+          <%= f.label :password_confirmation, :class => 'float label-user size-label' %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control size-input' %>
+        </div>
+
+        <div class="actions right btn-padding">
+          <%= f.submit "Registrarse", class: "btn btn btn-primary google-color" %>
+        </div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+      <%= link_to "Volver a página anterior", :back %>
+
+    </div>
+
+
+  </div>
+</div>

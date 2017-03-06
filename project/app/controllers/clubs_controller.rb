@@ -1,6 +1,9 @@
 class ClubsController < ApplicationController
-  # hola
   before_action :find_club
+
+  def new
+    @club = Club.new
+  end
 
   def index
     clubs = Club.all
@@ -8,7 +11,12 @@ class ClubsController < ApplicationController
   end
 
   def create
-    club = Club.create(club_params)
+    if club = Club.create(club_params)
+      # club.club_images.create({image: params[:club_images]})
+      params[:club][:club_images].each do |image|
+        club.club_images.create({image: image})
+      end
+    end
     render json: club
   end
 
@@ -44,7 +52,7 @@ class ClubsController < ApplicationController
   private
 
   def club_params
-    params.permit(:name, :ubication)
+    params.require(:club).permit(:name, :ubication)
   end
 
   def find_club
