@@ -18,7 +18,7 @@ body {
 }
 
 #new-user {
-    width: 30%;
+    width: 90%;
 }
 
 #edit-user-bottom {
@@ -45,8 +45,18 @@ body {
     width: 70%;
 }
 
+.size-input-hour {
+    width: 40%;
+}
+
 .size-label {
     width: 30%;
+    text-align: right;
+    margin-right: 5px;
+}
+
+.size-label-hour {
+    width: 60%;
     text-align: right;
     margin-right: 5px;
 }
@@ -203,4 +213,30 @@ span.img1:hover img {
 #google-maps {
     height: 85vh;
     padding: 0px;
+}
+
+.court-label-l {
+    width: 50%;
+    text-align: right;
+    margin-right: 5px;
+    padding: 5px;
+}
+
+.court-text-l {
+    width: 45%;
+}
+
+.court-label-r {
+    width: 30%;
+    text-align: right;
+    margin-right: 5px;
+    padding: 5px;
+}
+
+.court-text-r {
+    width: 40%;
+}
+
+.li-full-w {
+    width: 100%;
 }

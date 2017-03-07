@@ -1,31 +1,82 @@
 <div id="home-page" class="container flex">
   <div class="center-box top-main">
-    <h1><span class="color-red">Nuevo</span><span> Club</span></h1>
+    <h1><span >Alta nuevo </span><span class="color-red">Club</span></h1>
     <div id="new-user" class="center-box edit-user color-transparent">
-
       <%= form_for @club, :html => {:multipart => true} do |f| %>
         <%= devise_error_messages! %>
+      <div class="row">
+        <div class="col-xs-4 col-sm-4 col-md-4">
+          <div class="field flex">
+            <%= f.label :name, 'Nombre club:', :class => 'float label-user size-label' %><br />
+            <%= f.text_field :name, autofocus: true, class: 'form-control size-input' %>
+          </div>
+
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4">
+          <div class="field flex">
+            <%= f.label :ubication, 'Dirección:', :class => 'float label-user size-label' %>
+            <%= f.text_field :ubication, autocomplete: "off", class: 'form-control size-input' %>
+          </div>
+
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4">
+          <%= f.label :club_image, "Imagen del club:", :class => 'float label-user center-box' %>
+          <%= f.file_field :club_images, id: "conio", multiple: true %>
+        </div>
+      </div>
+
+
+    </div>
+    <div id="new-user" class="center-box edit-user color-transparent">
+
+      <div class="col-xs-4 col-sm-4 col-md-4">
+        <div class="field flex">
+          <%= f.label :open, 'Hora apertura:', :class => 'float label-user size-label-hour' %>
+          <%= f.time_field :open, autocomplete: "off", class: 'form-control size-input-hour' %>
+        </div>
+
+      </div>
+      <div class="col-xs-4 col-sm-4 col-md-4">
 
         <div class="field flex">
-          <%= f.label :name, :class => 'float label-user size-label' %><br />
-          <%= f.text_field :name, autofocus: true, class: 'form-control size-input' %>
+          <%= f.label :close, 'Hora cierre:', :class => 'float label-user size-label-hour' %>
+          <%= f.time_field :close, autocomplete: "off", class: 'form-control size-input-hour' %>
         </div>
-        <br />
+
+      </div>
+      <div class="col-xs-4 col-sm-4 col-md-4">
         <div class="field flex">
-          <%= f.label :ubication, :class => 'float label-user size-label' %>
-          <%= f.text_field :ubication, autocomplete: "off", class: 'form-control size-input' %>
+          <%= f.label :courts, 'Número de pistas:', :class => 'float label-user size-label-hour' %>
+          <%= f.text_field :courts, value: "", id: "num-courts", class: 'form-control size-input-hour' %>
         </div>
-        <br />
-        <%= f.label :image, "Imagen del club:", :class => 'float label-user center-box' %>
-        <%= f.file_field :club_images, id: "conio", multiple: true %>
-        <br />
-        <div class="actions right">
-          <%= f.submit "Registrar club", class: "btn btn btn-primary google-color" %>
+
+      </div>
+
+      <div id="courts-info" class="center-box">
+
+        <div class="col-xs-6 col-sm-6 col-md-6">
+          <br />
+          <ul id="court-name" class="field">
+
+          </ul>
         </div>
-        <br />
+        <div class="col-xs-6 col-sm-6 col-md-6">
+          <br />
+          <ul id="court-sport" class="field">
+
+          </ul>
+          <br />
+        </div>
+
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Registrar club", class: "btn btn btn-primary google-color" %>
+      </div>
+      <%= link_to "Volver a página anterior", :back %>
+
 
       <% end %>
-      <%= link_to "Volver a página anterior", :back %>
 
     </div>
 
