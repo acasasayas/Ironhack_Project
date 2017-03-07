@@ -12,11 +12,19 @@ class ClubsController < ApplicationController
 
   def create
     debugger
-    if club = Club.create(club_params)
+    if club = Club.create(
+      name: params[:club][:name],
+      full_street_address: params[:club][:full_street_address],
+      gym: params[:club][:gym],
+      restaurant: params[:club][:restaurant],
+      pool: params[:club][:restaurant],
+      open: string_to_number(params[:club][:open]),
+      close: string_to_number(params[:club][:close])
+      )
+      debugger
       if params[:club][:club_images]
         params[:club][:club_images].each do |image|
         club.club_images.create({image: image})
-
       end
       else
         club.club_images.create({image: image})
@@ -57,7 +65,7 @@ class ClubsController < ApplicationController
   private
 
   def club_params
-    params.require(:club).permit(:name, :full_street_address)
+    params.require(:club).permit(:name, :full_street_address, :gym, :restaurant, :pool, :open, :close)
   end
 
   def find_club

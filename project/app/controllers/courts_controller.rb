@@ -7,10 +7,10 @@ class CourtsController < ApplicationController
   end
 
   def create
-    @club = Club.all
-    debugger
-    court = Court.create(court_params)
-    render json: court
+    # @club = Club.all
+    # debugger
+    # court = Court.create(court_params)
+    # render json: court
   end
 
   def show
