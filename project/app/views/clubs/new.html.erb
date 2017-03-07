@@ -69,15 +69,20 @@
         </div>
 
       </div>
-      <div id="services">
-        <%= f.label :pool, 'Piscina', :class => 'float label-user size-label-hour' %>
 
-        <%= f.label :gym, 'Piscina', :class => 'float label-user size-label-hour' %>
+      <div id="services" class="col-xs-12 col-sm-12 col-md-12 flex">
 
-        <%= f.label :restaurant, 'Piscina', :class => 'float label-user size-label-hour' %>
+            <%= f.label :pool, 'Piscina', :class => 'float label-user size-label-hour right' %>
+            <%= f.check_box :pool, {:class => 'float label-user size-label-hour center'}, true, false %>
 
+            <%= f.label :gym, 'Gimnasio', :class => 'float label-user size-label-hour right' %>
+            <%= f.check_box :gym, {:class => 'float label-user size-label-hour center'}, true, false%>
+
+            <%= f.label :restaurant, 'Restaurante', :class => 'float label-user size-label-hour right' %>
+            <%= f.check_box :restaurant, {:class => 'float label-user size-label-hour center'}, true, false%>
 
       </div>
+
 
       <div class="actions">
         <%= f.submit "Registrar club", id: "new-club", class: "btn btn btn-primary google-color" %>
