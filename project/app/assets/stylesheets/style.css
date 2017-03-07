@@ -206,7 +206,7 @@ span.img1:hover img {
 }
 
 #map-container {
-   height: 400px;
+   height: 550px;
    border-radius: 16px 16px;
    border-color: #fff;
    border-style: solid;
@@ -215,6 +215,6 @@ span.img1:hover img {
    border-width: 7px;
  }
  #map-canvas {
-   height: 384px;
+   height: 537px;
    width: 100%;
  }

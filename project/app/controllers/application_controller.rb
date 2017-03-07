@@ -6,8 +6,10 @@ class ApplicationController < ActionController::Base
   end
 
   def search
+    
     @clubs = Club.all
     render 'search'
   end
+
 
 end
