@@ -69,9 +69,18 @@
         </div>
 
       </div>
+      <div id="services">
+        <%= f.label :pool, 'Piscina', :class => 'float label-user size-label-hour' %>
+
+        <%= f.label :gym, 'Piscina', :class => 'float label-user size-label-hour' %>
+
+        <%= f.label :restaurant, 'Piscina', :class => 'float label-user size-label-hour' %>
+
+
+      </div>
 
       <div class="actions">
-        <%= f.submit "Registrar club", class: "btn btn btn-primary google-color" %>
+        <%= f.submit "Registrar club", id: "new-club", class: "btn btn btn-primary google-color" %>
       </div>
       <%= link_to "Volver a página anterior", :back %>
 

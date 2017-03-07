@@ -1,4 +1,31 @@
 $(document).ready(function(){
+
+  function NewCourt() {
+    var courts = $('#num-courts').val();
+    array_names = new Array();
+    array_sports = new Array();
+    for (i = 1; i-1 < courts; i++) {
+      var name = $('#court-'+ i).val();
+      array_names.push(name);
+      var sport = $('#sport-'+ i).val();
+      array_sports.push(sport)
+    }
+    $.ajax({
+      type: "POST",
+      url: '/courts',
+      data: {name: array_names, sport: array_sports}
+    });
+  };
+
+  $('#new-club').on("click", function() {
+      debugger;
+      event.preventDefault();
+      debugger;
+      $('#new_club').submit(function(){
+        debugger;
+        NewCourt();
+      });
+  });
   $('#num-courts').on('input', function(){
     var courts = this.value;
     $("#court-name").empty();
@@ -6,10 +33,10 @@ $(document).ready(function(){
 
     for (i = 1; i-1 < courts; i++) {
       $("#court-name").append(
-        '<div><label class="court-label-l float label-user">Nombre de la pista:</label><input type="text" class="court-text-l form-control"></input  ></div><br>'
+        '<div><label class="court-label-l float label-user">Nombre de la pista:</label><input type="text" id="court-'+i+'" class="court-text-l form-control"></input  ></div><br>'
       );
       $("#court-sport").append(
-        '<div><label class="court-label-r float label-user">Deporte:</label><input type="text" class="court-text-r form-control"></input  ></div><br>'
+        '<div><label class="court-label-r float label-user">Deporte:</label><input type="text" id="sport-'+i+'" class="court-text-r form-control"></input  ></div><br>'
 
       );
     }
