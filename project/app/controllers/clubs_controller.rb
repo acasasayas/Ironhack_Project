@@ -18,7 +18,7 @@ class ClubsController < ApplicationController
 
       end
       else
-        
+
         club.club_images.create({image: image})
       end
     end
@@ -57,7 +57,7 @@ class ClubsController < ApplicationController
   private
 
   def club_params
-    params.require(:club).permit(:name, :ubication)
+    params.require(:club).permit(:name, :full_street_address)
   end
 
   def find_club
@@ -66,5 +66,32 @@ class ClubsController < ApplicationController
 
   def club_not_found
     render json: {error: "club not found"}, status: 404
+  end
+  
+  private
+
+  def date_to_number(date)
+    split = date.strftime("%H:%M").split(':')
+    result = split[0].to_i*60 + split[1].to_int
+  end
+
+  def string_to_number(string)
+    split = string.split(':')
+    result = split[0].to_i*60 + split[1].to_i
+  end
+
+  def find_open_club(time_open,close)
+    @clubs = Club.where("close >= ? <= open AND close >= ? <= open", string_to_number(time_open), string_to_number(close))
+
+  end
+
+  def find_free_courts(time_start,time_end)
+    @available_courts = []
+    @clubs.each do |club|
+
+        club.courts.each do |court|
+        @available_courts << court
+        end
+    end
   end
 end
