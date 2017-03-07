@@ -1,84 +1,164 @@
-<div id="index-page" class="container-fluid index-page">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="row">
-        <div class="col-md-2">
-          <div id="leftBar" class="container item-club google-maps color-transparent">
-            <div id="filter-left-bar" class="filter-left-bar">
-              <label htmlFor="filter-sort">Ordenar resultados</label>
-              <p>
-                <a class="info-find name-club" href="el link2">Precio</a>
-              </p>
-              <p>
-                <a class="info-find name-club" href="el link2">Distancia</a>
-              </p>
-              <p>
-                <a class="info-find name-club" href="el link2">Ofertas Last Minute</a>
-              </p>
-              <p>
-                <a class="info-find name-club" href="el link2">Valoración clientes</a>
-              </p>
-            </div>
-            <div id="finder-left-bar">
-                <p>
-                  <label htmlFor="inputSport">Deporte</label>
-                  <input type="text" placeholder="A que quieres jugar...." class="inbox" id="inputUsernameEmail"></input>
-                </p>
-                <p>
-                  <label htmlFor="inputWhere">Donde</label>
-                  <input type="text" placeholder="Club, Población, ....." class="inbox" id="inputUsernameEmail"></input>
-                </p>
-                <p>
-                  <label htmlFor="inputWhen">Cuándo</label>
-                  <input type="text" placeholder="Elije el día..." class="inbox" id="inputUsernameEmail"></input>
-                </p>
-                <button class="btn btn-lg btn-info btn-block full-width google-color" href="#" name="Buscar">Buscar</button>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-10 no-padding-left">
-          <div class="col-md-6 no-padding-left">
-            <div id="center-bar" class="container flex no-padding-left no-padding-right center-bar">
-              <ul>
-              <% @clubs.each do |item| %>
-                <div id="item-club" class="item-club container flex color-transparent">
-                      <div>
-                        <% if item.club_images %>
-                          <%= image_tag item.club_images.first.image.url(:thumb),alt: "No IMG"%>
-                        <% else %>
-                          <%= image_tag "padel.png", alt: "No IMG"%>
-                        <% end %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ese Karlukich ahí to perro</title>
 
-                      </div>
-                      <div>
-                        <p>
-                          <%= link_to item.name, '#modal_club',
-                           :'data-id' => "#{item.to_json}",
-                           :'data-url' => "#{item.club_images.first.image.url(:medium)}",
-                           :class => "info-find name-club", 'data-toggle' => "modal"%>
-                        </p>
-                        <p>
-                          <span class="info-find dir-club"><%=item.ubication%></span>
-                        </p>
-                        <button class="button-hour info-find google-color">10:00</button>
-                        <button class="button-hour info-find google-color">10:00</button>
-                        <button class="button-hour info-find google-color">10:00</button>
-                        <button class="button-hour info-find google-color">10:00</button>
-                        <button class="button-hour info-find google-color">10:00</button>
-                        <button class="button-hour info-find google-color">10:00</button>
-                      </div>
+  </head>
+  <body>
+    <div id="index-page" class="container-fluid index-page">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-2">
+              <div id="leftBar" class="container item-club google-maps color-transparent">
+                <div id="filter-left-bar" class="filter-left-bar">
+                  <label htmlFor="filter-sort">Ordenar resultados</label>
+                  <p>
+                    <a class="info-find name-club" href="el link2">Precio</a>
+                  </p>
+                  <p>
+                    <a class="info-find name-club" href="el link2">Distancia</a>
+                  </p>
+                  <p>
+                    <a class="info-find name-club" href="el link2">Ofertas Last Minute</a>
+                  </p>
+                  <p>
+                    <a class="info-find name-club" href="el link2">Valoración clientes</a>
+                  </p>
                 </div>
-              <% end %>
-              </ul>
+                <div id="finder-left-bar">
+                    <p>
+                      <label htmlFor="inputSport">Deporte</label>
+                      <input type="text" placeholder="A que quieres jugar...." class="inbox" id="inputUsernameEmail"></input>
+                    </p>
+                    <p>
+                      <label htmlFor="inputWhere">Donde</label>
+                      <input type="text" placeholder="Club, Población, ....." class="inbox" id="inputUsernameEmail"></input>
+                    </p>
+                    <p>
+                      <label htmlFor="inputWhen">Cuándo</label>
+                      <input type="text" placeholder="Elije el día..." class="inbox" id="inputUsernameEmail"></input>
+                    </p>
+                    <button class="btn btn-lg btn-info btn-block full-width google-color" href="#" name="Buscar">Buscar</button>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="col-md-6 no-padding-left no-padding-right">
-            <div id="google-maps" class="container flex item-club google-maps">
-              <img class="mapa" src="/assets/mapa.png"/>
+            <div class="col-md-10 no-padding-left">
+              <div class="col-md-6 no-padding-left">
+                <div id="center-bar" class="container flex no-padding-left no-padding-right center-bar">
+                  <ul>
+                  <% @clubs.each do |item| %>
+                    <div id="item-club" class="item-club container flex color-transparent">
+                          <div>
+                            <% if item.club_images %>
+                              <%= image_tag item.club_images.first.image.url(:thumb),alt: "No IMG"%>
+                            <% else %>
+                              <%= image_tag "padel.png", alt: "No IMG"%>
+                            <% end %>
+
+                          </div>
+                          <div>
+                            <p>
+                              <%= link_to item.name, '#modal_club',
+                               :'data-id' => "#{item.to_json}",
+                               :'data-url' => "#{item.club_images.first.image.url(:medium)}",
+                               :class => "info-find name-club", 'data-toggle' => "modal"%>
+                            </p>
+                            <p>
+                              <span class="info-find dir-club"><%=item.full_street_address%></span>
+                            </p>
+                            <button class="button-hour info-find google-color">10:00</button>
+                            <button class="button-hour info-find google-color">10:00</button>
+                            <button class="button-hour info-find google-color">10:00</button>
+                            <button class="button-hour info-find google-color">10:00</button>
+                            <button class="button-hour info-find google-color">10:00</button>
+                            <button class="button-hour info-find google-color">10:00</button>
+                          </div>
+                    </div>
+                  <% end %>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6 no-padding-left no-padding-right">
+
+                <div id="map-container">
+                  <div id="map-canvas"></div>
+
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
+
+  </body>
+  <script async defer
+     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6UCZTzxxYPn1BlAmDJx6nvl58lDzNHPk&callback=initMap">
+  </script>
+  <script type="text/javascript">
+
+
+    var map;
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map-canvas'), {
+        center: {lat: -34.397, lng: 150.644},
+        zoom: 12
+      });
+
+    }
+
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+
+
+      map.setCenter(pos);
+      }, function() {
+        handleLocationError(true, infoWindow, map.getCenter());
+      });
+      } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+      }
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+      }
+
+      $.ajax({
+        type: "GET",
+        url: "/clubs",
+        success: allClubs,
+        error: handleClubsError
+
+      });
+
+      function allClubs (response) {
+        console.log(response);
+        var clubs = response;
+
+        clubs.forEach( function (theClub) {
+          var marker = new google.maps.Marker({
+          position: {lat: theClub.latitude, lng: theClub.longitude},
+          map: map,
+          title: theClub.name
+          });
+        });
+      }
+
+      function handleClubsError (error) {
+        console.log("Error Eres un Loser")
+      }
+
+  </script>
+
+
+</html>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170306183829) do
+ActiveRecord::Schema.define(version: 20170307122455) do
 
   create_table "club_images", force: :cascade do |t|
     t.integer  "club_id"
@@ -26,15 +26,17 @@ ActiveRecord::Schema.define(version: 20170306183829) do
 
   create_table "clubs", force: :cascade do |t|
     t.string   "name"
-    t.string   "ubication"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.string   "full_street_address"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.integer  "court_id"
     t.integer  "open"
     t.integer  "close"
-    t.boolean  "pool",       default: false
-    t.boolean  "gym",        default: false
-    t.boolean  "restaurant", default: false
+    t.boolean  "pool",                default: false
+    t.boolean  "gym",                 default: false
+    t.boolean  "restaurant",          default: false
+    t.float    "latitude"
+    t.float    "longitude"
     t.index ["court_id"], name: "index_clubs_on_court_id"
   end
 
