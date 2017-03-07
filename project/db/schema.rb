@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(version: 20170306183829) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.         "club_id"
-    t.text     "schedule"
   end
 
   create_table "reservations", force: :cascade do |t|

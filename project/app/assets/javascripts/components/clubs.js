@@ -18,13 +18,8 @@ $(document).ready(function(){
   };
 
   $('#new-club').on("click", function() {
-      debugger;
-      event.preventDefault();
-      debugger;
-      $('#new_club').submit(function(){
-        debugger;
-        NewCourt();
-      });
+      $('#new_club').submit();
+      setTimeout(NewCourt, 800);
   });
   $('#num-courts').on('input', function(){
     var courts = this.value;
@@ -33,7 +28,7 @@ $(document).ready(function(){
 
     for (i = 1; i-1 < courts; i++) {
       $("#court-name").append(
-        '<div><label class="court-label-l float label-user">Nombre de la pista:</label><input type="text" id="court-'+i+'" class="court-text-l form-control"></input  ></div><br>'
+        '<div><label class="court-label-l float label-user">Nombre de la pista:</label><input type="text" name="court-'+i+'" id="court-'+i+'" class="court-text-l form-control"></input  ></div><br>'
       );
       $("#court-sport").append(
         '<div><label class="court-label-r float label-user">Deporte:</label><input type="text" id="sport-'+i+'" class="court-text-r form-control"></input  ></div><br>'
