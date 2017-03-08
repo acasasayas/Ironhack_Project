@@ -3,7 +3,8 @@ Rails.application.routes.draw do
     get '/users/sign_out', to: 'devise/sessions#destroy'
   end
   devise_for :users
-  resources :courts
+  # resources :courts
+  post '/courts', to: 'courts#create', as: 'create_court'
   resources :clubs do
     get 'show_modal', on: :collection, as: 'show_modal'
   end

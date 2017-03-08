@@ -19,8 +19,9 @@ $(document).ready(function(){
 
   $('#new-club').on("click", function() {
       $('#new_club').submit();
-      setTimeout(NewCourt, 800);
+      setTimeout(NewCourt(), 1000);
   });
+
   $('#num-courts').on('input', function(){
     var courts = this.value;
     $("#court-name").empty();

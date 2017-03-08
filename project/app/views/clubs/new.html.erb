@@ -1,99 +1,95 @@
 <div id="home-page" class="container flex">
   <div class="center-box top-main">
     <h1><span >Alta nuevo </span><span class="color-red">Club</span></h1>
-    <div id="new-user" class="center-box edit-user color-transparent">
+
       <%= form_for @club, :html => {:multipart => true} do |f| %>
-        <%= devise_error_messages! %>
-      <div class="row">
+        <div id="new-user" class="center-box edit-user color-transparent">
+          <%= devise_error_messages! %>
+          <div class="row">
+            <div class="col-xs-4 col-sm-4 col-md-4">
+              <div class="field flex">
+                <%= f.label :name, 'Nombre club:', :class => 'float label-user size-label' %><br />
+                <%= f.text_field :name, autofocus: true, class: 'form-control size-input' %>
+              </div>
+
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4">
+              <div class="field flex">
+                <%= f.label :full_street_address, :class => 'float label-user size-label' %>
+                <%= f.text_field :full_street_address, autocomplete: "off", class: 'form-control size-input' %>
+              </div>
+
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4">
+              <%= f.label :club_image, "Imagen del club:", :class => 'float label-user center-box' %>
+              <%= f.file_field :club_images, id: "conio", multiple: true %>
+            </div>
+          </div>
+        </div>
+
+      <div id="new-user" class="center-box edit-user color-transparent">
+
         <div class="col-xs-4 col-sm-4 col-md-4">
           <div class="field flex">
-            <%= f.label :name, 'Nombre club:', :class => 'float label-user size-label' %><br />
-            <%= f.text_field :name, autofocus: true, class: 'form-control size-input' %>
+            <%= f.label :open, 'Hora apertura:', :class => 'float label-user size-label-hour' %>
+            <%= f.time_field :open, autocomplete: "off", class: 'form-control size-input-hour' %>
+          </div>
+
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4">
+
+          <div class="field flex">
+            <%= f.label :close, 'Hora cierre:', :class => 'float label-user size-label-hour' %>
+            <%= f.time_field :close, autocomplete: "off", class: 'form-control size-input-hour' %>
           </div>
 
         </div>
         <div class="col-xs-4 col-sm-4 col-md-4">
           <div class="field flex">
-            <%= f.label :full_street_address, :class => 'float label-user size-label' %>
-            <%= f.text_field :full_street_address, autocomplete: "off", class: 'form-control size-input' %>
+            <%= f.label :courts, 'Número de pistas:', :class => 'float label-user size-label-hour' %>
+            <%= f.text_field :courts, value: "", id: "num-courts", class: 'form-control size-input-hour' %>
           </div>
 
         </div>
-        <div class="col-xs-4 col-sm-4 col-md-4">
-          <%= f.label :club_image, "Imagen del club:", :class => 'float label-user center-box' %>
-          <%= f.file_field :club_images, id: "conio", multiple: true %>
-        </div>
-      </div>
 
+        <div id="courts-info" class="center-box">
 
-    </div>
-    <div id="new-user" class="center-box edit-user color-transparent">
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <br />
+            <div id="court-name" class="field">
 
-      <div class="col-xs-4 col-sm-4 col-md-4">
-        <div class="field flex">
-          <%= f.label :open, 'Hora apertura:', :class => 'float label-user size-label-hour' %>
-          <%= f.time_field :open, autocomplete: "off", class: 'form-control size-input-hour' %>
-        </div>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <br />
+            <div id="court-sport" class="field">
 
-      </div>
-      <div class="col-xs-4 col-sm-4 col-md-4">
+            </div>
+            <br />
+          </div>
 
-        <div class="field flex">
-          <%= f.label :close, 'Hora cierre:', :class => 'float label-user size-label-hour' %>
-          <%= f.time_field :close, autocomplete: "off", class: 'form-control size-input-hour' %>
         </div>
 
-      </div>
-      <div class="col-xs-4 col-sm-4 col-md-4">
-        <div class="field flex">
-          <%= f.label :courts, 'Número de pistas:', :class => 'float label-user size-label-hour' %>
-          <%= f.text_field :courts, value: "", id: "num-courts", class: 'form-control size-input-hour' %>
+        <div id="services" class="col-xs-12 col-sm-12 col-md-12 flex">
+
+              <%= f.label :pool, 'Piscina', :class => 'float label-user size-label-hour right' %>
+              <%= f.check_box :pool, {:class => 'float label-user size-label-hour center'}, true, false %>
+
+              <%= f.label :gym, 'Gimnasio', :class => 'float label-user size-label-hour right' %>
+              <%= f.check_box :gym, {:class => 'float label-user size-label-hour center'}, true, false%>
+
+              <%= f.label :restaurant, 'Restaurante', :class => 'float label-user size-label-hour right' %>
+              <%= f.check_box :restaurant, {:class => 'float label-user size-label-hour center'}, true, false%>
+
         </div>
 
-      </div>
 
-      <div id="courts-info" class="center-box">
-
-        <div class="col-xs-6 col-sm-6 col-md-6">
-          <br />
-          <ul id="court-name" class="field">
-
-          </ul>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-6">
-          <br />
-          <ul id="court-sport" class="field">
-
-          </ul>
-          <br />
-        </div>
+          <div class="actions">
+            <%= f.submit "Registrar club", id: "new-club", class: "btn btn btn-primary google-color" %>
+          </div>
+          <%= link_to "Volver a página anterior", :back %>
 
       </div>
-
-      <div id="services" class="col-xs-12 col-sm-12 col-md-12 flex">
-
-            <%= f.label :pool, 'Piscina', :class => 'float label-user size-label-hour right' %>
-            <%= f.check_box :pool, {:class => 'float label-user size-label-hour center'}, true, false %>
-
-            <%= f.label :gym, 'Gimnasio', :class => 'float label-user size-label-hour right' %>
-            <%= f.check_box :gym, {:class => 'float label-user size-label-hour center'}, true, false%>
-
-            <%= f.label :restaurant, 'Restaurante', :class => 'float label-user size-label-hour right' %>
-            <%= f.check_box :restaurant, {:class => 'float label-user size-label-hour center'}, true, false%>
-
-      </div>
-
-
-      <div class="actions">
-        <%= f.submit "Registrar club", id: "new-club", class: "btn btn btn-primary google-color" %>
-      </div>
-      <%= link_to "Volver a página anterior", :back %>
-
-
-      <% end %>
-
-    </div>
-
-
+    <% end %>
   </div>
 </div>

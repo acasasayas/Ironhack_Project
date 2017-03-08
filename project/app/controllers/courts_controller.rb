@@ -6,11 +6,17 @@ class CourtsController < ApplicationController
     render json: courts
   end
 
+  def new
+    @court = Court.new
+  end
+
   def create
-    # @club = Club.all
-    # debugger
-    # court = Court.create(court_params)
-    # render json: court
+    club_id = Club.last
+    name = params[:name]
+    sports = params[:sport]
+    a = Court.new(club_id: club_id.id, name: params[:name][0], sports: params[:sport][0])
+    debugger
+    redirect_to '/search'
   end
 
   def show
@@ -67,7 +73,7 @@ class CourtsController < ApplicationController
   private
 
   def court_params
-    params.permit(:name, :ubication)
+    params.permit(:name, :sport)
   end
 
 

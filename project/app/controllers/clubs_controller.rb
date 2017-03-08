@@ -11,7 +11,6 @@ class ClubsController < ApplicationController
   end
 
   def create
-    debugger
     if club = Club.create(
       name: params[:club][:name],
       full_street_address: params[:club][:full_street_address],
@@ -21,7 +20,6 @@ class ClubsController < ApplicationController
       open: string_to_number(params[:club][:open]),
       close: string_to_number(params[:club][:close])
       )
-      debugger
       if params[:club][:club_images]
         params[:club][:club_images].each do |image|
         club.club_images.create({image: image})
@@ -30,7 +28,17 @@ class ClubsController < ApplicationController
         club.club_images.create({image: image})
       end
     end
-    render json: club
+    club_id = Club.last
+    courts = params[:club][:courts].to_i
+    for i in 1..courts
+      Court.create(club_id: club_id.id, court_name: params[:court]["court#{i}"], sport: params[:court]["sport#{i}"])
+      debugger
+    end
+
+    redirect_to '/search'
+    # return redirect_to url_for(:controller => :courts, :action => :create, :param => :court_params)
+
+    # redirect_to create_court_path(court_params)
   end
 
   def show
@@ -65,7 +73,11 @@ class ClubsController < ApplicationController
   private
 
   def club_params
-    params.require(:club).permit(:name, :full_street_address, :gym, :restaurant, :pool, :open, :close)
+    params.require(:club).permit(:name, :full_street_address, :gym, :restaurant, :pool, :open, :close )
+  end
+
+  def court_params
+    params.permit!
   end
 
   def find_club
@@ -75,8 +87,6 @@ class ClubsController < ApplicationController
   def club_not_found
     render json: {error: "club not found"}, status: 404
   end
-
-  private
 
   def date_to_number(date)
     split = date.strftime("%H:%M").split(':')
