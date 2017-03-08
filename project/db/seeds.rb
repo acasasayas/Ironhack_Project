@@ -25,61 +25,57 @@ club1 = Club.create!(
   close: 1380
   )
 club1.club_images.create!(image_file_name: '/users/carloscastilloibanez/Desktop/fotos/tenis_badalona_logo.png')
-club1.club_images.create!(image_file_name: '/users/carloscastilloibanez/Desktop/fotos/tenis_badalona4.jpg')
-club1.club_images.create!(image_file_name: '/users/carloscastilloibanez/Desktop/fotos/tenis_badalona3.jpg')
-club1.club_images.create!(image_file_name: '/users/carloscastilloibanez/Desktop/fotos/tenis_badalona2.jpg')
-club1.club_images.create!(image_file_name: '/users/carloscastilloibanez/Desktop/fotos/tenis_badalona1.jpg')
 
-# club1.courts.create!(court_name: "Pista Padel", sport: "Padel")
-# club1.courts.create!(court_name: "Pista Tenis", sport: "Tenis")
-# club1.courts.create!(court_name: "Pista Futbol", sport: "Futbol")
-#
-# club2 = Club.create!(
-#   name: 'Real Club de Polo de Barcelona',
-#   full_street_address: 'Avenida Doctor Marañon 19-31 08028 Barcelona',
-#   open: 480,
-#   close: 1380
-#   )
-# club2.club_images.create!(image_file_name: '/users/carloscastilloibanez/Desktop/fotos/polo_barcelona_logo.png')
-# club2.courts.create!(court_name: "Central", sport: "Padel")
-# club2.courts.create!(court_name: "Endesa", sport: "Padel")
-# club2.courts.create!(court_name: "Pista Alex", sport: "Futbol")
-# club2.courts.create!(court_name: "Pista Nadal", sport: "Tenis")
-#
-#
-# club3 = Club.create!(
-#   name: 'Indoor Padel Barcelona',
-#   full_street_address: 'Calle Venezuela 78-80 08019 Barcelona',
-#   open: 480,
-#   close: 1439
-#   )
-# club3.club_images.create!(image_file_name: '/users/carloscastilloibanez/Desktop/fotos/indoor_barcelona_logo.png')
-# club3.courts.create!(court_name: "Pista 1", sport: "Padel")
-# club3.courts.create!(court_name: "Pista 2", sport: "Padel")
-# club3.courts.create!(court_name: "Pista Futbol", sport: "Futbol")
-#
-# club4 = Club.create!(
-#   name: 'Valldaura Sport',
-#   full_street_address: 'Plaza Karl Max 08033 Barcelona',
-#   open: 480,
-#   close: 1439
-#   )
-# club4.club_images.create!(image_file_name: '/users/carloscastilloibanez/Desktop/fotos/valldaura_logo.jpg')
-# club4.courts.create!(court_name: "Pista F7", sport: "Futbol")
-# club4.courts.create!(court_name: "Pista principal", sport: "Padel")
-#
-# club5 = Club.create!(
-#   name: 'CEM Olimpia',
-#   full_street_address: 'Calle Perú 215 08020 Barcelona',
-#   open: 480,
-#   close: 1439
-#   )
-# club5.club_images.create!(image_file_name: '/users/carloscastilloibanez/Desktop/fotos/cem_olimpia_logo.jpg')
-# club5.courts.create!(court_name: "Central", sport: "Padel")
-# club5.courts.create!(court_name: "Pista 1", sport: "Padel")
-# club5.courts.create!(court_name: "Me gusta el Furbol!", sport: "Futbol")
-#
-#
+club1.courts.create!(court_name: "Pista Padel", sport: "Padel")
+club1.courts.create!(court_name: "Pista Tenis", sport: "Tenis")
+club1.courts.create!(court_name: "Pista Futbol", sport: "Futbol")
+
+club2 = Club.create!(
+  name: 'Real Club de Polo de Barcelona',
+  full_street_address: 'Avenida Doctor Marañon 19-31 08028 Barcelona',
+  open: 480,
+  close: 1380
+  )
+club2.club_images.create!(image_file_name: '/users/carloscastilloibanez/Desktop/fotos/polo_barcelona_logo.png')
+club2.courts.create!(court_name: "Central", sport: "Padel")
+club2.courts.create!(court_name: "Endesa", sport: "Padel")
+club2.courts.create!(court_name: "Pista Alex", sport: "Futbol")
+club2.courts.create!(court_name: "Pista Nadal", sport: "Tenis")
+
+
+club3 = Club.create!(
+  name: 'Indoor Padel Barcelona',
+  full_street_address: 'Calle Venezuela 78-80 08019 Barcelona',
+  open: 480,
+  close: 1439
+  )
+club3.club_images.create!(image_file_name: '/users/carloscastilloibanez/Desktop/fotos/indoor_barcelona_logo.png')
+club3.courts.create!(court_name: "Pista 1", sport: "Padel")
+club3.courts.create!(court_name: "Pista 2", sport: "Padel")
+club3.courts.create!(court_name: "Pista Futbol", sport: "Futbol")
+
+club4 = Club.create!(
+  name: 'Valldaura Sport',
+  full_street_address: 'Plaza Karl Max 08033 Barcelona',
+  open: 480,
+  close: 1439
+  )
+club4.club_images.create!(image_file_name: '/users/carloscastilloibanez/Desktop/fotos/valldaura_logo.jpg')
+club4.courts.create!(court_name: "Pista F7", sport: "Futbol")
+club4.courts.create!(court_name: "Pista principal", sport: "Padel")
+
+club5 = Club.create!(
+  name: 'CEM Olimpia',
+  full_street_address: 'Calle Perú 215 08020 Barcelona',
+  open: 480,
+  close: 1439
+  )
+club5.club_images.create!(image_file_name: '/users/carloscastilloibanez/Desktop/fotos/cem_olimpia_logo.jpg')
+club5.courts.create!(court_name: "Central", sport: "Padel")
+club5.courts.create!(court_name: "Pista 1", sport: "Padel")
+club5.courts.create!(court_name: "Me gusta el Furbol!", sport: "Futbol")
+
+
 # club6 = Club.create!(
 #   name: 'CEM Noca Icària',
 #   full_street_address: 'Avenida Icària 167 08005 Barcelona',

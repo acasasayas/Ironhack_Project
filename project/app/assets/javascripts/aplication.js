@@ -45,6 +45,7 @@ $(document).on("click", ".name-club", function () {
     $("#modal-club").empty();
      var data = $(this).data('id');
      var url = $(this).data('url');
+
      debugger;
      $( "#modal-title" ).append(
         "<h1>"+data.name+"</h1>"
