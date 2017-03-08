@@ -11,6 +11,7 @@ class ClubsController < ApplicationController
   end
 
   def create
+    debugger
     if club = Club.create(
       name: params[:club][:name],
       full_street_address: params[:club][:full_street_address],
@@ -32,7 +33,6 @@ class ClubsController < ApplicationController
     courts = params[:club][:courts].to_i
     for i in 1..courts
       Court.create(club_id: club_id.id, court_name: params[:court]["court#{i}"], sport: params[:court]["sport#{i}"])
-      debugger
     end
 
     redirect_to '/search'
