@@ -25,7 +25,11 @@ club1 = Club.create!(
   close: 1380,
   id_place: 'ChIJ7Tf2RKG7pBIR3wBIiL88sMA'
   )
-club1.club_images.create!(image_file_name: '/users/carloscastilloibanez/Desktop/fotos/tenis_badalona_logo.png')
+
+club1.club_images.create!(image: File.open('/users/carloscastilloibanez/Desktop/fotos/tenis_badalona_logo.png'))
+club1.club_images.create!(image: File.open('/users/carloscastilloibanez/Desktop/fotos/tenis_badalona1.jpeg'))
+club1.club_images.create!(image: File.open('/users/carloscastilloibanez/Desktop/fotos/tenis_badalona2.jpeg'))
+club1.club_images.create!(image: File.open('/users/carloscastilloibanez/Desktop/fotos/tenis_badalona3.jpg'))
 
 club1.courts.create!(court_name: "Pista Padel", sport: "Padel")
 club1.courts.create!(court_name: "Pista Tenis", sport: "Tenis")
@@ -38,7 +42,12 @@ club2 = Club.create!(
   close: 1380,
   id_place: 'ChIJSanc1VeYpBIR_l7GhZlA57A'
   )
-club2.club_images.create!(image_file_name: '/users/carloscastilloibanez/Desktop/fotos/polo_barcelona_logo.png')
+
+club2.club_images.create!(image: File.open('/users/carloscastilloibanez/Desktop/fotos/polo_barcelona_logo.png'))
+club2.club_images.create!(image: File.open('/users/carloscastilloibanez/Desktop/fotos/polo_barcelona1.jpg'))
+club2.club_images.create!(image: File.open('/users/carloscastilloibanez/Desktop/fotos/polo_barcelona2.jpg'))
+club2.club_images.create!(image: File.open('/users/carloscastilloibanez/Desktop/fotos/polo_barcelona3.jpeg'))
+
 club2.courts.create!(court_name: "Central", sport: "Padel")
 club2.courts.create!(court_name: "Endesa", sport: "Padel")
 club2.courts.create!(court_name: "Pista Alex", sport: "Futbol")
@@ -52,7 +61,9 @@ club3 = Club.create!(
   close: 1439,
   id_place: 'ChIJP7JWSk-jpBIRNUgktVcEFVI'
   )
-club3.club_images.create!(image_file_name: '/users/carloscastilloibanez/Desktop/fotos/indoor_barcelona_logo.png')
+club3.club_images.create!(image: File.open('/users/carloscastilloibanez/Desktop/fotos/indoor_barcelona_logo.png'))
+club3.club_images.create!(image: File.open('/users/carloscastilloibanez/Desktop/fotos/indoor_barcelona1.jpg'))
+
 club3.courts.create!(court_name: "Pista 1", sport: "Padel")
 club3.courts.create!(court_name: "Pista 2", sport: "Padel")
 club3.courts.create!(court_name: "Pista Futbol", sport: "Futbol")
@@ -64,7 +75,11 @@ club4 = Club.create!(
   close: 1439,
   id_place: 'ChIJTRdpM0C9pBIReY1prUOOuRk'
   )
-club4.club_images.create!(image_file_name: '/users/carloscastilloibanez/Desktop/fotos/valldaura_logo.jpg')
+club4.club_images.create!(image: File.open('/users/carloscastilloibanez/Desktop/fotos/valldaura_logo.jpg'))
+club4.club_images.create!(image: File.open('/users/carloscastilloibanez/Desktop/fotos/valldaura1.jpg'))
+club4.club_images.create!(image: File.open('/users/carloscastilloibanez/Desktop/fotos/valldaura2.jpg'))
+club4.club_images.create!(image: File.open('/users/carloscastilloibanez/Desktop/fotos/valldaura3.jpg'))
+
 club4.courts.create!(court_name: "Pista F7", sport: "Futbol")
 club4.courts.create!(court_name: "Pista principal", sport: "Padel")
 
@@ -75,7 +90,10 @@ club5 = Club.create!(
   close: 1439,
   id_place: 'ChIJwSpSVTajpBIRlHyx9QzkDKQ'
   )
-club5.club_images.create!(image_file_name: '/users/carloscastilloibanez/Desktop/fotos/cem_olimpia_logo.jpg')
+club5.club_images.create!(image: File.open('/users/carloscastilloibanez/Desktop/fotos/cem_olimpia_logo.jpg'))
+club5.club_images.create!(image: File.open('/users/carloscastilloibanez/Desktop/fotos/cem_olimpia1.jpg'))
+club5.club_images.create!(image: File.open('/users/carloscastilloibanez/Desktop/fotos/cem_olimpia2.jpg'))
+
 club5.courts.create!(court_name: "Central", sport: "Padel")
 club5.courts.create!(court_name: "Pista 1", sport: "Padel")
 club5.courts.create!(court_name: "Me gusta el Furbol!", sport: "Futbol")
