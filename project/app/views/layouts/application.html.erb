@@ -7,7 +7,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-
+<script type='text/javascript' src='https://maps.googleapis.com/maps/api/js?libraries=places'></script>
 
   </head>
   <!-- top_menu -->
@@ -29,8 +29,8 @@
                    <li><a href="#">Quienes somos</a></li>
                    <li><a href="#">Condiciones</a></li>
                   </ul>
-               </div><!-- /.navbar-collapse -->
-             </div><!-- /.container-fluid -->
+               </div>
+             </div>
             </nav>
         </div>
       </div>
@@ -99,8 +99,5 @@
     <div id="main">
       <%= yield %>
     </div>
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6UCZTzxxYPn1BlAmDJx6nvl58lDzNHPk&libraries=places">
-    </script>`
   </body>
 </html>
