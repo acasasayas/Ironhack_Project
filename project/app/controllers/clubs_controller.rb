@@ -11,6 +11,7 @@ class ClubsController < ApplicationController
   end
 
   def create
+    debugger
     if club = Club.create(
       name: params[:club][:name],
       full_street_address: params[:club][:full_street_address],
@@ -18,7 +19,8 @@ class ClubsController < ApplicationController
       restaurant: params[:club][:restaurant],
       pool: params[:club][:restaurant],
       open: string_to_number(params[:club][:open]),
-      close: string_to_number(params[:club][:close])
+      close: string_to_number(params[:club][:close]),
+      id_place: params[:club][:id_place]
       )
       if params[:club][:club_images]
         params[:club][:club_images].each do |image|

@@ -56,7 +56,6 @@
                             <% else %>
                               <%= image_tag "padel.png", alt: "No IMG"%>
                             <% end %>
-
                           </div>
                           <div>
                             <p>
@@ -94,9 +93,13 @@
     </div>
 
   </body>
+
   <script async defer
      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6UCZTzxxYPn1BlAmDJx6nvl58lDzNHPk&callback=initMap">
   </script>
+
+
+
   <script type="text/javascript">
 
     var map;
@@ -106,8 +109,7 @@
       //   zoom: 12
       // });
       map = new google.maps.Map(document.getElementById('map-canvas'), {
-        center: {lat: 41.385064, lng: 2.173403
-},
+        center: {lat: 41.385064, lng: 2.173403},
         zoom: 12
       });
 

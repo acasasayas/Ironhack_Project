@@ -22,7 +22,8 @@ club1 = Club.create!(
   name: 'Club de tenis Badalona',
   full_street_address: 'Carrer de Joan d Austria 08915 Badalona',
   open: 480,
-  close: 1380
+  close: 1380,
+  id_place: 'ChIJ7Tf2RKG7pBIR3wBIiL88sMA'
   )
 club1.club_images.create!(image_file_name: '/users/carloscastilloibanez/Desktop/fotos/tenis_badalona_logo.png')
 
@@ -34,7 +35,8 @@ club2 = Club.create!(
   name: 'Real Club de Polo de Barcelona',
   full_street_address: 'Avenida Doctor Marañon 19-31 08028 Barcelona',
   open: 480,
-  close: 1380
+  close: 1380,
+  id_place: 'ChIJSanc1VeYpBIR_l7GhZlA57A'
   )
 club2.club_images.create!(image_file_name: '/users/carloscastilloibanez/Desktop/fotos/polo_barcelona_logo.png')
 club2.courts.create!(court_name: "Central", sport: "Padel")
@@ -47,7 +49,8 @@ club3 = Club.create!(
   name: 'Indoor Padel Barcelona',
   full_street_address: 'Calle Venezuela 78-80 08019 Barcelona',
   open: 480,
-  close: 1439
+  close: 1439,
+  id_place: 'ChIJP7JWSk-jpBIRNUgktVcEFVI'
   )
 club3.club_images.create!(image_file_name: '/users/carloscastilloibanez/Desktop/fotos/indoor_barcelona_logo.png')
 club3.courts.create!(court_name: "Pista 1", sport: "Padel")
@@ -58,7 +61,8 @@ club4 = Club.create!(
   name: 'Valldaura Sport',
   full_street_address: 'Plaza Karl Max 08033 Barcelona',
   open: 480,
-  close: 1439
+  close: 1439,
+  id_place: 'ChIJTRdpM0C9pBIReY1prUOOuRk'
   )
 club4.club_images.create!(image_file_name: '/users/carloscastilloibanez/Desktop/fotos/valldaura_logo.jpg')
 club4.courts.create!(court_name: "Pista F7", sport: "Futbol")
@@ -68,7 +72,8 @@ club5 = Club.create!(
   name: 'CEM Olimpia',
   full_street_address: 'Calle Perú 215 08020 Barcelona',
   open: 480,
-  close: 1439
+  close: 1439,
+  id_place: 'ChIJwSpSVTajpBIRlHyx9QzkDKQ'
   )
 club5.club_images.create!(image_file_name: '/users/carloscastilloibanez/Desktop/fotos/cem_olimpia_logo.jpg')
 club5.courts.create!(court_name: "Central", sport: "Padel")

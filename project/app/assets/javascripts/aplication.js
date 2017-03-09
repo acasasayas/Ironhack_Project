@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+
     function initialize() {
 
       var autocomplete = new google.maps.places.Autocomplete(
@@ -10,6 +11,7 @@ $(document).ready(function(){
       google.maps.event.addListener(autocomplete, 'place_changed', function () {
         var place = autocomplete.getPlace();
         console.log(place.place_id);
+        $('#google-place').val(place.place_id);
       });
 
 
