@@ -1,6 +1,28 @@
+var markers = [];
+var map;
 $(document).ready(function(){
 
     function initialize() {
+
+
+      map = new google.maps.Map(document.getElementById('map-canvas'), {
+        center: {lat: 41.385064, lng: 2.173403},
+        zoom: 10
+      });
+
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+
+
+        map.setCenter(pos);
+      })
+      }
+
+      getAllClubs();
 
       var autocomplete = new google.maps.places.Autocomplete(
       (document.getElementById('autocomplete')), {
@@ -34,6 +56,7 @@ $(document).ready(function(){
     }
   });
 });
+
 $(document).on("click", ".name-club", function () {
     $("#modal-title").empty();
     $("#modal-center").empty();

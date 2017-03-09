@@ -1,8 +1,7 @@
 /*top menu*/
 
 body {
-    background-image: url("438381.jpg");
-    background-size: cover;
+
 }
 
 .color-transparent {
@@ -246,16 +245,13 @@ span.img1:hover img {
 }
 
 #map-container {
-    height: 560px;
-    border-color: #fff;
-    border-style: solid;
-    box-shadow: 2px 2px 10px #B1B1B1;
-    margin-top: 15px;
-    border-width: 7px;
+
+    height: 100%;
+    width: 100%;
 }
 
 #map-canvas {
-    height: 547px;
+    height: calc(100vh - 45px);
     width: 100%;
 }
 
