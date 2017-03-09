@@ -1,29 +1,14 @@
 $(document).ready(function(){
 
-  // function NewCourt() {
-  //   var courts = $('#num-courts').val();
-  //   array_names = new Array();
-  //   array_sports = new Array();
-  //   for (i = 1; i-1 < courts; i++) {
-  //     var name = $('#court-'+ i).val();
-  //     array_names.push(name);
-  //     var sport = $('#sport-'+ i).val();
-  //     array_sports.push(sport)
-  //   }
-  //   $.ajax({
-  //     type: "POST",
-  //     url: '/courts',
-  //     data: {name: array_names, sport: array_sports}
-  //   });
-  // };
-  //
-  // $(document).on("click", '#new-club', function() {
-  //     debugger;
-  //     $('#new_club').submit();
-  //     debugger;
-  //     setTimeout(NewCourt(), 1000);
-  //     debugger;
-  // });
+    function initialize() {
+
+      new google.maps.places.Autocomplete(
+      (document.getElementById('autocomplete')), {
+          types: ['geocode']
+      });
+  }
+
+  initialize();
 
   $(document).on('input', '#num-courts', function(){
     var courts = this.value;
