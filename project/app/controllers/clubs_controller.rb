@@ -11,7 +11,6 @@ class ClubsController < ApplicationController
   end
 
   def create
-    debugger
     if club = Club.create(
       name: params[:club][:name],
       full_street_address: params[:club][:full_street_address],

@@ -48,7 +48,9 @@ $(document).on("click", ".name-club", function () {
         "<h1 class='color-red'>"+data.name+"</h1>"
       );
       $( "#modal-left" ).append(
-         "<img src="+url+"></img>"
+         "<img src="+url[0]+"></img>",
+         "<img src="+url[1]+"></img>",
+         "<img src="+url[2]+"></img>"
        );
      $( "#modal-right" ).append(
         "<h5><strong>Dirección:</strong></h5>",

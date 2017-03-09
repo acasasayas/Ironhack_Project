@@ -59,9 +59,14 @@
                           </div>
                           <div>
                             <p>
+                              <% @array_url = Array.new %>
+                              <% item.club_images.each do |item| %>
+                                <% @array_url << item.image.url(:medium) %>
+                              <% end %>
+
                               <%= link_to item.name, '#modal_club',
                                :'data-id' => "#{item.to_json}",
-                               :'data-url' => "#{item.club_images.first.image.url(:medium)}",
+                               :'data-url' => "#{@array_url}",
                                :class => "info-find name-club", 'data-toggle' => "modal"%>
                             </p>
                             <p>
