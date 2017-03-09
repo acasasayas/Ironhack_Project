@@ -263,3 +263,8 @@ span.img1:hover img {
     height: 87vh;
     overflow: auto;
 }
+
+.modal-club {
+    border-radius: 7px;
+    padding: 10px 40px 40px;
+}

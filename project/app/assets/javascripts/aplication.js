@@ -42,12 +42,21 @@ $(document).on("click", ".name-club", function () {
 
      debugger;
      $( "#modal-title" ).append(
-        "<h1>"+data.name+"</h1>"
+        "<h1 class='color-red'>"+data.name+"</h1>"
       );
       $( "#modal-left" ).append(
          "<img src="+url+"></img>"
        );
      $( "#modal-right" ).append(
-        "<h3>"+data.ubication+"</h3>"
+        "<h5><strong>Dirección:</strong></h5>",
+        "<h5>"+data.full_street_address+"</h5>",
+        "<h5><strong>Teléfono:</strong> - </h5>",
+        "<h5><strong>Web:</strong> www.club.com </h5>",
+        "<h5><strong>Otros servicios:</strong></h5>",
+        "<h5><strong>Piscina: </strong>"+data.pool+"</h5>",
+        "<h5><strong>Gimnasio: </strong>"+data.gym+"</h5>",
+        "<h5><strong>Restaurante: </strong>"+data.restaurant+"</h5>",
+        "<h5><strong>Hora apertura: </strong>"+data.open+"</h5>",
+        "<h5><strong>Hora cierre: </strong>"+data.close+"</h5>"
       );
 });
