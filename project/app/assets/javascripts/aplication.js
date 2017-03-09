@@ -36,7 +36,10 @@ $(document).ready(function(){
   });
 });
 $(document).on("click", ".name-club", function () {
-    $("#modal-club").empty();
+    $("#modal-title").empty();
+    $("#modal-left").empty();
+    $("#modal-right").empty();
+
      var data = $(this).data('id');
      var url = $(this).data('url');
 
