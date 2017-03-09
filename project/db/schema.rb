@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170307122455) do
+ActiveRecord::Schema.define(version: 20170309084912) do
 
   create_table "club_images", force: :cascade do |t|
     t.integer  "club_id"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20170307122455) do
     t.boolean  "restaurant",          default: false
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "id_place"
     t.index ["court_id"], name: "index_clubs_on_court_id"
   end
 

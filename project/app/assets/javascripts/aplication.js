@@ -2,10 +2,17 @@ $(document).ready(function(){
 
     function initialize() {
 
-      new google.maps.places.Autocomplete(
+      var autocomplete = new google.maps.places.Autocomplete(
       (document.getElementById('autocomplete')), {
           types: ['geocode']
       });
+
+      google.maps.event.addListener(autocomplete, 'place_changed', function () {
+        var place = autocomplete.getPlace();
+        console.log(place.place_id);
+      });
+
+
   }
 
   initialize();
