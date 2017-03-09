@@ -7,7 +7,7 @@ $(document).ready(function(){
 
       map = new google.maps.Map(document.getElementById('map-canvas'), {
         center: {lat: 41.385064, lng: 2.173403},
-        zoom: 10
+        zoom: 12
       });
 
       if (navigator.geolocation) {
