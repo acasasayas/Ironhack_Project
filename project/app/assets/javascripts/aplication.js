@@ -43,15 +43,16 @@ $(document).on("click", ".name-club", function () {
      var data = $(this).data('id');
      var url = $(this).data('url');
 
-     debugger;
      $( "#modal-title" ).append(
         "<h1 class='color-red'>"+data.name+"</h1>"
       );
-      $( "#modal-left" ).append(
-         "<img src="+url[0]+"></img>",
-         "<img src="+url[1]+"></img>",
-         "<img src="+url[2]+"></img>"
-       );
+      var i = 0;
+        while (i <= url.length - 1) {
+          $( "#modal-left" ).append(
+            "<img src="+url[i]+"></img>"
+          );
+        i++;
+        }
      $( "#modal-right" ).append(
         "<h5><strong>Dirección:</strong></h5>",
         "<h5>"+data.full_street_address+"</h5>",
