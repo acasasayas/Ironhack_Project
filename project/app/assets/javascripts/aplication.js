@@ -1,6 +1,5 @@
 $(document).ready(function(){
 
-
     function initialize() {
 
       var autocomplete = new google.maps.places.Autocomplete(
@@ -37,8 +36,8 @@ $(document).ready(function(){
 });
 $(document).on("click", ".name-club", function () {
     $("#modal-title").empty();
-    $("#modal-left").empty();
-    $("#modal-right").empty();
+    $("#modal-center").empty();
+    $("#modal-footer").empty();
 
      var data = $(this).data('id');
      var url = $(this).data('url');
@@ -48,12 +47,13 @@ $(document).on("click", ".name-club", function () {
       );
       var i = 0;
         while (i <= url.length - 1) {
-          $( "#modal-left" ).append(
+          $( "#modal-center" ).append(
             "<img src="+url[i]+"></img>"
           );
         i++;
         }
-     $( "#modal-right" ).append(
+
+     $( "#modal-footer" ).append(
         "<h5><strong>Dirección:</strong></h5>",
         "<h5>"+data.full_street_address+"</h5>",
         "<h5><strong>Teléfono:</strong> - </h5>",

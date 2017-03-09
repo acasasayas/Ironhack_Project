@@ -268,3 +268,7 @@ span.img1:hover img {
     border-radius: 7px;
     padding: 10px 40px 40px;
 }
+
+#modal-footer {
+    text-align: center;
+}
