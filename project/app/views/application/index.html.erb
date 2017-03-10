@@ -26,7 +26,7 @@
     </span>
     </div>
     <div id="user-info" class="col-xs-3 col-sm-3 col-md-3">
-      <span>carloscastilloibanyez@gmail.com</span></span>
+      <span><%=current_user.email if current_user%></span></span>
     </div>
   </div>
   <div id="map-canvas">
@@ -94,7 +94,7 @@
         </a>
       </div>
       <div class="menu-item" href="#" >
-        <a  href="#" class="menu-item flex label-menu-user hidden" >
+        <a  href="/users/sign_out" class="menu-item flex label-menu-user hidden" >
           <span class="full-width">Cerrar sesión</span>
         </a>
       </div>
