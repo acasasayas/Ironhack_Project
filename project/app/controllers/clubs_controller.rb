@@ -35,7 +35,7 @@ class ClubsController < ApplicationController
       Court.create(club_id: club_id.id, court_name: params[:court]["court#{i}"], sport: params[:court]["sport#{i}"])
     end
 
-    redirect_to '/search'
+    redirect_to '/'
     # return redirect_to url_for(:controller => :courts, :action => :create, :param => :court_params)
 
     # redirect_to create_court_path(court_params)

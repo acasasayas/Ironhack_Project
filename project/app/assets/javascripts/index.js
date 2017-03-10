@@ -4,5 +4,8 @@ $(document).ready(function(){
     $(".menu-item").removeClass("hidden");
   });
 
+  $(document).on("click", ".menu-item", function () {
+    $("#menu-open").toggle();
+  });
 
 });
