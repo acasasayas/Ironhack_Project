@@ -40,10 +40,11 @@ $(document).ready(function(){
 
   initialize();
 
-  $(document).on('input', '#num-courts', function(){
-    var courts = this.value;
-    $("#court-name").empty();
-    $("#court-sport").empty();
+  $(document).on('click', '#next-button', function(){
+    event.preventDefault();
+    var courts = $('#num-courts').val();
+    $("#new-club").hide();
+    $("#new-club-btn").removeClass("hidden");
 
     for (i = 1; i-1 < courts; i++) {
       $("#court-name").append(

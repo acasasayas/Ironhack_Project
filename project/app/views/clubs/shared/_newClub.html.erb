@@ -1,0 +1,95 @@
+
+
+  <div class="center-box">
+    <h1><span >Alta nuevo </span><span class="color-strong">Club</span></h1>
+
+      <%= form_for @club, :html => {:multipart => true} do |f| %>
+        <div id="new-club" class="center-box">
+          <%= devise_error_messages! %>
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+              <div class="field margin-top-min">
+                <%= f.label :name, 'Nombre club:', :class => 'float label-user size-label' %>
+                <%= f.text_field :name, autofocus: true, class: 'form-control size-input' %>
+              </div>
+              <br>
+              <div class="field">
+                <%= f.label :full_street_address, 'Dirección:', :class => 'float label-user size-label' %>
+                <%= f.text_field :full_street_address, id: 'autocomplete', autocomplete: "off", class: 'form-control size-input' %>
+              </div>
+              <div class="field hidden">
+                <%= f.text_field :id_place, id: 'google-place', autocomplete: "off", class: 'form-control size-input' %>
+              </div>
+              <br>
+
+              <div class="field ">
+                <%= f.label :open, 'Hora apertura:', :class => 'float label-user size-label-hour' %>
+                <%= f.time_field :open, autocomplete: "off", class: 'form-control size-input-hour' %>
+              </div>
+              <br>
+              <div class="field ">
+                <%= f.label :close, 'Hora cierre:', :class => 'float label-user size-label-hour' %>
+                <%= f.time_field :close, autocomplete: "off", class: 'form-control size-input-hour' %>
+              </div>
+              <br>
+
+              <div class="field ">
+                <%= f.label :courts, 'Número de pistas:', :class => 'float label-user size-label-hour' %>
+                <%= f.text_field :courts, value: "", id: "num-courts", class: 'form-control size-input-hour' %>
+              </div>
+              <br>
+
+              <div id="services" class="col-xs-12 col-sm-12 col-md-12 flex">
+
+                    <%= f.label :pool, 'Piscina', :class => 'float label-user size-label-hour right' %>
+                    <%= f.check_box :pool, {:class => 'float label-user size-label-hour center'}, true, false %>
+
+                    <%= f.label :gym, 'Gimnasio', :class => 'float label-user size-label-hour right' %>
+                    <%= f.check_box :gym, {:class => 'float label-user size-label-hour center'}, true, false%>
+
+                    <%= f.label :restaurant, 'Restaurante', :class => 'float label-user size-label-hour right' %>
+                    <%= f.check_box :restaurant, {:class => 'float label-user size-label-hour center'}, true, false%>
+
+              </div>
+              <div>
+                <div class="col-xs-12 col-sm-12 col-md-12 margin-top-min flex">
+                  <%= f.label :club_image, "Imagenes del club (Puedes seleccionar varias a la vez):", :class => 'float label-user center-box' %><br>
+                  <%= f.file_field :club_images, id: "conio", multiple: true %>
+                </div>
+                <br>
+              </div>
+
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+              <div class="actions margin-top-min">
+                <%= f.button "Siguiente", id: "next-button", class: "btn btn btn-default button-standard" %>
+              </div>
+
+            </div>
+
+
+          </div>
+
+        </div>
+        <div id="courts-info" class="center-box">
+
+          <div class="col-xs-6 col-sm-6 col-md-6 no-padding">
+            <br />
+            <div id="court-name" class="field">
+
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6 no-padding">
+            <br />
+            <div id="court-sport" class="field">
+
+            </div>
+            <br />
+          </div>
+
+        </div>
+        <div class="actions margin-top-min">
+          <%= f.submit "Aceptar", id: "new-club-btn", class: "btn btn btn-default button-standard hidden" %>
+        </div>
+        <% end %>
+      </div>
