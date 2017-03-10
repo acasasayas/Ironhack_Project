@@ -257,7 +257,12 @@ span.img1:hover img {
 }
 
 #map-canvas {
-    height: 100vh;
+    height: 96vh;
+    width: 100%;
+}
+
+#top-bar {
+    height: 4vh;
     width: 100%;
 }
 
@@ -278,4 +283,36 @@ span.img1:hover img {
 #left-bar {
     width: 10px;
     height: 80vh;
+}
+
+#when {
+    font-size: 20px;
+    background-color: #673ab7;
+    width: 25%;
+    height: 100%
+}
+
+#what {
+    font-size: 20px;
+    background-color: #673ab7;
+    width: 25%;
+    height: 100%
+}
+
+#where {
+    font-size: 20px;
+    background-color: #673ab7;
+    width: 25%;
+    height: 100%
+}
+
+#user-info {
+    font-size: 20px;
+    background-color: #673ab7;
+    width: 25%;
+    height: 100%
+}
+
+.color {
+    background-color: #673ab7;
 }

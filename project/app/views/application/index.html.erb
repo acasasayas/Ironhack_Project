@@ -1,28 +1,71 @@
 <div id="map-container">
+  <div id="top-bar">
+    <div id="where" class="col-xs-3 col-sm-3 col-md-3">
+      <span>
+        <i class="fa fa-map-marker" aria-hidden="true"></i>
+          <span> Donde?: <span class="color-strong">______________ </span>
+          <i class="fa fa-angle-down" aria-hidden="true"></i>
+
+        </span>
+      </span>
+    </div>
+    <div id="what" class="col-xs-3 col-sm-3 col-md-3">
+      <span>
+        <i class="fa fa-futbol-o" aria-hidden="true"></i>
+          <span>A que?:<span class="color-strong">______________</span>
+          <i class="fa fa-angle-down" aria-hidden="true"></i>
+        </span>
+      </span>
+    </div>
+    <div id="when" class="col-xs-3 col-sm-3 col-md-3">
+      <span>
+        <i class="fa fa-calendar" aria-hidden="true"></i>
+          <span>Cuando?:<span class="color-strong">______________</span>
+        <i class="fa fa-angle-down" aria-hidden="true"></i>
+      </span>
+    </span>
+    </div>
+    <div id="user-info" class="col-xs-3 col-sm-3 col-md-3">
+      <span>carloscastilloibanyez@gmail.com</span></span>
+    </div>
+  </div>
   <div id="map-canvas">
   </div>
+  <!-- zzzzzz -->
+
 <!-- modal login inicio-->
-  <div id="modal-register" class="hidden">
-    <div class="row">
-        <div class="title col-xs-12 col-sm-12 col-md-12">
-        <%= render "devise/shared/login" %>
+<div class="modal fade" id="LogInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div id="modal-login" class="modal-dialog" role="document">
+        <div class="modal-content color">
+          <div class="modal-body">
+            <%= render "devise/shared/login" %>
+          </div>
+        </div>
       </div>
-    </div>
   </div>
 <!-- modal login final-->
 <!-- modal register inicio-->
-  <div id="modal-register" class="modal-bbp hidden">
-    <div class="container flex col-xs-12 col-sm-12 col-md-12">
-        <%= render "devise/shared/newUser" %>
-    </div>
+<div class="modal fade" id="RegisterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div id="modal-login" class="modal-dialog" role="document">
+        <div class="modal-content color">
+          <div class="modal-body">
+            <%= render "devise/shared/newUser" %>
+          </div>
+        </div>
+      </div>
   </div>
 <!-- modal register final-->
 <!-- modal register inicio-->
-  <div id="modal-new-club" class="modal-bbp">
-    <div class="container flex col-xs-12 col-sm-12 col-md-12">
-        <%= render "clubs/shared/newClub" %>
-    </div>
+<div class="modal fade" id="NewClubModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div id="modal-new-club" class="modal-dialog" role="document">
+        <div class="modal-content color">
+          <div class="modal-body">
+            <%= render "clubs/shared/newClub" %>
+          </div>
+        </div>
+      </div>
   </div>
+
 <!-- modal register final-->
     <div id="menu">
     <nav class="menu">
@@ -38,29 +81,25 @@
       </label>
 
       <div class="menu-item" href="#" >
-        <a id="acceder" href="#" class="menu-item flex label-menu-user" >
+        <a id="acceder" href="#LogInModal" data-toggle="modal" class="menu-item flex label-menu-user hidden" >
           <span class="full-width">Acceder</span>
         </a>
       </div>
       <div class="menu-item" href="#" >
-        <a id="register" href="#" class="menu-item flex label-menu-user" >
+        <a id="register" href="#RegisterModal" data-toggle="modal" class="menu-item flex label-menu-user hidden" >
           <span class="full-width">Registrarse</span>
         </a>
       </div>
       <div class="menu-item" href="#" >
-        <a  href="#" class="menu-item flex label-menu-user" >
+        <a  id="new-club "href="#NewClubModal" data-toggle="modal" class="menu-item flex label-menu-user hidden" >
           <span class="full-width">Nuevo Club</span>
         </a>
       </div>
       <div class="menu-item" href="#" >
-        <a  href="#" class="menu-item flex label-menu-user" >
+        <a  href="#" class="menu-item flex label-menu-user hidden" >
           <span class="full-width">Cerrar sesión</span>
         </a>
       </div>
-
-
-
-
     </nav>
   </div>
 
