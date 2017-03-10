@@ -1,8 +1,14 @@
-function getAllClubs (center,distance) {
+function getAllClubs (center_lat,center_lng,corner_lat,corner_lng) {
 
+    var url = '/clubs'
+
+    if (center_lat && center_lng && corner_lat && corner_lng) {
+      url += `?center_lat=${center_lat}&center_lng=${center_lng}&corner_lat=${corner_lat}&corner_lng=${corner_lng}`
+    }
+    console.log(url);
     $.ajax({
       type: "GET",
-      url: "/clubs",
+      url: url,
       success: allClubs,
       error: handleClubsError
 

@@ -1,5 +1,7 @@
 var markers = [];
 var map;
+var zoom_changed_timeout_id;
+var timeout = 500
 $(document).ready(function(){
 
     function initialize() {
@@ -22,7 +24,36 @@ $(document).ready(function(){
       })
       }
 
-      getAllClubs();
+      google.maps.event.addListener(map, 'dragend', function(){
+        requestClubs()
+      })
+
+
+      google.maps.event.addListener(map, 'zoom_changed', function(){
+        if (zoom_changed_timeout_id) {
+          clearTimeout(zoom_changed_timeout_id)
+
+        }
+        zoom_changed_timeout_id = setTimeout(function(){
+          requestClubs()
+          zoom_changed_timeout_id = null
+        },timeout)
+
+      })
+
+      google.maps.event.addListenerOnce(map, 'bounds_changed', function(){
+        requestClubs()
+      })
+
+      function requestClubs() {
+
+        var center = map.getCenter();
+        var ne = map.getBounds().getNorthEast();
+
+        getAllClubs(center.lat(),center.lng(),ne.lat(),ne.lng());
+
+      }
+
 
       var autocomplete = new google.maps.places.Autocomplete(
       (document.getElementById('autocomplete')), {

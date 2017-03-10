@@ -6,7 +6,15 @@ class ClubsController < ApplicationController
   end
 
   def index
-    clubs = Club.all
+
+    if params[:center_lng] && params[:center_lat] && params[:corner_lat] && params[:corner_lng]
+
+      distance = Geocoder::Calculations.distance_between([params[:center_lat],params[:center_lng]],[params[:corner_lat],params[:corner_lng]])
+      clubs = Club.near([params[:center_lat],params[:center_lng]],distance)
+
+    else
+      clubs = Club.all
+    end
     render json: clubs
   end
 
