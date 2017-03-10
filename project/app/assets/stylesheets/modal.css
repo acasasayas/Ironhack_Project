@@ -1,0 +1,43 @@
+#modal-prueba {
+    position: absolute;
+    width: auto;
+    min-width: 320px;
+    height: auto;
+    background-color: #673ab7;
+    left: 40%;
+    top: 20%;
+    border-radius: 3px;
+    padding: 20px;
+}
+
+.button-standard {
+    border: 3px solid white;
+    background-color: #673ab7;
+    color: white;
+    text-shadow: 0 0px 0 #fff;
+}
+
+.title {
+    width: 100%;
+    text-align: center;
+}
+
+.padding-min {
+    padding: 10px;
+}
+
+.margin-top-min {
+    margin-top: 10px;
+}
+
+.left-text {
+    text-align: left;
+}
+
+.rigth-text {
+    text-align: right:
+}
+
+.center-text {
+    text-align: center;
+}

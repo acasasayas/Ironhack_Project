@@ -269,3 +269,8 @@ span.img1:hover img {
 #modal-footer {
     text-align: center;
 }
+
+#left-bar {
+    width: 10px;
+    height: 80vh;
+}
