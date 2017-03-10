@@ -1,0 +1,44 @@
+  <div class="center-box top-main">
+    <h1><span class="color-strong">Nuevo</span><span> usuario</span></h1>
+    <%= link_to "Darme de alta como Club", "/clubs/new" %>
+  </br>
+
+
+    <div id="new-user" class="center-box">
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+
+        <div class="field margin-top-min">
+          <%= f.label :email, "Email: " %><br />
+          <%= f.email_field :email, autofocus: true, class: 'form-control full-width' %>
+        </div>
+        <div class="field margin-top-min">
+          <%= f.label :password, "Password: (mínimo 6 caracteres)" %>
+          <%= f.password_field :password, autocomplete: "off", class: 'form-control full-width' %>
+        </div>
+        <div>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %>
+        </div>
+
+        <div class="field margin-top-min">
+          <%= f.label :password_confirmation, "Repite Password:"%><br />
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control full-width' %>
+        </div>
+
+        <div class="actions btn_sign btn-padding">
+          <%= f.submit "Registrarse", class: "btn btn btn-default button-standard" %>
+        </div>
+      <% end %>
+
+        <!-- <%= render "devise/shared/links" %> -->
+        <div class="margin-top-min">
+          <%= link_to "Volver a página anterior", :back %>
+        </div>
+
+    </div>
+
+
+  </div>

@@ -1,9 +1,8 @@
-<div id="home-page" class="container flex">
   <div class="center-box top-main">
     <h1><span class="color-red">Nuevo</span><span> usuario</span></h1>
     <%= link_to "Darme de alta como club", "/clubs/new" %>
 
-    <div id="new-user" class="center-box edit-user color-transparent">
+    <div id="new-user" class="center-box edit-user">
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
@@ -40,4 +39,3 @@
 
 
   </div>
-</div>

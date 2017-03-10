@@ -2,20 +2,28 @@
   <div id="map-canvas">
   </div>
 <!-- modal login inicio-->
-  <div id="modal-prueba" class="hidden">
+  <div id="modal-register" class="hidden">
     <div class="row">
-      <div class="title col-xs-12 col-sm-12 col-md-12">
-        <div class="title-modal">
-          <h1>Log In</h1>
-          <span>Accede con tu email o <a href="/users/sign_up"><strong>Registrate</strong></a></span>
-        </div>
         <div class="title col-xs-12 col-sm-12 col-md-12">
         <%= render "devise/shared/login" %>
       </div>
-      </div>
     </div>
   </div>
-  <!-- modal login final-->
+<!-- modal login final-->
+<!-- modal register inicio-->
+  <div id="modal-register" class="hidden">
+    <div class="container flex col-xs-12 col-sm-12 col-md-12">
+        <%= render "devise/shared/newUser" %>
+    </div>
+  </div>
+<!-- modal register final-->
+<!-- modal register inicio-->
+  <div id="modal-new-club" class="modal-bbp">
+    <div class="container flex col-xs-12 col-sm-12 col-md-12">
+        <%= render "devise/shared/newUser" %>
+    </div>
+  </div>
+<!-- modal register final-->
 
 
     <div id="menu">
@@ -37,7 +45,7 @@
         </a>
       </div>
       <div class="menu-item" href="#" >
-        <a  href="#" class="menu-item flex label-menu-user" >
+        <a id="register" href="#" class="menu-item flex label-menu-user" >
           <span class="full-width">Registrarse</span>
         </a>
       </div>
