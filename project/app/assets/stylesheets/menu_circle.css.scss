@@ -161,15 +161,21 @@ $hamburger-spacing:8px;
         }
     }
 }
-.label-menu-user {
-  border-radius: 3px;
+.item-child {
+    border-radius: 3px;
     width: 162px;
     height: 30px;
     padding: 20px;
     border-top: -10px;
     margin-top: 21px;
     margin-left: -175px;
+  // margin-left: -120%;
+  // width: 100px;
+  // height: 50px;
+  // border-radius: 3px;
+  background-color: #78BC61;
 }
+
 .show {
   display: block!important;
 }
