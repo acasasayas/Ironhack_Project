@@ -28,12 +28,21 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng) {
           title: theClub.name,
           club: theClub
         });
+        marker.addListener('click',function(){
+          debugger;
+          alert(this.club.name);
+        });
         markers.push(marker);
       });
+      console.log(markers);
+
+
     }
 
     function handleClubsError (error) {
       console.log("Error Eres un Loser")
     }
+
+
 
 }

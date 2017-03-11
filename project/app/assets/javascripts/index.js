@@ -15,6 +15,4 @@ $document.ready(function(){
     $(".menu-item").addClass("hidden");
   });
 
-
-
 });

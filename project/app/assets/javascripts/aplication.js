@@ -2,10 +2,10 @@ var markers = [];
 var map;
 var zoom_changed_timeout_id;
 var timeout = 500
+
 $(document).ready(function(){
 
     function initialize() {
-
 
       map = new google.maps.Map(document.getElementById('map-canvas'), {
         center: {lat: 41.385064, lng: 2.173403},
@@ -71,6 +71,17 @@ $(document).ready(function(){
 
   initialize();
 
+
+    // google.maps.event.addListener(markers,'click', function() {
+    //   debugger;
+    //   $('#LogInModal').modal('show');
+    // });
+
+    
+
+
+
+
   $(document).on('click', '#next-button', function(){
     event.preventDefault();
     var courts = $('#num-courts').val();
@@ -87,7 +98,9 @@ $(document).ready(function(){
       );
     }
   });
+
 });
+
 
 $(document).on("click", ".name-club", function () {
     $("#modal-title").empty();
@@ -120,4 +133,5 @@ $(document).on("click", ".name-club", function () {
         "<h5><strong>Hora apertura: </strong>"+data.open+"</h5>",
         "<h5><strong>Hora cierre: </strong>"+data.close+"</h5>"
       );
+
 });
