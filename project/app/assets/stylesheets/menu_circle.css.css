@@ -24,7 +24,7 @@ h1 {
 }
 
 .menu-item, .menu-open-button {
-  background: #673ab7;
+  background: #78BC61;
   border-radius: 100%;
   width: 80px;
   height: 80px;
@@ -95,7 +95,7 @@ h1 {
 
 .menu-item:hover {
   background: white;
-  color: #673ab7;
+  color: #78BC61;
 }
 
 .menu-item:nth-child(3) {

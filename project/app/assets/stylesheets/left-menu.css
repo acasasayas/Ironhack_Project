@@ -76,23 +76,23 @@ li a {
 }
 
 ul li:nth-child(1) a {
-    background: #888888;
+    background: #78BC61;
 }
 
 ul li:nth-child(2) a {
-    background: #628179;
+    background: #78BC61;
 }
 
 ul li:nth-child(3) a {
-    background: #21aabd;
+    background: #78BC61;
 }
 
 ul li:nth-child(4) a {
-    background: #654b6b;
+    background: #78BC61;
 }
 
 ul li:nth-child(5) a {
-    background: #bd2a4e;
+    background: #78BC61;
 }
 
 li a:hover {
