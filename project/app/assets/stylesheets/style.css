@@ -281,36 +281,9 @@ span.img1:hover img {
 }
 
 #left-bar {
-    width: 10px;
-    height: 80vh;
-}
-
-#when {
-    font-size: 20px;
-    background-color: #7BC950;
-    width: 25%;
-    height: 100%
-}
-
-#what {
-    font-size: 20px;
-    background-color: #7BC950;
-    width: 25%;
-    height: 100%
-}
-
-#where {
-    font-size: 20px;
-    background-color: #7BC950;
-    width: 25%;
-    height: 100%
-}
-
-#user-info {
-    font-size: 20px;
-    background-color: #7BC950;
-    width: 25%;
-    height: 100%
+    position: fixed;
+    top: 50%;
+    padding-left: 30px;
 }
 
 .color {
