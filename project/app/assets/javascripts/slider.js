@@ -23,7 +23,7 @@ $document.ready(function(){
         console.log(ui.values[0])
         console.log(ui.values[1])
 
-        // $('#slider a').html('<label>' + ui.values[0] + '</label>');
+        $('#slider a').html('<label>' + ui.values[0] + '</label>');
 
       }
     });
