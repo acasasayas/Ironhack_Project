@@ -21,6 +21,17 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng) {
       });
       markers = [];
 
+      $.ajax({
+        type: "GET",
+        url: '/imagesClubs',
+        success: clubImages,
+        error: handleClubsError
+      });
+
+      function clubImages(response) {
+        var images = response
+      }
+
       clubs.forEach( function (theClub) {
         var marker = new google.maps.Marker({
           position: {lat: theClub.latitude, lng: theClub.longitude},
@@ -28,18 +39,6 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng) {
           title: theClub.name,
           club: theClub
         });
-
-        $.ajax({
-          type: "GET",
-          url: '/imagesClubs',
-          success: clubImages,
-          error: handleClubsError
-        });
-
-        function clubImages(response) {
-          debugger;
-        }
-
 
         var contentString = '<div id="popUp">'+
             '<div id="siteNotice">'+
@@ -65,15 +64,47 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng) {
         var infowindow = new google.maps.InfoWindow({
           content: contentString
         });
+
         marker.addListener('click', function() {
           infowindow.open(map, marker);
-          debugger;
         });
         // marker.addListener('click',function(){
         //   debugger;
         //   alert(this.club.name);
         // });
         markers.push(marker);
+
+        google.maps.event.addListener(infowindow, 'domready', function() {
+
+         // Reference to the DIV which receives the contents of the infowindow using jQuery
+         var iwOuter = $('.gm-style-iw');
+
+         /* The DIV we want to change is above the .gm-style-iw DIV.
+          * So, we use jQuery and create a iwBackground variable,
+          * and took advantage of the existing reference to .gm-style-iw for the previous DIV with .prev().
+          */
+         var iwBackground = iwOuter.prev();
+
+         iwBackground.children(':nth-child(2)').css({'display' : 'none'});
+         iwBackground.children(':nth-child(4)').css({'display' : 'none'});
+         iwOuter.parent().parent().css({left: '115px'});
+         iwBackground.children(':nth-child(1)').attr('style', function(i,s){ return s + 'left: 228px !important;'});
+         iwBackground.children(':nth-child(3)').attr('style', function(i,s){ return s + 'left: 228px !important;'});
+         iwBackground.children(':nth-child(3)').find('div').children().css({'background-color': '#78bc61', 'z-index' : '1'});
+         iwBackground.children(':nth-child(3)').find('div').children().css({'border-left': '1px solid white', 'z-index' : '1'});
+         iwBackground.children(':nth-child(3)').find('div').children().css({'border-right': '1px solid white', 'z-index' : '1'});
+
+         var iwCloseBtn = iwOuter.next();
+
+         iwCloseBtn.css({
+           opacity: '1',
+           right: '40px', top: '25px'
+           });
+
+         iwCloseBtn.mouseout(function(){
+           $(this).css({opacity: '1'});
+         });
+      });
       });
       console.log(markers);
 
