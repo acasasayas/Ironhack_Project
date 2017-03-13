@@ -13,9 +13,18 @@ class ApplicationController < ActionController::Base
 
   def images
     clubs = Club.all
-    debugger
-    images = clubs.first.club_images
-    render json: images
+
+    array_url = []
+    array_clubs = []
+
+    clubs.each do |item|
+      item.club_images.each do |subItem|
+        array_url << subItem.image.url(:medium)
+      end
+      array_clubs << array_url
+      array_url = []
+    end
+    render json: array_clubs
     # @clubs.last.club_images[0].image.url
   end
 
