@@ -2786,16 +2786,16 @@ output {
 }
 
 .form-control::-moz-placeholder {
-    color: #999;
+    color: white;
     opacity: 1;
 }
 
 .form-control:-ms-input-placeholder {
-    color: #999;
+    color: white;
 }
 
 .form-control::-webkit-input-placeholder {
-    color: #999;
+    color: white;
 }
 
 .form-control::-ms-expand {

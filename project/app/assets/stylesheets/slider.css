@@ -8,7 +8,7 @@
 .ui-slider .ui-slider-handle {
     position: absolute;
     z-index: 2;
-    width: 2.2em;
+    width: 3.2em;
     height: 2.2em;
     cursor: default;
     /*margin: 0 -40px auto !important;*/
@@ -27,7 +27,7 @@
 }
 
 .ui-corner-all {
-    border-radius: 20px;
+    /*border-radius: 20px;*/
 }
 
 .ui-slider-horizontal .ui-slider-handle {
@@ -76,13 +76,12 @@
 }
 
 #slider {
-    width: 200px;
+    width: 250px;
     height: 6px;
     margin-top: 25px;
 }
 
-.hours {
-    width: 200px;
-    height: 6px;
-    margin-top: 25px;
+.hour {
+    /*padding-left: 5px;
+    padding-right: 5px;*/
 }

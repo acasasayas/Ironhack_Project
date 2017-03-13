@@ -40,11 +40,21 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng) {
           club: theClub
         });
 
+        markers.push(marker);
+
         var contentString = '<div id="popUp">'+
             '<div id="siteNotice">'+
             '</div>'+
-            '<h1 id="firstHeading" class="firstHeading">'+marker.club.name+'</h1>'+
+            '<h1 id="firstHeading" class="firstHeading"><strong>'+marker.club.name+'</strong></h1>'+
             '<div id="bodyContent">'+
+            '<div class="col-sm-12">' +
+            '<h4><strong>Dirección: </strong>' + marker.club.full_street_address + '</h4>' +
+            '<h4><strong>Hora apertura: </strong>' + marker.club.open + '</h4>' +
+            '<h4><strong>Hora cierre: </strong>' + marker.club.close + '</h4>' +
+            '<h4><strong>Gimnasio: </strong>' + marker.club.gym + '</h4>' +
+            '<h4><strong>Piscina: </strong>' + marker.club.pool + '</h4>' +
+            '<h4><strong>Restaurante: </strong>' + marker.club.restaurant + '</h4>' +
+            '</div>' +
             '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
             'sandstone rock formation in the southern part of the '+
             'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
@@ -65,24 +75,16 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng) {
           content: contentString
         });
 
+        // marker.setIcon('/assets/tennis-ball-1.png');
+
         marker.addListener('click', function() {
           infowindow.open(map, marker);
         });
-        // marker.addListener('click',function(){
-        //   debugger;
-        //   alert(this.club.name);
-        // });
-        markers.push(marker);
 
         google.maps.event.addListener(infowindow, 'domready', function() {
 
-         // Reference to the DIV which receives the contents of the infowindow using jQuery
          var iwOuter = $('.gm-style-iw');
 
-         /* The DIV we want to change is above the .gm-style-iw DIV.
-          * So, we use jQuery and create a iwBackground variable,
-          * and took advantage of the existing reference to .gm-style-iw for the previous DIV with .prev().
-          */
          var iwBackground = iwOuter.prev();
 
          iwBackground.children(':nth-child(2)').css({'display' : 'none'});
@@ -90,9 +92,9 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng) {
          iwOuter.parent().parent().css({left: '115px'});
          iwBackground.children(':nth-child(1)').attr('style', function(i,s){ return s + 'left: 228px !important;'});
          iwBackground.children(':nth-child(3)').attr('style', function(i,s){ return s + 'left: 228px !important;'});
-         iwBackground.children(':nth-child(3)').find('div').children().css({'background-color': '#78bc61', 'z-index' : '1'});
-         iwBackground.children(':nth-child(3)').find('div').children().css({'border-left': '1px solid white', 'z-index' : '1'});
-         iwBackground.children(':nth-child(3)').find('div').children().css({'border-right': '1px solid white', 'z-index' : '1'});
+         iwBackground.children(':nth-child(3)').find('div').children().css({'background-color': '#78bc61', 'z-index' : '100'});
+         iwBackground.children(':nth-child(3)').find('div').children().css({'border-left': '1px solid white', 'z-index' : '100'});
+         iwBackground.children(':nth-child(3)').find('div').children().css({'border-right': '1px solid white', 'z-index' : '100'});
 
          var iwCloseBtn = iwOuter.next();
 

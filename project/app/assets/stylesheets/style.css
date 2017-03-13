@@ -282,7 +282,7 @@ span.img1:hover img {
 
 #left-bar {
     position: fixed;
-    top: 70%;
+    top: 65%;
     padding-left: 30px;
 }
 
@@ -298,4 +298,17 @@ span.img1:hover img {
 .day {
     border: 1px solid #f9f9f9;
     background: #3498db;
+}
+
+.where {
+    height: 100%;
+    background-color: #78BC61;
+    color: white!important;
+    font-weight: bold!important;
+    font-size: 18px!important;
+    line-height: 2.8em;
+    border: 1px solid #78BC61;
+    font-family: "Oswald", sans-serif!important;
+    text-shadow: rgba(0, 0, 0, 0.3) 1px 1px;
+    width: 250px;
 }

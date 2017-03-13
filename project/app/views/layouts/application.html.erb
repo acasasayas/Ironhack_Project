@@ -11,33 +11,9 @@
 
 
 
-<script type='text/javascript' src='https://maps.googleapis.com/maps/api/js?libraries=places'></script>
+   <script type='text/javascript' src='https://maps.googleapis.com/maps/api/js?libraries=places'></script>
 
   </head>
-  <!-- top_menu -->
-    <!-- <header class="header">
-      <div class="row">
-        <div id="top-menu" class="col-md-12 ">
-          <nav class="navbar navbar-default navbar-fixed-top">
-             <div class="container-fluid">
-                  <div class="navbar-header">
-                 <a class="navbar-brand" href="/">IH Project</a>
-               </div>
-               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                 <ul class="nav navbar-nav navbar-right">
-                   <li><%=link_to 'Acceder', '#myModal_login', id: :login, 'data-toggle' => "modal" if !current_user%></li>
-                   <li><%=link_to 'Registrarse', href='/users/sign_up', id: :login, 'data-toggle' => "modal" if !current_user%></li>
-                   <li><%=link_to current_user.email if current_user%></li>
-                   <li><%=link_to 'Editar perfil', edit_user_registration_path  if current_user%></li>
-                   <li><%=link_to 'Cerrar sesión', destroy_user_session_path, method: 'DELETE' if current_user%></li>
-                   <li><a href="#">Quienes somos</a></li>
-                   <li><a href="#">Condiciones</a></li>
-                  </ul>
-               </div>
-             </div>
-            </nav>
-        </div>
-      </div> -->
 <!-- modal for login -->
 <div class="modal fade" id="myModal_login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div id="modal-login" class="modal-dialog" role="document">

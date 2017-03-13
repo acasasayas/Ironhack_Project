@@ -25,7 +25,6 @@ class ApplicationController < ActionController::Base
       array_url = []
     end
     render json: array_clubs
-    # @clubs.last.club_images[0].image.url
   end
 
   private
