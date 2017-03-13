@@ -282,10 +282,20 @@ span.img1:hover img {
 
 #left-bar {
     position: fixed;
-    top: 50%;
+    top: 70%;
     padding-left: 30px;
 }
 
 .color {
     background-color: #78BC61;
+}
+
+.padding-l-r {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.day {
+    border: 1px solid #f9f9f9;
+    background: #3498db;
 }

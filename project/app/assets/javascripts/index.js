@@ -15,4 +15,19 @@ $document.ready(function(){
     $(".menu-item").addClass("hidden");
   });
 
+  // $("#sport").hover(function() {
+  //   $(".sport-radio").toggleClass("hidden");
+  //   $(".sport-label").toggleClass("hidden");
+  // });
+  //
+  // $("#date").hover(function() {
+  //   $(".label-radio").toggleClass("hidden");
+  //   $(".label-label").toggleClass("hidden");
+  // });
+  //
+  // $("#hour").hover(function() {
+  //   $(".hour-radio").toggleClass("hidden");
+  //   $(".hour-label").toggleClass("hidden");
+  // });
+
 });

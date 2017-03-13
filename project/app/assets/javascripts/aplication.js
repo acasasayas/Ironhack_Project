@@ -71,17 +71,6 @@ $(document).ready(function(){
 
   initialize();
 
-
-    // google.maps.event.addListener(markers,'click', function() {
-    //   debugger;
-    //   $('#LogInModal').modal('show');
-    // });
-
-    
-
-
-
-
   $(document).on('click', '#next-button', function(){
     event.preventDefault();
     var courts = $('#num-courts').val();
