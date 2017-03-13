@@ -152,4 +152,7 @@
   	  </div>
   </div>
   <!-- menu left final-->
+  <%= content_tag "div", id: "clubs", data: {products: Club.all} do %>
+    Loading products...
+  <% end %>
 </div>
