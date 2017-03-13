@@ -29,8 +29,19 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng) {
           club: theClub
         });
 
+        $.ajax({
+          type: "GET",
+          url: '/imagesClubs',
+          success: clubImages,
+          error: handleClubsError
+        });
+
+        function clubImages(response) {
+          debugger;
+        }
+
+
         var contentString = '<div id="popUp">'+
-            '<div id="images" data=<%= Club.all.to_json %>></div>'
             '<div id="siteNotice">'+
             '</div>'+
             '<h1 id="firstHeading" class="firstHeading">'+marker.club.name+'</h1>'+

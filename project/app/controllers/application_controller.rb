@@ -11,6 +11,14 @@ class ApplicationController < ActionController::Base
     render 'search'
   end
 
+  def images
+    clubs = Club.all
+    debugger
+    images = clubs.first.club_images
+    render json: images
+    # @clubs.last.club_images[0].image.url
+  end
+
   private
 
   def date_to_number(date)
