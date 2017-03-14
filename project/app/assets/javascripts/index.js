@@ -1,5 +1,22 @@
 var $document = $(document);
+
 $document.ready(function(){
+
+  jQuery('.statistic-counter').counterUp({
+     delay: 10,
+     time: 2000
+   });
+
+
+   $document.on("click", "#enter", function() {
+     event.preventDefault();
+     $("#intro").fadeOut(1500);
+     $(".main-home").fadeOut(1500);
+     $("#left-bar").removeClass("hidden");
+     $("#menu").removeClass("hidden");
+   });
+
+
 
   $document.on("click", ".menu-open-button", function () {
       $(".menu-item").removeClass("hidden");

@@ -1,10 +1,50 @@
 /*top menu*/
 
+.main-home {
+    position: absolute;
+    */ height: 100vh;
+    width: 100%;
+}
+
+.video {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+}
+
+@font-face {
+    font-family: Gidole;
+    src: url('/assets/Gidole-Regular.ttf') format('truetype');
+}
+
+body {
+    font-family: Gidole!important;
+}
+
+.title-home {
+    margin-top: 180px!important;
+}
+
+#intro {
+    background-color: rgba(60, 118, 61, 0.62);
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    z-index: 5;
+}
+
+.home {
+    border: 0px solid white!important;
+    border-radius: 7px!important;
+    width: 245px!important;
+    font-weight: 400!important;
+    font-size: 18px!important;
+    height: 50px!important;
+}
+
 #map-canvas {
     position: absolute;
 }
-
-body {}
 
 .color-transparent {
     background-color: rgba(255, 255, 255, 0.82)!important;
@@ -24,10 +64,6 @@ body {}
 
 #edit-user-bottom {
     width: 50%;
-}
-
-#home-page {
-    margin-bottom: 30px;
 }
 
 .edit-user {

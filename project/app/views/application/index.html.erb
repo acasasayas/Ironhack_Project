@@ -1,6 +1,19 @@
 <div id="map-container">
   <div id="map-canvas">
   </div>
+      <div class="main-home">
+          <iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/i-OU1vfyaks?autoplay=1&showinfo=0&controls=0&amp#t=20s" frameborder="0" allowfullscreen></iframe>
+      </div>
+    <div id="intro" class="flex">
+      <div class="center-box title-home">
+        <h1 class="title_home"><strong>Reserva pista de tu deporte favorito</strong></h1>
+        <h3>Fútbol, Basket, Padel, Golf,.....</h3>
+        <button id="enter" type="button" class="info-find btn btn-default button-standard home">Buscar</button>
+
+        <%= render "application/shared/counter" %>
+      </div>
+
+    </div>
   <!-- zzzzzz -->
 <!-- modal login inicio-->
 <div class="modal fade" id="LogInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -36,7 +49,7 @@
   </div>
 
 <!-- modal register final-->
-    <div id="menu">
+    <div id="menu" class="hidden">
     <nav class="menu">
       <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open"/>
       <label class="menu-open-button principal" for="menu-open">
@@ -74,7 +87,7 @@
     </nav>
   </div>
   <!-- menu left inicio-->
-  <div id="left-bar" class="container">
+  <div id="left-bar" class="container hidden">
   	<div class="row">
           <ul>
             <li class="elemento1 hour-size">
