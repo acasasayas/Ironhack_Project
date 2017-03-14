@@ -14,8 +14,22 @@ class ClubsController < ApplicationController
 
     else
       clubs = Club.all
+
     end
-    render json: clubs
+
+    array_url = []
+    array_clubs = []
+
+    clubs.each do |item|
+      item.club_images.each do |subItem|
+        array_url << subItem.image.url(:medium)
+      end
+      array_clubs << array_url
+      array_url = []
+    end
+
+    render json: {:clubs => clubs, :images => array_clubs}
+
   end
 
   def create

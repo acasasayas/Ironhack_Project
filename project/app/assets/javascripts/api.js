@@ -15,22 +15,17 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng) {
 
     function allClubs (response) {
       console.log(response);
-      var clubs = response;
+
+      var clubs = response.clubs;
+      for(var i = 0; i < clubs.length; i++){
+        clubs[i].images = response.images[i];
+      }
       markers.forEach( function (marker){
         marker.setMap(null);
       });
       markers = [];
 
-      $.ajax({
-        type: "GET",
-        url: '/imagesClubs',
-        success: clubImages,
-        error: handleClubsError
-      });
-
-      function clubImages(response) {
-        var images = response
-      }
+      debugger;
 
       clubs.forEach( function (theClub) {
         var marker = new google.maps.Marker({
@@ -47,7 +42,14 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng) {
             '</div>'+
             '<h1 id="firstHeading" class="firstHeading"><strong>'+marker.club.name+'</strong></h1>'+
             '<div id="bodyContent">'+
-            '<div class="col-sm-12">' +
+            '<div class="col-md-6">' +
+            '<div class="elemento2">' +
+              '<a id="pre" href="#" class="arrow-l "><i class="fa fa-2x fa-angle-left" aria-hidden="true"></i></a>' +
+              '<img class="image-gal" src="'+marker.club.images[0]+'">' +
+              '<a id="next" href="#" class="arrow-r "><i class="fa fa-2x fa-angle-right" aria-hidden="true"></i></a>' +
+            '</div>' +
+            '</div>' +
+            '<div class="col-md-6 left-text">' +
             '<h4><strong>Dirección: </strong>' + marker.club.full_street_address + '</h4>' +
             '<h4><strong>Hora apertura: </strong>' + marker.club.open + '</h4>' +
             '<h4><strong>Hora cierre: </strong>' + marker.club.close + '</h4>' +
@@ -55,19 +57,15 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng) {
             '<h4><strong>Piscina: </strong>' + marker.club.pool + '</h4>' +
             '<h4><strong>Restaurante: </strong>' + marker.club.restaurant + '</h4>' +
             '</div>' +
-            '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
-            'sandstone rock formation in the southern part of the '+
-            'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
-            'south west of the nearest large town, Alice Springs; 450&#160;km '+
-            '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
-            'features of the Uluru - Kata Tjuta National Park. Uluru is '+
-            'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
-            'Aboriginal people of the area. It has many springs, waterholes, '+
-            'rock caves and ancient paintings. Uluru is listed as a World '+
-            'Heritage Site.</p>'+
-            '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
-            'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
-            '(last visited June 22, 2009).</p>'+
+            '</br>' +
+            '<h4><strong>Pistas Disponibles:</strong></h4>' +
+            '<div class="col-md-12 hours-disp">' +
+            '<button type="button" class="info-find btn btn btn-default button-standard">08:00</button>' +
+            '<button type="button" class="info-find btn btn btn-default button-standard">08:00</button>' +
+            '<button type="button" class="info-find btn btn btn-default button-standard">08:00</button>' +
+            '<button type="button" class="info-find btn btn btn-default button-standard">08:00</button>' +
+            '</div>' +
+            '<h5>Los horarios están sujetos a disponibilidad del club</h5>' +
             '</div>'+
             '</div>';
 
@@ -78,6 +76,7 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng) {
         // marker.setIcon('/assets/tennis-ball-1.png');
 
         marker.addListener('click', function() {
+          debugger;
           infowindow.open(map, marker);
         });
 

@@ -12,19 +12,19 @@ class ApplicationController < ActionController::Base
   end
 
   def images
-    clubs = Club.all
-
-    array_url = []
-    array_clubs = []
-
-    clubs.each do |item|
-      item.club_images.each do |subItem|
-        array_url << subItem.image.url(:medium)
-      end
-      array_clubs << array_url
-      array_url = []
-    end
-    render json: array_clubs
+    # clubs = Club.all
+    #
+    # array_url = []
+    # array_clubs = []
+    #
+    # clubs.each do |item|
+    #   item.club_images.each do |subItem|
+    #     array_url << subItem.image.url(:medium)
+    #   end
+    #   array_clubs << array_url
+    #   array_url = []
+    # end
+    # render json: array_clubs
   end
 
   private

@@ -69,6 +69,7 @@ $(document).ready(function(){
       var where = document.getElementById('where');
       new google.maps.places.Autocomplete(where);
 
+
   }
 
   initialize();
