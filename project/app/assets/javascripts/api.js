@@ -37,17 +37,16 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng) {
 
         markers.push(marker);
 
-
         var contentString = '<div id="popUp">'+
             '<div id="siteNotice">'+
             '</div>'+
             '<h1 id="firstHeading" class="firstHeading"><strong>'+marker.club.name+'</strong></h1>'+
             '<div id="bodyContent">'+
-            '<div class="col-md-6">' +
+            '<div class="col-md-6 img-col flex">' +
             '<div class="elemento2">' +
               '<a id="pre" href="#" class="arrow-l "><i class="fa fa-2x fa-angle-left" aria-hidden="true"></i></a>' +
-              '<span id="image-club">'+
-                '<img class="image-gal" id="x" data-dataId="'+marker.club+'" src="'+marker.club.images[photo]+'">' +
+              '<span id="image-club" data-img="'+marker.club.images+'">'+
+                '<img class="image-gal" src="'+marker.club.images[photo]+'">' +
               '</span>'+
               '<a id="next" href="#" class="arrow-r "><i class="fa fa-2x fa-angle-right" aria-hidden="true"></i></a>' +
             '</div>' +
@@ -61,14 +60,16 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng) {
             '<h4><strong>Restaurante: </strong>' + marker.club.restaurant + '</h4>' +
             '</div>' +
             '</br>' +
-            '<h4><strong>Pistas Disponibles:</strong></h4>' +
             '<div class="col-md-12 hours-disp">' +
+            '<h4><strong>Pistas Disponibles:</strong></h4>' +
             '<button type="button" class="info-find btn btn btn-default button-standard">08:00</button>' +
             '<button type="button" class="info-find btn btn btn-default button-standard">08:00</button>' +
             '<button type="button" class="info-find btn btn btn-default button-standard">08:00</button>' +
             '<button type="button" class="info-find btn btn btn-default button-standard">08:00</button>' +
             '</div>' +
+            '<div class="col-md-12">' +
             '<h5>Los horarios están sujetos a disponibilidad del club</h5>' +
+            '</div>'+
             '</div>'+
             '</div>';
 
@@ -76,10 +77,10 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng) {
           content: contentString
         });
 
-        // marker.setIcon('/assets/tennis-ball-1.png');
+        marker.setIcon('/assets/periscope.png');
 
         marker.addListener('click', function() {
-          debugger;
+          map.setCenter(marker.getPosition());
           infowindow.open(map, marker);
         });
 

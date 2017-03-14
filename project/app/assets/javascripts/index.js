@@ -15,6 +15,10 @@ $document.ready(function(){
     $(".menu-item").addClass("hidden");
   });
 
+  $('#radioInput input').on('change', function() {
+   console.log($('input[name="myRadio"]:checked', '#radioInput').val())
+  });
+
   // $("#sport").hover(function() {
   //   $(".sport-radio").toggleClass("hidden");
   //   $(".sport-label").toggleClass("hidden");

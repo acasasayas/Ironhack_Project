@@ -94,21 +94,26 @@ $(document).ready(function(){
 
   $(document).on('click','#pre', function(){
     event.preventDefault();
-    $('#image-club').empty();
+    var dataId = $('#image-club').data('img').split(",");
     photo = photo - 1;
-    $('#image-club').html('<img class="image-gal" src="'+marker.club.images[photo]+'">');
-
+    if (photo < 0) {
+      photo = dataId.length - 1;
+    };
+    $('#image-club').empty();
+    $('#image-club').html('<img class="image-gal" src="'+dataId[photo]+'">');
   });
+
 
   $(document).on('click','#next', function(){
     event.preventDefault();
-    var dataId = $('#x').attr('data-dataId');
+    var dataId = $('#image-club').data('img').split(",");
+    photo = photo + 1;
     debugger;
+    if (photo > dataId.length - 1) {
+      photo = 0;
+    };
     $('#image-club').empty();
-    photo = photo +1;
-
-    debugger;
-    $('#image-club').html('<img class="image-gal" src="'+marker.club.images[photo]+'">');
+    $('#image-club').html('<img class="image-gal" src="'+dataId[photo]+'">');
   });
 
 });

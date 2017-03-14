@@ -9,6 +9,7 @@
     background-color: #78bc61;
     box-shadow: 0 1px 6px rgba(178, 178, 178, 0.6);
     border: 1px solid white;
+    height: auto;
 }
 
 #iw-container .iw-title {
@@ -20,4 +21,8 @@
     color: #78bc61;
     margin: 1px;
     border-radius: 2px 2px 0 0;
+}
+
+.img-col {
+    height: 190px;
 }
