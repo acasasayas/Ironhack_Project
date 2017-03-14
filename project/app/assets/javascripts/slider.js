@@ -34,37 +34,4 @@ $document.ready(function(){
     });
     updateSlider(480, 1440);
 
-      // function toClock(aa){
-      //     var hours = Math.floor(aa / 60);
-      //     var minutes = aa - (hours * 60);
-      //     var ampm = "";
-      //
-      //     if(hours.length == 1) {hours = '12' + hours;}
-      //     if(hours > 12) {ampm = "PM"; hours = hours-12;}
-      //     else if(hours == 12){ampm = "PM";}
-      //     else if(hours < 12){
-      //         ampm = "AM";
-      //         if(hours == 0)  hours =  12;
-      //
-      //     }
-      //     if(minutes == 0){minutes = '0' + minutes;}
-      //     var combo = hours+':'+minutes + ampm;
-      //     return combo
-      // }
-      //
-      // function toUnits(bb){
-      //    var hours = Math.floor(bb / 60);
-      //    var minutes = bb - (hours * 60);
-      // }
-      //
-      // function toInitialize(a,b){
-      // console.log(a);
-      //     if(a == ''){}
-      //     else{
-      //         var new_start = a.split(':');
-      //         console.log(new_start);
-      //      $("#slider").slider( "values", [ 480, 1440 ] );
-      //     }
-      //   }
-
 });

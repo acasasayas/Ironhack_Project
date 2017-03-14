@@ -1,7 +1,8 @@
 var markers = [];
 var map;
 var zoom_changed_timeout_id;
-var timeout = 500
+var timeout = 500;
+var photo = 0;
 
 $(document).ready(function(){
 
@@ -91,39 +92,23 @@ $(document).ready(function(){
     }
   });
 
+  $(document).on('click','#pre', function(){
+    event.preventDefault();
+    $('#image-club').empty();
+    photo = photo - 1;
+    $('#image-club').html('<img class="image-gal" src="'+marker.club.images[photo]+'">');
+
+  });
+
+  $(document).on('click','#next', function(){
+    event.preventDefault();
+    var dataId = $('#x').attr('data-dataId');
+    debugger;
+    $('#image-club').empty();
+    photo = photo +1;
+
+    debugger;
+    $('#image-club').html('<img class="image-gal" src="'+marker.club.images[photo]+'">');
+  });
+
 });
-
-
-// $(document).on("click", ".name-club", function () {
-//     $("#modal-title").empty();
-//     $("#modal-center").empty();
-//     $("#modal-footer").empty();
-//
-//      var data = $(this).data('id');
-//      var url = $(this).data('url');
-//
-//      $( "#modal-title" ).append(
-//         "<h1 class='color-red'>"+data.name+"</h1>"
-//       );
-//       var i = 0;
-//         while (i <= url.length - 1) {
-//           $( "#modal-center" ).append(
-//             "<img src="+url[i]+"></img>"
-//           );
-//         i++;
-//         }
-//
-//      $( "#modal-footer" ).append(
-//         "<h5><strong>Dirección:</strong></h5>",
-//         "<h5>"+data.full_street_address+"</h5>",
-//         "<h5><strong>Teléfono:</strong> - </h5>",
-//         "<h5><strong>Web:</strong> www.club.com </h5>",
-//         "<h5><strong>Otros servicios:</strong></h5>",
-//         "<h5><strong>Piscina: </strong>"+data.pool+"</h5>",
-//         "<h5><strong>Gimnasio: </strong>"+data.gym+"</h5>",
-//         "<h5><strong>Restaurante: </strong>"+data.restaurant+"</h5>",
-//         "<h5><strong>Hora apertura: </strong>"+data.open+"</h5>",
-//         "<h5><strong>Hora cierre: </strong>"+data.close+"</h5>"
-//       );
-//
-// });

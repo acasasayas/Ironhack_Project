@@ -37,6 +37,7 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng) {
 
         markers.push(marker);
 
+
         var contentString = '<div id="popUp">'+
             '<div id="siteNotice">'+
             '</div>'+
@@ -45,7 +46,9 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng) {
             '<div class="col-md-6">' +
             '<div class="elemento2">' +
               '<a id="pre" href="#" class="arrow-l "><i class="fa fa-2x fa-angle-left" aria-hidden="true"></i></a>' +
-              '<img class="image-gal" src="'+marker.club.images[0]+'">' +
+              '<span id="image-club">'+
+                '<img class="image-gal" id="x" data-dataId="'+marker.club+'" src="'+marker.club.images[photo]+'">' +
+              '</span>'+
               '<a id="next" href="#" class="arrow-r "><i class="fa fa-2x fa-angle-right" aria-hidden="true"></i></a>' +
             '</div>' +
             '</div>' +
