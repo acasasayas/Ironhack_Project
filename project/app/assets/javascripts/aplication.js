@@ -2,6 +2,10 @@ var markers = [];
 var map;
 var zoom_changed_timeout_id;
 var timeout = 500
+var filters = {
+  time_start: "08:00",
+  time_end: "10:00"
+}
 
 $(document).ready(function(){
 
@@ -50,7 +54,7 @@ $(document).ready(function(){
         var center = map.getCenter();
         var ne = map.getBounds().getNorthEast();
 
-        getAllClubs(center.lat(),center.lng(),ne.lat(),ne.lng());
+        getAllClubs(center.lat(),center.lng(),ne.lat(),ne.lng(),filters.time_start,filters.time_end);
 
       }
 

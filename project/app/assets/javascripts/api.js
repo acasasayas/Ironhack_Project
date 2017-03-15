@@ -1,10 +1,12 @@
-function getAllClubs (center_lat,center_lng,corner_lat,corner_lng) {
+function getAllClubs (center_lat,center_lng,corner_lat,corner_lng,time_start,time_end) {
 
     var url = '/clubs'
+    url += `?time_start=${time_start}&time_end=${time_end}`
 
     if (center_lat && center_lng && corner_lat && corner_lng) {
-      url += `?center_lat=${center_lat}&center_lng=${center_lng}&corner_lat=${corner_lat}&corner_lng=${corner_lng}`
+      url += `&center_lat=${center_lat}&center_lng=${center_lng}&corner_lat=${corner_lat}&corner_lng=${corner_lng}`
     }
+
     console.log(url);
     $.ajax({
       type: "GET",
@@ -21,16 +23,17 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng) {
         marker.setMap(null);
       });
       markers = [];
-      clubs.forEach( function (theClub) {
+      Object.keys(clubs).forEach( function (key) {
+        var theClub = clubs[key]
         var marker = new google.maps.Marker({
-          position: {lat: theClub.latitude, lng: theClub.longitude},
+          position: {lat: theClub.club.latitude, lng: theClub.club.longitude},
           map: map,
-          title: theClub.name,
+          title: theClub.club.name,
           club: theClub
         });
         marker.addListener('click',function(){
           debugger;
-          alert(this.club.name);
+          alert(this.club.club.name);
         });
         markers.push(marker);
       });
@@ -40,6 +43,7 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng) {
     }
 
     function handleClubsError (error) {
+      console.log(error)
       console.log("Error Eres un Loser")
     }
 

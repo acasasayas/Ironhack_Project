@@ -1,4 +1,5 @@
 class ClubsController < ApplicationController
+  respond_to :json
   before_action :find_club
 
   def new
@@ -8,14 +9,60 @@ class ClubsController < ApplicationController
   def index
 
     if params[:center_lng] && params[:center_lat] && params[:corner_lat] && params[:corner_lng]
-
       distance = Geocoder::Calculations.distance_between([params[:center_lat],params[:center_lng]],[params[:corner_lat],params[:corner_lng]])
-      clubs = Club.near([params[:center_lat],params[:center_lng]],distance)
+
+      clubs = Club.near([params[:center_lat],params[:center_lng]],distance).includes(:courts).where("close >= ? AND ? >= open AND close >= ? AND ? >= open", string_to_number(params[:time_start]), string_to_number(params[:time_start]), string_to_number(params[:time_end]), string_to_number(params[:time_end]))
+
+      reservations = Reservation.where("time_start <= ? AND time_end >= ?",params[:time_end],params[:time_start])
+      reservations_by_court_id = {}
+      reservations.each do |reservation|
+        court_id = reservation.court_id
+        unless reservations_by_court_id.has_key? court_id
+          reservations_by_court_id[court_id] = []
+        end
+        reservations_by_court_id[court_id].push(reservation)
+      end
+      output = {}
+
+      clubs.each do |club|
+        club.courts.each do |court|
+          court_reservations = reservations_by_court_id[court.id]
+          free_slots = {}
+          current_start_datetime = params[:time_start].to_datetime
+          current_end_datetime = current_start_datetime.to_datetime + 1.hour
+          while current_end_datetime <= params[:time_end].to_datetime
+            free_slots[current_start_datetime] = {:court_id => court.id}
+            current_start_datetime += 1.hour
+            current_end_datetime += 1.hour
+          end
+          if court_reservations
+            court_reservations.each do |court_r|
+              free_slots.delete(court_r.time_start)
+            end
+          end
+          unless free_slots.empty?
+            unless output[club.id]
+              output[club.id] = {:club => club}
+            end
+            unless output[club.id][court.sport]
+              output[club.id][court.sport] = {}
+            end
+            free_slots.each do |key,value|
+              output[club.id][court.sport][key] = court.id
+            end
+          end
+
+        end
+      end
 
     else
-      clubs = Club.all
+      output = {
+        :hola => "Error"
+      }
     end
-    render json: clubs
+
+
+    respond_with(output.as_json)
   end
 
   def create
@@ -32,16 +79,19 @@ class ClubsController < ApplicationController
       if params[:club][:club_images]
         params[:club][:club_images].each do |image|
         club.club_images.create({image: image})
-      end
+        end
       else
         club.club_images.create({image: image})
       end
     end
-    club_id = Club.last
+    club_id = Club.last[:id]
     courts = params[:club][:courts].to_i
     for i in 1..courts
-      Court.create(club_id: club_id.id, court_name: params[:court]["court#{i}"], sport: params[:court]["sport#{i}"])
+      court = Court.create(club_id: club_id, court_name: params[:court]["court#{i}"], sport: params[:court]["sport#{i}"])
+      # create_slots(court[:id],club_id)
     end
+
+
 
     redirect_to '/'
     # return redirect_to url_for(:controller => :courts, :action => :create, :param => :court_params)
@@ -80,6 +130,15 @@ class ClubsController < ApplicationController
 
   private
 
+  # def create_slots(id,club_id)
+  #   club = Club.find(club_id)
+  #   from = club.open
+  #   to = club.close
+  #
+  #
+  #
+  # end
+
   def club_params
     params.require(:club).permit(:name, :full_street_address, :gym, :restaurant, :pool, :open, :close )
   end
@@ -106,18 +165,5 @@ class ClubsController < ApplicationController
     result = split[0].to_i*60 + split[1].to_i
   end
 
-  def find_open_club(time_open,close)
-    @clubs = Club.where("close >= ? <= open AND close >= ? <= open", string_to_number(time_open), string_to_number(close))
 
-  end
-
-  def find_free_courts(time_start,time_end)
-    @available_courts = []
-    @clubs.each do |club|
-
-        club.courts.each do |court|
-        @available_courts << court
-        end
-    end
-  end
 end
