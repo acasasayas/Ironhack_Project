@@ -75,22 +75,7 @@ $(document).ready(function(){
 
   initialize();
 
-  $(document).on('click', '#next-button', function(){
-    event.preventDefault();
-    var courts = $('#num-courts').val();
-    $("#new-club").hide();
-    $("#new-club-btn").removeClass("hidden");
 
-    for (i = 1; i-1 < courts; i++) {
-      $("#court-name").append(
-        '<div><label class="court-label-l float label-user">Nombre de la pista:</label><input type="text" name="court[court'+i+']" id="court-'+i+'" class="court-text-l form-control"></input></div><br>'
-      );
-      $("#court-sport").append(
-        '<div><label class="court-label-r float label-user">Deporte:</label><input type="text" name="court[sport'+i+']" id="sport-'+i+'" class="court-text-r form-control"></input></div><br>'
-
-      );
-    }
-  });
 
   $(document).on('click','#pre', function(){
     event.preventDefault();

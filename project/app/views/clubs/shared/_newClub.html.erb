@@ -3,7 +3,7 @@
   <div class="center-box">
     <h1><span >Alta nuevo </span><span class="color-strong">Club</span></h1>
 
-      <%= form_for @club, :html => {:multipart => true} do |f| %>
+      <%= form_for @club, :html => {:multipart => true, :name => "club"} do |f| %>
         <div id="new-club" class="center-box">
           <%= devise_error_messages! %>
           <div class="row">
@@ -62,7 +62,7 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
               <div class="actions margin-top-min">
-                <%= f.button "Siguiente", id: "next-button", class: "btn btn btn-default button-standard" %>
+                <%= f.button "Siguiente", id: "next-button", class: "btn btn btn-default button-standard club-submit1" %>
               </div>
 
             </div>
@@ -89,7 +89,7 @@
 
         </div>
         <div class="actions margin-top-min">
-          <%= f.submit "Aceptar", id: "new-club-btn", class: "btn btn btn-default button-standard hidden" %>
+          <%= f.submit "Aceptar", id: "new-club-btn", class: "btn btn btn-default button-standard club-submit2 hidden" %>
         </div>
         <% end %>
       </div>

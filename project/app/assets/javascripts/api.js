@@ -25,8 +25,6 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng) {
       });
       markers = [];
 
-      debugger;
-
       clubs.forEach( function (theClub) {
         var marker = new google.maps.Marker({
           position: {lat: theClub.latitude, lng: theClub.longitude},
