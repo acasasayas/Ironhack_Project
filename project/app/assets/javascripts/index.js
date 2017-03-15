@@ -19,7 +19,12 @@ $document.ready(function(){
 
 
   $document.on("click", ".menu-open-button", function () {
-      $(".menu-item").removeClass("hidden");
+      if ($("#menu-open").prop('checked') == true) {
+        $(".menu-item").addClass("hidden");
+      } else {
+        $(".menu-item").removeClass("hidden");
+      }
+      $("#destroy-session").addClass("hidden");
   });
 
   $document.on("click", ".hide-element", function (e) {
@@ -36,19 +41,5 @@ $document.ready(function(){
    console.log($('input[name="myRadio"]:checked', '#radioInput').val())
   });
 
-  // $("#sport").hover(function() {
-  //   $(".sport-radio").toggleClass("hidden");
-  //   $(".sport-label").toggleClass("hidden");
-  // });
-  //
-  // $("#date").hover(function() {
-  //   $(".label-radio").toggleClass("hidden");
-  //   $(".label-label").toggleClass("hidden");
-  // });
-  //
-  // $("#hour").hover(function() {
-  //   $(".hour-radio").toggleClass("hidden");
-  //   $(".hour-label").toggleClass("hidden");
-  // });
 
 });

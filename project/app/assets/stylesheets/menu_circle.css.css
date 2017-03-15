@@ -1,181 +1,184 @@
 /*//vars*/
+
+
 /*//config*/
+
 body {
-  color: white;
-  text-align: center;
+    color: white;
+    text-align: center;
 }
 
 a {
-  color: inherit;
+    color: inherit;
 }
 
 h1, h2, h3, h4 {
-  margin: 0;
-  margin-bottom: 10px;
-  margin-top: 10px;
+    margin: 0;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 h1 {
-  font-size: 3em;
+    font-size: 3em;
 }
 
 .menu {
-  filter: url("#shadowed-goo");
+    filter: url("#shadowed-goo");
 }
 
 .menu-item, .menu-open-button {
-  background: #78BC61;
-  border-radius: 100%;
-  width: 80px;
-  height: 80px;
-  margin-left: -125px;
-  position: absolute;
-  top: 0px;
-  color: white;
-  text-align: center;
-  line-height: 80px;
-  transform: translate3d(0, 0, 0);
-  transition: transform ease-out 200ms;
+    background: #78BC61;
+    border-radius: 100%;
+    width: 80px;
+    height: 80px;
+    margin-left: -125px;
+    position: absolute;
+    top: 0px;
+    color: white;
+    text-align: center;
+    line-height: 80px;
+    transform: translate3d(0, 0, 0);
+    transition: transform ease-out 200ms;
 }
 
 .menu-open {
-  display: none;
+    display: none;
 }
 
 .hamburger {
-  width: 25px;
-  height: 3px;
-  background: white;
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -12.5px;
-  margin-top: -1.5px;
-  transition: transform 200ms;
+    width: 25px;
+    height: 3px;
+    background: white;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -12.5px;
+    margin-top: -1.5px;
+    transition: transform 200ms;
 }
 
 .hamburger-1 {
-  transform: translate3d(0, -8px, 0);
+    transform: translate3d(0, -8px, 0);
 }
 
 .hamburger-2 {
-  transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
 }
 
 .hamburger-3 {
-  transform: translate3d(0, 8px, 0);
+    transform: translate3d(0, 8px, 0);
 }
 
-.menu-open:checked + .menu-open-button .hamburger-1 {
-  transform: translate3d(0, 0, 0) rotate(45deg);
+.menu-open:checked+.menu-open-button .hamburger-1 {
+    transform: translate3d(0, 0, 0) rotate(45deg);
 }
 
-.menu-open:checked + .menu-open-button .hamburger-2 {
-  transform: translate3d(0, 0, 0) scale(0.1, 1);
+.menu-open:checked+.menu-open-button .hamburger-2 {
+    transform: translate3d(0, 0, 0) scale(0.1, 1);
 }
 
-.menu-open:checked + .menu-open-button .hamburger-3 {
-  transform: translate3d(0, 0, 0) rotate(-45deg);
+.menu-open:checked+.menu-open-button .hamburger-3 {
+    transform: translate3d(0, 0, 0) rotate(-45deg);
 }
 
 .menu {
-  position: absolute;
-  left: 100%;
-  margin-left: -80px;
-  padding-top: 20px;
-  padding-left: 80px;
-  width: 0px;
-  height: 150px;
-  box-sizing: border-box;
-  font-size: 20px;
-  text-align: right;
-  margin-top: 20px;
+    position: absolute;
+    left: 100%;
+    margin-left: -80px;
+    padding-top: 20px;
+    padding-left: 80px;
+    width: 0px;
+    height: 150px;
+    box-sizing: border-box;
+    font-size: 20px;
+    text-align: right;
+    margin-top: 20px;
 }
 
 .menu-item:hover {
-  background: white;
-  color: #78BC61;
+    background: white;
+    color: #78BC61;
 }
 
 .menu-item:nth-child(3) {
-  transition-duration: 180ms;
+    transition-duration: 180ms;
 }
 
 .menu-item:nth-child(4) {
-  transition-duration: 180ms;
+    transition-duration: 180ms;
 }
 
-.menu-item:nth-child(5) {
-  transition-duration: 180ms;
+.:nth-child(5) {
+    transition-duration: 180ms;
 }
 
 .menu-item:nth-child(6) {
-  transition-duration: 180ms;
+    transition-duration: 180ms;
 }
 
 .menu-item:nth-child(7) {
-  transition-duration: 180ms;
+    transition-duration: 180ms;
 }
 
 .menu-open-button {
-  z-index: 2;
-  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  transition-duration: 400ms;
-  transform: scale(1.1, 1.1) translate3d(0, 0, 0);
-  cursor: pointer;
+    z-index: 2;
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition-duration: 400ms;
+    transform: scale(1.1, 1.1) translate3d(0, 0, 0);
+    cursor: pointer;
 }
 
 .menu-open-button:hover {
-  transform: scale(1.2, 1.2) translate3d(0, 0, 0);
+    transform: scale(1.2, 1.2) translate3d(0, 0, 0);
 }
 
-.menu-open:checked + .menu-open-button {
-  transition-timing-function: linear;
-  transition-duration: 200ms;
-  transform: scale(0.8, 0.8) translate3d(0, 0, 0);
+.menu-open:checked+.menu-open-button {
+    transition-timing-function: linear;
+    transition-duration: 200ms;
+    transform: scale(0.8, 0.8) translate3d(0, 0, 0);
 }
 
-.menu-open:checked ~ .menu-item {
-  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+.menu-open:checked~.menu-item {
+    transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.menu-open:checked ~ .menu-item:nth-child(3) {
-  transition-duration: 190ms;
-  transform: translate3d(0, 110px, 0);
+.menu-open:checked~.menu-item:nth-child(3) {
+    transition-duration: 190ms;
+    transform: translate3d(0, 110px, 0);
 }
 
-.menu-open:checked ~ .menu-item:nth-child(4) {
-  transition-duration: 290ms;
-  transform: translate3d(0, 220px, 0);
+.menu-open:checked~.menu-item:nth-child(4) {
+    transition-duration: 290ms;
+    transform: translate3d(0, 220px, 0);
 }
 
-.menu-open:checked ~ .menu-item:nth-child(5) {
-  transition-duration: 390ms;
-  transform: translate3d(0, 330px, 0);
+.menu-open:checked~.menu-item:nth-child(5) {
+    transition-duration: 390ms;
+    transform: translate3d(0, 330px, 0);
 }
 
-.menu-open:checked ~ .menu-item:nth-child(6) {
-  transition-duration: 490ms;
-  transform: translate3d(0, 440px, 0);
+.menu-open:checked~.menu-item:nth-child(6) {
+    transition-duration: 490ms;
+    transform: translate3d(0, 440px, 0);
 }
 
-.menu-open:checked ~ .menu-item:nth-child(7) {
-  transition-duration: 590ms;
-  transform: translate3d(0, 550px, 0);
+.menu-open:checked~.menu-item:nth-child(7) {
+    transition-duration: 590ms;
+    transform: translate3d(0, 550px, 0);
 }
 
 .item-child {
-  border-radius: 3px;
-  width: 162px;
-  height: 30px;
-  padding: 20px;
-  border-top: -10px;
-  margin-top: 21px;
-  margin-left: -175px;
-  background-color: #78BC61;
+    border-radius: 3px;
+    width: 162px;
+    height: 30px;
+    padding: 20px;
+    border-top: -10px;
+    margin-top: 21px;
+    margin-left: -175px;
+    background-color: #78BC61;
 }
 
 .show {
-  display: block !important;
+    display: block !important;
 }

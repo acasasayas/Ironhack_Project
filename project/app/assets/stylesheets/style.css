@@ -348,3 +348,8 @@ span.img1:hover img {
     text-shadow: rgba(0, 0, 0, 0.3) 1px 1px;
     width: 250px;
 }
+
+.current-user {
+    background: black;
+    position: absolute;
+}
