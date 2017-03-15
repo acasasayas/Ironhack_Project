@@ -35,7 +35,7 @@ body {
 
 .home {
     border: 0px solid white!important;
-    border-radius: 7px!important;
+    border-radius: 25px!important;
     width: 245px!important;
     font-weight: 400!important;
     font-size: 18px!important;
@@ -350,6 +350,13 @@ span.img1:hover img {
 }
 
 .current-user {
-    background: black;
     position: absolute;
+    border-radius: 26px;
+    width: auto;
+    height: 59px;
+    padding: 20px;
+    background-color: #78BC61;
+    margin-left: 15px;
+    margin-top: 10px;
+    font-size: 20px;
 }

@@ -77,6 +77,7 @@ li .elemento2 {
     float: left;
     /*margin-left: 140px;*/
     background-color: #78BC61;
+    border-radius: 0 26px 26px 0;
     color: #fff;
     display: flex;
     height: 50px;
