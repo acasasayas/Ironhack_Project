@@ -3,10 +3,7 @@ var map;
 var zoom_changed_timeout_id;
 
 var timeout = 500
-var filters = {
-  time_start: "08:00",
-  time_end: "10:00"
-}
+var filters = {}
 
 var photo = 0;
 
@@ -58,7 +55,17 @@ $(document).ready(function(){
         var center = map.getCenter();
         var ne = map.getBounds().getNorthEast();
 
-        getAllClubs(center.lat(),center.lng(),ne.lat(),ne.lng(),filters.time_start,filters.time_end);
+        var date_start = new Date();
+        date_start.setDate(filters.day);
+        date_start.setHours(filters.time_start / 60);
+        date_start.setMinutes(filters.time_start % 60);
+
+        var date_end = new Date();
+        date_end.setDate(filters.day);
+        date_end.setHours(filters.time_end / 60);
+        date_end.setMinutes(filters.time_end % 60);
+        debugger
+        getAllClubs(center.lat(),center.lng(),ne.lat(),ne.lng(),date_start.toISOString(),date_end.toISOString());
 
       }
 
@@ -80,7 +87,6 @@ $(document).ready(function(){
 
   }
 
-  initialize();
 
 
 
@@ -107,5 +113,10 @@ $(document).ready(function(){
     $('#image-club').empty();
     $('#image-club').html('<img class="image-gal" src="'+dataId[photo]+'">');
   });
+  filters.time_start = 480
+  filters.time_end = 1440
+  filters.day = $("#day").val()
+
+  initialize();
 
 });

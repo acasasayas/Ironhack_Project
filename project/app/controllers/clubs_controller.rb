@@ -8,12 +8,15 @@ class ClubsController < ApplicationController
 
   def index
 
+    minutes_start = date_to_number(params[:time_start].to_datetime)
+    minutes_end = date_to_number(params[:time_end].to_datetime)
+
     if params[:center_lng] && params[:center_lat] && params[:corner_lat] && params[:corner_lng]
       distance = Geocoder::Calculations.distance_between([params[:center_lat],params[:center_lng]],[params[:corner_lat],params[:corner_lng]])
+      debugger
+      clubs = Club.near([params[:center_lat],params[:center_lng]],distance).includes(:courts).where("close >= ? AND ? >= open AND close >= ? AND ? >= open", minutes_start, minutes_start, minutes_end, minutes_end)
 
-      clubs = Club.near([params[:center_lat],params[:center_lng]],distance).includes(:courts).where("close >= ? AND ? >= open AND close >= ? AND ? >= open", string_to_number(params[:time_start]), string_to_number(params[:time_start]), string_to_number(params[:time_end]), string_to_number(params[:time_end]))
-
-      reservations = Reservation.where("time_start <= ? AND time_end >= ?",params[:time_end],params[:time_start])
+      reservations = Reservation.where("time_start <= ? AND time_end >= ?",params[:time_end].to_datetime,params[:time_start].to_datetime)
       reservations_by_court_id = {}
       reservations.each do |reservation|
         court_id = reservation.court_id
@@ -67,7 +70,7 @@ class ClubsController < ApplicationController
     images = {}
     output.each do |key,value|
       club_images = []
-      club = output[key].club
+      club = value[:club]
       club.club_images.each do |image|
         club_images << image.image.url(:medium)
       end
@@ -179,7 +182,7 @@ class ClubsController < ApplicationController
 
   def date_to_number(date)
     split = date.strftime("%H:%M").split(':')
-    result = split[0].to_i*60 + split[1].to_int
+    result = split[0].to_i*60 + split[1].to_i
   end
 
   def string_to_number(string)

@@ -9,14 +9,17 @@ $document.ready(function(){
       event.preventDefault();
       $day = $("#day")["0"].childNodes["0"].data - 1
       $("#day")["0"].childNodes["0"].data = $day;
+      form_info.day = $day
     });
 
     $(document).on('click','#plus', function(){
       event.preventDefault();
-      debugger;
       $day = $("#day")["0"].childNodes["0"].data - 2 + 3
       $("#day")["0"].childNodes["0"].data = $day;
+      form_info.day = $day
     });
+
+
 
     $("#slider").slider({
       range: true,
@@ -28,6 +31,9 @@ $document.ready(function(){
       slide: function(e, ui) {
         console.log(ui.values[0])
         console.log(ui.values[1])
+
+        filters.time_start = ui.values[0]
+        filters.time_end = ui.values[1]
 
         updateSlider(ui.values[0], ui.values[1]);
       }

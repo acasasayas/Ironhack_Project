@@ -19,9 +19,7 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng,time_start,tim
       console.log(response);
 
       var clubs = response.clubs;
-      for(var i = 0; i < clubs.length; i++){
-        clubs[i].images = response.images[i];
-      }
+
       markers.forEach( function (marker){
         marker.setMap(null);
       });
@@ -29,7 +27,7 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng,time_start,tim
 
       Object.keys(clubs).forEach( function (key) {
         var theClub = clubs[key]
-
+        theClub.images = response.images[theClub.club.id]
         var marker = new google.maps.Marker({
           position: {lat: theClub.club.latitude, lng: theClub.club.longitude},
           map: map,
@@ -37,17 +35,12 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng,time_start,tim
           club: theClub
         });
 
-        marker.addListener('click',function(){
-
-          alert(this.club.club.name);
-        });
-
         markers.push(marker);
 
         var contentString = '<div id="popUp">'+
             '<div id="siteNotice">'+
             '</div>'+
-            '<h1 id="firstHeading" class="firstHeading"><strong>'+marker.club.name+'</strong></h1>'+
+            '<h1 id="firstHeading" class="firstHeading"><strong>'+marker.club.club.name+'</strong></h1>'+
             '<div id="bodyContent">'+
             '<div class="col-md-6 img-col flex">' +
             '<div class="elemento2">' +
@@ -59,12 +52,12 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng,time_start,tim
             '</div>' +
             '</div>' +
             '<div class="col-md-6 left-text">' +
-            '<h4><strong>Dirección: </strong>' + marker.club.full_street_address + '</h4>' +
-            '<h4><strong>Hora apertura: </strong>' + marker.club.open + '</h4>' +
-            '<h4><strong>Hora cierre: </strong>' + marker.club.close + '</h4>' +
-            '<h4><strong>Gimnasio: </strong>' + marker.club.gym + '</h4>' +
-            '<h4><strong>Piscina: </strong>' + marker.club.pool + '</h4>' +
-            '<h4><strong>Restaurante: </strong>' + marker.club.restaurant + '</h4>' +
+            '<h4><strong>Dirección: </strong>' + marker.club.club.full_street_address + '</h4>' +
+            '<h4><strong>Abierto: </strong>' + minToTime(marker.club.club.open) +' - '+ minToTime(marker.club.club.close) +'</h4>' +
+
+            '<h4><strong>Gimnasio: </strong>' + marker.club.club.gym + '</h4>' +
+            '<h4><strong>Piscina: </strong>' + marker.club.club.pool + '</h4>' +
+            '<h4><strong>Restaurante: </strong>' + marker.club.club.restaurant + '</h4>' +
             '</div>' +
             '</br>' +
             '<div class="col-md-12 hours-disp">' +
