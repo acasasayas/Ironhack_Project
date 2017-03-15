@@ -1,38 +1,21 @@
 <div id="map-container">
-  <!-- <div id="top-bar">
-    <div id="where" class="col-xs-3 col-sm-3 col-md-3">
-      <span>
-        <i class="fa fa-map-marker" aria-hidden="true"></i>
-          <span> Donde?: <span class="color-strong">______________ </span>
-          <i class="fa fa-angle-down" aria-hidden="true"></i>
 
-        </span>
-      </span>
-    </div>
-    <div id="what" class="col-xs-3 col-sm-3 col-md-3">
-      <span>
-        <i class="fa fa-futbol-o" aria-hidden="true"></i>
-          <span>A que?:<span class="color-strong">______________</span>
-          <i class="fa fa-angle-down" aria-hidden="true"></i>
-        </span>
-      </span>
-    </div>
-    <div id="when" class="col-xs-3 col-sm-3 col-md-3">
-      <span>
-        <i class="fa fa-calendar" aria-hidden="true"></i>
-          <span>Cuando?:<span class="color-strong">______________</span>
-        <i class="fa fa-angle-down" aria-hidden="true"></i>
-      </span>
-    </span>
-    </div>
-    <div id="user-info" class="col-xs-3 col-sm-3 col-md-3">
-      <span><%=current_user.email if current_user%></span></span>
-    </div>
-  </div> -->
   <div id="map-canvas">
   </div>
-  <!-- zzzzzz -->
+      <div class="main-home">
+          <iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/i-OU1vfyaks?autoplay=1&showinfo=0&controls=0&amp#t=20s" frameborder="0" allowfullscreen></iframe>
+      </div>
+    <div id="intro" class="flex">
+      <div class="center-box title-home">
+        <h1 class="title_home"><strong>Reserva pista de tu deporte favorito</strong></h1>
+        <h3>Fútbol, Basket, Padel, Golf,.....</h3>
+        <button id="enter" type="button" class="info-find btn btn-default button-standard home">Buscar</button>
 
+        <%= render "application/shared/counter" %>
+      </div>
+
+    </div>
+  <!-- zzzzzz -->
 <!-- modal login inicio-->
 <div class="modal fade" id="LogInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div id="modal-login" class="modal-dialog" role="document">
@@ -67,8 +50,10 @@
   </div>
 
 <!-- modal register final-->
-    <div id="menu">
+    <div id="menu" class="hidden">
+
     <nav class="menu">
+
       <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open"/>
       <label class="menu-open-button principal" for="menu-open">
         <span class="hamburger hamburger-1"></span>
@@ -96,7 +81,7 @@
         </a>
           <a href="#NewClubModal" data-toggle="modal" class="full-width fa fa-plus hide-element"></a>
       </div>
-      <div class="menu-item" href="#" >
+      <div id="destroy-session" class="menu-item" href="#" >
         <a  href="/users/sign_out" class="menu-item item-child flex label-menu-user hidden hide-element" >
           <span class="full-width hide-element">Cerrar sesión</span>
         </a>
@@ -105,16 +90,24 @@
     </nav>
   </div>
   <!-- menu left inicio-->
-  <div id="left-bar" class="container">
+  <div id="left-bar" class="container hidden">
   	<div class="row">
           <ul>
-            <li class="elemento1">
+            <li class="elemento1 hour-size">
               <div id="hour">
                 <div class="elemento1 label-menu"><label>Dia:</label></div>
                 <div class="elemento2">
                   <a id="minus" href="#" class="label-label padding-l-r "><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
                   <label id="day" value="#{<%= DateTime.now.strftime("%d").to_i %>}" class="label-label padding-l-r"><%= DateTime.now.strftime("%d").to_i %></label>
                   <a id="plus" href="#" class="label-label padding-l-r "><i class="fa fa-plus-circle" aria-hidden="true"></i></a>
+                </div>
+                </div>
+            </li>
+            <li class="elemento1">
+              <div id="date">
+                <div class="elemento1 label-menu"><label>Donde:</label></div>
+                <div class="elemento2">
+                  <input type="text" class="form-control where" id="where"></input>
                 </div>
                 </div>
             </li>
@@ -133,23 +126,33 @@
             </li>
             <li class="elemento1">
               <div id="sport">
+                <form id="radioInput">
+
                 <div class="elemento1 label-menu"><label>Deporte:</label></div>
+
                 <div class="elemento2">
-                  <input type="radio" class="sport-radio radio" checked>
-                  <label class="sport-label ">Todos</label></input>
-                  <input type="radio" class="sport-radio radio ">
-                  <label class="sport-label ">Futbol</label></input>
-                  <input type="radio" class="sport-radio radio ">
-                  <label class="sport-label ">Basket</label></input>
-                  <input type="radio" class="sport-radio radio ">
-                  <label class="sport-label ">Golf</label></input>
-                  <input type="radio" class="sport-radio radio ">
-                  <label class="sport-label ">Padel</label></input>
+                    <input type="radio" name="myRadio" value="todos" class="sport-radio radio" checked>
+                    <label class="sport-label ">Todos</label></input>
+                    <input type="radio" name="myRadio" value="futbol" class="sport-radio radio ">
+                    <label class="sport-label ">Futbol</label></input>
+                    <input type="radio" name="myRadio" value="basket" class="sport-radio radio ">
+                    <label class="sport-label ">Basket</label></input>
+                    <input type="radio" name="myRadio" value="golf" class="sport-radio radio ">
+                    <label class="sport-label ">Golf</label></input>
+                    <input type="radio" name="myRadio" value="padel" class="sport-radio radio ">
+                    <label class="sport-label ">Padel</label></input>
                 </div>
+
               </div>
+            </form>
+
             </li>
           </ul>
   	  </div>
   </div>
   <!-- menu left final-->
+  <div class="user-info">
+    <label class="current-user flex"><%=link_to current_user.email if current_user%></label>
+  </div>
+
 </div>

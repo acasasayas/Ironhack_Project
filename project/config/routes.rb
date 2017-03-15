@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   get '/reservas' => 'courts#reservation'
   post '/reservas' => 'courts#create_reservation', as: 'reservations'
 
+  get '/imagesClubs', to: 'application#images'
 end

@@ -1,11 +1,15 @@
 var markers = [];
 var map;
 var zoom_changed_timeout_id;
+
 var timeout = 500
 var filters = {
   time_start: "08:00",
   time_end: "10:00"
 }
+
+var photo = 0;
+
 
 $(document).ready(function(){
 
@@ -13,7 +17,7 @@ $(document).ready(function(){
 
       map = new google.maps.Map(document.getElementById('map-canvas'), {
         center: {lat: 41.385064, lng: 2.173403},
-        zoom: 10
+        zoom: 12
       });
 
       if (navigator.geolocation) {
@@ -70,61 +74,38 @@ $(document).ready(function(){
         $('#google-place').val(place.place_id);
       });
 
+      var where = document.getElementById('where');
+      new google.maps.places.Autocomplete(where);
+
 
   }
 
   initialize();
 
-  $(document).on('click', '#next-button', function(){
+
+
+  $(document).on('click','#pre', function(){
     event.preventDefault();
-    var courts = $('#num-courts').val();
-    $("#new-club").hide();
-    $("#new-club-btn").removeClass("hidden");
-
-    for (i = 1; i-1 < courts; i++) {
-      $("#court-name").append(
-        '<div><label class="court-label-l float label-user">Nombre de la pista:</label><input type="text" name="court[court'+i+']" id="court-'+i+'" class="court-text-l form-control"></input></div><br>'
-      );
-      $("#court-sport").append(
-        '<div><label class="court-label-r float label-user">Deporte:</label><input type="text" name="court[sport'+i+']" id="sport-'+i+'" class="court-text-r form-control"></input></div><br>'
-
-      );
-    }
+    var dataId = $('#image-club').data('img').split(",");
+    photo = photo - 1;
+    if (photo < 0) {
+      photo = dataId.length - 1;
+    };
+    $('#image-club').empty();
+    $('#image-club').html('<img class="image-gal" src="'+dataId[photo]+'">');
   });
 
-});
 
-
-$(document).on("click", ".name-club", function () {
-    $("#modal-title").empty();
-    $("#modal-center").empty();
-    $("#modal-footer").empty();
-
-     var data = $(this).data('id');
-     var url = $(this).data('url');
-
-     $( "#modal-title" ).append(
-        "<h1 class='color-red'>"+data.name+"</h1>"
-      );
-      var i = 0;
-        while (i <= url.length - 1) {
-          $( "#modal-center" ).append(
-            "<img src="+url[i]+"></img>"
-          );
-        i++;
-        }
-
-     $( "#modal-footer" ).append(
-        "<h5><strong>Dirección:</strong></h5>",
-        "<h5>"+data.full_street_address+"</h5>",
-        "<h5><strong>Teléfono:</strong> - </h5>",
-        "<h5><strong>Web:</strong> www.club.com </h5>",
-        "<h5><strong>Otros servicios:</strong></h5>",
-        "<h5><strong>Piscina: </strong>"+data.pool+"</h5>",
-        "<h5><strong>Gimnasio: </strong>"+data.gym+"</h5>",
-        "<h5><strong>Restaurante: </strong>"+data.restaurant+"</h5>",
-        "<h5><strong>Hora apertura: </strong>"+data.open+"</h5>",
-        "<h5><strong>Hora cierre: </strong>"+data.close+"</h5>"
-      );
+  $(document).on('click','#next', function(){
+    event.preventDefault();
+    var dataId = $('#image-club').data('img').split(",");
+    photo = photo + 1;
+    debugger;
+    if (photo > dataId.length - 1) {
+      photo = 0;
+    };
+    $('#image-club').empty();
+    $('#image-club').html('<img class="image-gal" src="'+dataId[photo]+'">');
+  });
 
 });

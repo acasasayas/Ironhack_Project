@@ -47,3 +47,20 @@
 .center-text {
     text-align: center;
 }
+
+.arrow-l {
+    margin-right: 10px;
+}
+
+.arrow-r {
+    margin-left: 10px;
+}
+
+.image-gal {
+    border: 1px solid white;
+}
+
+.hours-disp {
+    margin-bottom: 10px;
+    min-width: 675px;
+}

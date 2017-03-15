@@ -23,6 +23,9 @@ class ClubsController < ApplicationController
         reservations_by_court_id[court_id].push(reservation)
       end
       output = {}
+      array_url = []
+      array_clubs = []
+
 
       clubs.each do |club|
         club.courts.each do |court|
@@ -56,13 +59,32 @@ class ClubsController < ApplicationController
       end
 
     else
+
       output = {
-        :hola => "Error"
+        :error => "No hay parametros distancias NE SW"
       }
     end
+    images = {}
+    output.each do |key,value|
+      club_images = []
+      club = output[key].club
+      club.club_images.each do |image|
+        club_images << image.image.url(:medium)
+      end
+      images[club.id] = club_images
+    end
+    full_output = {
+      :images => images,
+      :clubs => output
+    }
 
 
-    respond_with(output.as_json)
+
+
+
+
+
+    respond_with(full_output.as_json)
   end
 
   def create

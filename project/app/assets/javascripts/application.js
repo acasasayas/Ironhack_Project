@@ -19,3 +19,4 @@
 //= require_tree .
 //= require react_bootstrap
 //= require react_rails_img
+//= require jquery.validate
