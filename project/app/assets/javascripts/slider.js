@@ -9,14 +9,16 @@ $document.ready(function(){
       event.preventDefault();
       $day = $("#day")["0"].childNodes["0"].data - 1
       $("#day")["0"].childNodes["0"].data = $day;
-      form_info.day = $day
+      filters.day = $day
+      requestClubs();
     });
 
     $(document).on('click','#plus', function(){
       event.preventDefault();
       $day = $("#day")["0"].childNodes["0"].data - 2 + 3
       $("#day")["0"].childNodes["0"].data = $day;
-      form_info.day = $day
+      filters.day = $day
+      requestClubs();
     });
 
 
@@ -36,6 +38,7 @@ $document.ready(function(){
         filters.time_end = ui.values[1]
 
         updateSlider(ui.values[0], ui.values[1]);
+        requestClubs();
       }
     });
     updateSlider(480, 1440);

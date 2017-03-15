@@ -50,39 +50,24 @@ $(document).ready(function(){
         requestClubs()
       })
 
-      function requestClubs() {
-
-        var center = map.getCenter();
-        var ne = map.getBounds().getNorthEast();
-
-        var date_start = new Date();
-        date_start.setDate(filters.day);
-        date_start.setHours(filters.time_start / 60);
-        date_start.setMinutes(filters.time_start % 60);
-
-        var date_end = new Date();
-        date_end.setDate(filters.day);
-        date_end.setHours(filters.time_end / 60);
-        date_end.setMinutes(filters.time_end % 60);
-        debugger
-        getAllClubs(center.lat(),center.lng(),ne.lat(),ne.lng(),date_start.toISOString(),date_end.toISOString());
-
-      }
 
 
-      var autocomplete = new google.maps.places.Autocomplete(
-      (document.getElementById('autocomplete')), {
-          types: ['geocode']
-      });
 
-      google.maps.event.addListener(autocomplete, 'place_changed', function () {
-        var place = autocomplete.getPlace();
-        console.log(place.place_id);
-        $('#google-place').val(place.place_id);
-      });
+      // var autocomplete = new google.maps.places.Autocomplete(
+      // (document.getElementById('autocomplete')), {
+      //     types: ['geocode']
+      // });
+      //
+
 
       var where = document.getElementById('where');
-      new google.maps.places.Autocomplete(where);
+      var autocomplete = new google.maps.places.Autocomplete(where);
+
+      google.maps.event.addListener(autocomplete, 'place_changed', function () {
+        var place_result = autocomplete.getPlace();
+        map.panTo(place_result.geometry.location);
+        requestClubs();
+      });
 
 
   }
@@ -115,8 +100,30 @@ $(document).ready(function(){
   });
   filters.time_start = 480
   filters.time_end = 1440
-  filters.day = $("#day").val()
+  filters.day = new Date().getDate()
 
   initialize();
 
 });
+
+function requestClubs() {
+
+  var center = map.getCenter();
+  var ne = map.getBounds().getNorthEast();
+
+  var date_start = new Date();
+  date_start.setDate(filters.day);
+  date_start.setHours(filters.time_start / 60);
+  date_start.setMinutes(filters.time_start % 60);
+  date_start.setSeconds(0);
+  date_start.setMilliseconds(0);
+
+  var date_end = new Date();
+  date_end.setDate(filters.day);
+  date_end.setHours(filters.time_end / 60);
+  date_end.setMinutes(filters.time_end % 60);
+  date_end.setSeconds(0);
+  date_end.setMilliseconds(0);
+  getAllClubs(center.lat(),center.lng(),ne.lat(),ne.lng(),date_start.toString(),date_end.toString());
+
+}

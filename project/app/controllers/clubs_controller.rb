@@ -7,13 +7,15 @@ class ClubsController < ApplicationController
   end
 
   def index
-
-    minutes_start = date_to_number(params[:time_start].to_datetime)
-    minutes_end = date_to_number(params[:time_end].to_datetime)
+    # zona horaria
+    minutes_start = date_to_number(params[:time_start])
+    minutes_end = date_to_number(params[:time_end])
+    if minutes_end == 0
+      minutes_end = 1440
+    end
 
     if params[:center_lng] && params[:center_lat] && params[:corner_lat] && params[:corner_lng]
       distance = Geocoder::Calculations.distance_between([params[:center_lat],params[:center_lng]],[params[:corner_lat],params[:corner_lng]])
-      debugger
       clubs = Club.near([params[:center_lat],params[:center_lng]],distance).includes(:courts).where("close >= ? AND ? >= open AND close >= ? AND ? >= open", minutes_start, minutes_start, minutes_end, minutes_end)
 
       reservations = Reservation.where("time_start <= ? AND time_end >= ?",params[:time_end].to_datetime,params[:time_start].to_datetime)
@@ -80,12 +82,6 @@ class ClubsController < ApplicationController
       :images => images,
       :clubs => output
     }
-
-
-
-
-
-
 
     respond_with(full_output.as_json)
   end
@@ -181,8 +177,8 @@ class ClubsController < ApplicationController
   end
 
   def date_to_number(date)
-    split = date.strftime("%H:%M").split(':')
-    result = split[0].to_i*60 + split[1].to_i
+    date_time = DateTime.parse(date)
+    result = date_time.hour * 60 + date_time.minute
   end
 
   def string_to_number(string)
