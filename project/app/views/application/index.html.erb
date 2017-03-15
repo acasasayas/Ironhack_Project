@@ -1,4 +1,5 @@
 <div id="map-container">
+
   <div id="map-canvas">
   </div>
       <div class="main-home">
@@ -50,8 +51,6 @@
 
 <!-- modal register final-->
     <div id="menu" class="hidden">
-      <label class="current-user flex"><%=link_to current_user.email if current_user%></label>
-      <label class="current-user flex"><%=link_to current_user.email if current_user%></label>
 
     <nav class="menu">
 
@@ -152,5 +151,8 @@
   	  </div>
   </div>
   <!-- menu left final-->
+  <div class="user-info">
+    <label class="current-user flex"><%=link_to current_user.email if current_user%></label>
+  </div>
 
 </div>
