@@ -54,12 +54,11 @@ class ClubsController < ApplicationController
               output[club.id] = {:club => club}
             end
             unless output[club.id][court.sport]
-              output[club.id][court.sport] = []
+              output[club.id][court.sport] = {}
+
             end
             free_slots.each do |key,value|
-              # output[club.id][court.sport][key] = court.id
-              output[club.id][court.sport] << key
-              output[club.id][court.sport] << court.id
+              output[club.id][court.sport][key] = court.id
             end
           end
 

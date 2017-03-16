@@ -16,6 +16,10 @@ $document.ready(function(){
      $("#menu").removeClass("hidden");
   //  });
 
+  $document.on("mouseover", ".elemento1", function () {
+    $('.elemento2').removeClass("hidden");
+  });
+
 
 
   $document.on("click", ".menu-open-button", function () {

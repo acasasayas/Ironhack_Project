@@ -24,67 +24,13 @@ $document.ready(function(){
       requestClubs();
     });
 
-    $(document).on('click','#padel-button', function(){
-      event.preventDefault();
-      var sport = $('#padel-button').data('sport');
-      var time = $('#padel-button').data('time');
-      var courtId = $('#padel-button').data('court');
-      debugger;
+    // $(document).on('click','#padel-button', function(){
+    //   event.preventDefault();
+    //   var sport = $('#padel-button').data('sport');
+    //   var time = $('#padel-button').data('time');
+    //   var courtId = $('#padel-button').data('court');
+    //   debugger;
 
-    });
-
-    var hours = 0;
-    var court_id = 1;
-
-    $(document).on('click','#next-hour', function(){
-
-      event.preventDefault();
-      var sport = this.getAttribute('data-sport');
-
-      function getFreeHours(sportSelect) {
-        var freeHours = sportSelect.data('free_hours').split(",");
-        calcIndex(freeHours);
-      }
-
-      function calcIndex(freeHours) {
-        hours = hours + 2;
-        court_id = court_id + 2;
-        if (hours > freeHours.length) {
-          hours = 0;
-          court_id = 1;
-        };
-        changeHour(freeHours);
-      }
-
-      function changeHour(freeHours) {
-        debugger;
-        sportSelect.data('time', freeHours[hours]);
-        sportSelect.data('court', freeHours[court_id]);
-        sportSelect["0"].textContent = freeHours[hours].substring(16, 11);
-      }
-
-      switch (sport) {
-          case "Padel":
-            var sportSelect = $('#padel-button');
-            getFreeHours(sportSelect);
-            break;
-          case "Futbol":
-            var sportSelect = $('#futbol-button');
-            getFreeHours(sportSelect);
-            break;
-          case "Basket":
-            var sportSelect = $('#basket-button');
-            getFreeHours(sportSelect);
-            break;
-          case "Golf":
-            var sportSelect = $('#golf-button');
-            getFreeHours(sportSelect);
-            break;
-      }
-
-
-
-    });
 
     $(document).on('click','#prev-hour', function(){
       event.preventDefault();
@@ -107,17 +53,6 @@ $document.ready(function(){
       $('#padel-button')["0"].textContent = freeHours[indexHours].substring(16, 11);
 
     });
-
-    function hola() {
-      debugger;
-    }
-
-    $(document).on('click','#prev-hour', function(){
-      event.preventDefault();
-
-    });
-
-
 
     $("#slider").slider({
       range: true,
