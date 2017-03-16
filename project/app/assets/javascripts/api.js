@@ -22,7 +22,6 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng,time_start,tim
     function allClubs (response) {
       console.log(response);
 
-
       var clubs = response.clubs;
 
       markers.forEach( function (marker){
@@ -60,9 +59,9 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng,time_start,tim
             '<h4><strong>Dirección: </strong>' + marker.club.club.full_street_address + '</h4>' +
             '<h4><strong>Abierto: </strong>' + minToTime(marker.club.club.open) +' - '+ minToTime(marker.club.club.close) +'</h4>' +
 
-            '<h4><strong>Gimnasio: </strong>' + marker.club.club.gym + '</h4>' +
-            '<h4><strong>Piscina: </strong>' + marker.club.club.pool + '</h4>' +
-            '<h4><strong>Restaurante: </strong>' + marker.club.club.restaurant + '</h4>' +
+            '<h4> <strong>Instalaciones: </strong> </h4>' +
+
+            '<h4>' + Gym(marker.club.club.gym) +' '+ Pool(marker.club.club.pool) +' '+ Restaurant(marker.club.club.restaurant) + '</h4>' +
             '</div>' +
             '</br>' +
             '<div class="col-md-12  hours-disp">' +
@@ -96,8 +95,7 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng,time_start,tim
           content: contentString
         });
 
-
-        marker.setIcon("/assets/location-marker.png");
+        marker.setIcon('/assets/location-marker.png');
 
         marker.addListener('click', function() {
           infowindow.open(map, marker);
@@ -173,12 +171,12 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng,time_start,tim
 
 }
 
-function getAllReservations () {
+function getAllReservations (user) {
   var url = '/reservationsUser'
 
-  // if (user) {
-  //   url += `?user_id=${user.id}`
-  // }
+  if (user) {
+    url += `?user_id=${user.id}`
+  }
 
   $.ajax({
     type: "GET",
@@ -201,11 +199,12 @@ function getAllReservations () {
   }
 }
 
-function newReservation (court_id,time_start) {
+function newReservation (user_id,court_id,time_start,time_end) {
   var reservation = {
+    user_id: user_id,
     court_id: court_id,
     time_start: time_start,
-
+    time_end: time_end
   }
   $.ajax({
     type: "POST",
@@ -216,15 +215,10 @@ function newReservation (court_id,time_start) {
   });
 
   function createReservation (response) {
-    if (response.club) {
-      alert("Reserva en:" + response.club.name + " a las:" + reservation.time_start);
-
-    } else {
-      alert(response.error)
-    }
+    alert("Reserva en:" + response.name + " de:" + reservation.time_start + "-" + reservation.time_end);
   }
 
-  function handleCreateError (error) {
+  function handleCreateReservation (error) {
     console.log(error)
   }
 }

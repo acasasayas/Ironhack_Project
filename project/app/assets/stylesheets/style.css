@@ -1,5 +1,12 @@
 /*top menu*/
 
+.material-icons.md-24 {
+  font-size: 24px;
+}
+
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+
 .main-home {
     position: absolute;
     */ height: 100vh;

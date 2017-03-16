@@ -12,8 +12,8 @@ $document.ready(function(){
   }
 
   jQuery('.statistic-counter').counterUp({
-     delay: 10,
-     time: 2000
+     delay: 30,
+     time: 2500
    });
 
 
