@@ -95,7 +95,7 @@
             <li class="elemento1 hour-size">
               <div id="hour">
                 <div class="elemento1 label-menu"><label>Dia:</label></div>
-                <div class="elemento hidden">
+                <div class="elemento2">
                   <a id="minus" href="#" class="label-label padding-l-r "><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
                   <label id="day" value="#{<%= DateTime.now.strftime("%d").to_i %>}" class="label-label padding-l-r"><%= DateTime.now.strftime("%d").to_i %></label>
                   <a id="plus" href="#" class="label-label padding-l-r "><i class="fa fa-plus-circle" aria-hidden="true"></i></a>
@@ -105,7 +105,7 @@
             <li class="elemento1">
               <div id="date">
                 <div class="elemento1 label-menu"><label>Donde:</label></div>
-                <div class="elemento2 hidden">
+                <div class="elemento2">
                   <input type="text" class="form-control where" id="where"></input>
                 </div>
                 </div>
@@ -113,7 +113,7 @@
             <li class="elemento1">
               <div id="date">
                 <div class="elemento1 label-menu"><label>Hora:</label></div>
-                <div class="elemento2 hidden">
+                <div class="elemento2">
                   <div class="price-slider">
                       <div class="col-sm-12">
                         <div id="slider"></div>
@@ -129,7 +129,7 @@
 
                 <div class="elemento1 label-menu"><label>Deporte:</label></div>
 
-                <div class="elemento2 hidden">
+                <div class="elemento2">
                     <input type="radio" name="myRadio" value="todos" class="sport-radio radio" checked>
                     <label class="sport-label ">Todos</label></input>
                     <input type="radio" name="myRadio" value="futbol" class="sport-radio radio ">

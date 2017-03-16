@@ -24,13 +24,6 @@ $document.ready(function(){
       requestClubs();
     });
 
-    // $(document).on('click','#padel-button', function(){
-    //   event.preventDefault();
-    //   var sport = $('#padel-button').data('sport');
-    //   var time = $('#padel-button').data('time');
-    //   var courtId = $('#padel-button').data('court');
-    //   debugger;
-
 
     $(document).on('click','#prev-hour', function(){
       event.preventDefault();
@@ -59,7 +52,7 @@ $document.ready(function(){
       animate: 0,
       min: 480,
       max: 1440,
-      step: 30,
+      step: 60,
       values: [ 480, 1440 ],
       slide: function(e, ui) {
         console.log(ui.values[0])

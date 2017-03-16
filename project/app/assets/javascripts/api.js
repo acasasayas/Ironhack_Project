@@ -47,7 +47,7 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng,time_start,tim
             '<h1 id="firstHeading" class="firstHeading"><strong>'+marker.club.club.name+'</strong></h1>'+
             '<div id="bodyContent">'+
             '<div class="col-md-6 img-col flex">' +
-            '<div class="elemento2">' +
+            '<div class="elemento23">' +
               '<a id="pre" href="#" class="arrow-l "><i class="fa fa-2x fa-angle-left" aria-hidden="true"></i></a>' +
               '<span id="image-club" data-img="'+marker.club.images+'">'+
                 '<img class="image-gal" src="'+marker.club.images[photo]+'">' +
@@ -105,31 +105,28 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng,time_start,tim
 
           map.setCenter(marker.getPosition());
           infowindow.open(map, marker);
-          $('#padel-courts').append(
-            '<div class="col-md-3"><button id="padel-button" type="button" class="info-find btn btn btn-default button-standard">08:00</button></div></div>',
-            '<div class="col-md-3"><button id="padel-button" type="button" class="info-find btn btn btn-default button-standard">08:00</button></div></div>',
-            '<div class="col-md-3"><button id="padel-button" type="button" class="info-find btn btn btn-default button-standard">08:00</button></div></div>',
-            '<div class="col-md-3"><button id="padel-button" type="button" class="info-find btn btn btn-default button-standard">08:00</button></div></div>'
-          );
-          $('#futbol-courts').append(
-            '<div class="col-md-3"><button id="padel-button" type="button" class="info-find btn btn btn-default button-standard">08:00</button></div></div>',
-            '<div class="col-md-3"><button id="padel-button" type="button" class="info-find btn btn btn-default button-standard">08:00</button></div></div>',
-            '<div class="col-md-3"><button id="padel-button" type="button" class="info-find btn btn btn-default button-standard">08:00</button></div></div>',
-            '<div class="col-md-3"><button id="padel-button" type="button" class="info-find btn btn btn-default button-standard">08:00</button></div></div>'
-          );
-          $('#basket-courts').append(
-            '<div class="col-md-3"><button id="padel-button" type="button" class="info-find btn btn btn-default button-standard">08:00</button></div></div>',
-            '<div class="col-md-3"><button id="padel-button" type="button" class="info-find btn btn btn-default button-standard">08:00</button></div></div>',
-            '<div class="col-md-3"><button id="padel-button" type="button" class="info-find btn btn btn-default button-standard">08:00</button></div></div>',
-            '<div class="col-md-3"><button id="padel-button" type="button" class="info-find btn btn btn-default button-standard">08:00</button></div></div>'
-          );
-          $('#golf-courts').append(
-            '<div class="col-md-3"><button id="padel-button" type="button" class="info-find btn btn btn-default button-standard">08:00</button></div></div>',
-            '<div class="col-md-3"><button id="padel-button" type="button" class="info-find btn btn btn-default button-standard">08:00</button></div></div>',
-            '<div class="col-md-3"><button id="padel-button" type="button" class="info-find btn btn btn-default button-standard">08:00</button></div></div>',
-            '<div class="col-md-3"><button id="padel-button" type="button" class="info-find btn btn btn-default button-standard">08:00</button></div></div>'
-          );
+          $('.elemento2').addClass("hidden");
+
+            Object.entries(this.club.Padel).forEach((entry, index) => {
+              if (index < 4) {
+                let data = moment.utc(entry[0]);
+                let time = data.format("HH:mm");
+                $('#padel-courts').append(
+                  '<div class="col-md-3"><button id="padel-button" data-time="'+entry[0]+'" data-court="'+entry[1]+'" type="button" class="reservation info-find btn btn btn-default button-standard">'+ time +'</button></div></div>'
+                );
+                $('#futbol-courts').append(
+                  '<div class="col-md-3"><button id="futbol-button" data-time="'+entry[0]+'" data-court="'+entry[1]+'" type="button" class="reservation info-find btn btn btn-default button-standard">'+ time +'</button></div></div>'
+                );
+                $('#basket-courts').append(
+                  '<div class="col-md-3"><button id="basket-button" data-time="'+entry[0]+'" data-court="'+entry[1]+'" type="button" class="reservation info-find btn btn btn-default button-standard">'+ time +'</button></div></div>'
+                );
+                $('#golf-courts').append(
+                  '<div class="col-md-3"><button id="golf-button" data-time="'+entry[0]+'" data-court="'+entry[1]+'" type="button" class="reservation info-find btn btn btn-default button-standard">'+ time +'</button></div></div>'
+                );
+              }
+            })
         });
+
 
         google.maps.event.addListener(infowindow, 'domready', function() {
 

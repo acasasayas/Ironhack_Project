@@ -25,6 +25,11 @@
     margin-top: -7px;
     margin-left: -5px!important;
     width: auto!important;
+    margin-bottom: 5px!important;
+}
+
+.no-padding-right {
+    padding-right: 0px;
 }
 
 .title {

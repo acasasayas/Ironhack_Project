@@ -17,9 +17,15 @@ $document.ready(function(){
   //  });
 
   $document.on("mouseover", ".elemento1", function () {
-    $('.elemento2').removeClass("hidden");
+    $('#left-bar .elemento2').removeClass("hidden");
   });
 
+  $document.on("click", ".reservation", function () {
+      event.preventDefault();
+      var time = this.getAttribute('data-time')
+      var courtId = this.getAttribute('court')
+
+  });
 
 
   $document.on("click", ".menu-open-button", function () {
