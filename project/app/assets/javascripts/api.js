@@ -152,3 +152,27 @@ function getAllReservations (user) {
     console.log(error)
   }
 }
+
+function newReservation (user_id,court_id,time_start,time_end) {
+  var reservation = {
+    user_id: user_id,
+    court_id: court_id,
+    time_start: time_start,
+    time_end: time_end
+  }
+  $.ajax({
+    type: "POST",
+    url: '/createReservation',
+    data: reservation,
+    success: createReservation,
+    error: handleCreateError
+  });
+
+  function createReservation (response) {
+    alert("Reserva en:" + response.name + " de:" + time_start + "-" + time_end);
+  }
+
+  function handleCreateReservation (error) {
+    console.log(error)
+  }
+}
