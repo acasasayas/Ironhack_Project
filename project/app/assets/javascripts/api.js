@@ -124,3 +124,31 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng,time_start,tim
 
 
 }
+
+function getAllReservations (user) {
+  var url = '/reservationsUser'
+
+  if (user) {
+    url += `?user_id=${user.id}`
+  }
+
+  $.ajax({
+    type: "GET",
+    url: url,
+    success: allReservations,
+    error: handleReservationsError
+  });
+
+  function allReservations (response) {
+    var reservations = response
+    var reservations_alert = []
+    alert(reservations);
+    // reservations.forEach(function (thisReservation) {
+    //   thisReservation.
+    // })
+  }
+
+  function handleReservationsError (error) {
+    console.log(error)
+  }
+}
