@@ -217,7 +217,7 @@ function newReservation (user_id,court_id,time_start,time_end) {
   });
 
   function createReservation (response) {
-    alert("Reserva en:" + response.name + " de:" + time_start + "-" + time_end);
+    alert("Reserva en:" + response.name + " de:" + reservation.time_start + "-" + reservation.time_end);
   }
 
   function handleCreateReservation (error) {

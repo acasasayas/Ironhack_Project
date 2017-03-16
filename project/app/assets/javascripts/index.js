@@ -8,13 +8,13 @@ $document.ready(function(){
    });
 
 
-  //  $document.on("click", "#enter", function() {
-  //    event.preventDefault();
-  //    $("#intro").fadeOut(1500);
-  //    $(".main-home").fadeOut(1500);
+   $document.on("click", "#enter", function() {
+     event.preventDefault();
+     $("#intro").fadeOut(1500);
+     $(".main-home").fadeOut(1500);
      $("#left-bar").removeClass("hidden");
      $("#menu").removeClass("hidden");
-  //  });
+   });
 
   $document.on("mouseover", ".elemento1", function () {
     $('#left-bar .elemento2').removeClass("hidden");
@@ -24,7 +24,7 @@ $document.ready(function(){
       event.preventDefault();
       var time = this.getAttribute('data-time')
       var courtId = this.getAttribute('court')
-
+      
   });
 
 
