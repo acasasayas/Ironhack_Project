@@ -34,7 +34,6 @@ club1.club_images.create!(image: File.open(Rails.root + 'app/assets/images/clubs
 club1.courts.create!(court_name: "Pista Padel", sport: "Padel")
 club1.courts.create!(court_name: "Pista Tenis", sport: "Tenis")
 club1.courts.create!(court_name: "Pista Futbol", sport: "Futbol")
-club1.courts.create!(court_name: "Pista Golf", sport: "Golf")
 
 
 club2 = Club.create!(

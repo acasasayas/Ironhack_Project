@@ -1,5 +1,6 @@
 var hora = 0;
 var court_id = 1;
+var current_marker;
 
 function getAllClubs (center_lat,center_lng,corner_lat,corner_lng,time_start,time_end) {
 
@@ -20,7 +21,6 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng,time_start,tim
 
     function allClubs (response) {
       console.log(response);
-      debugger;
 
       var clubs = response.clubs;
 
@@ -98,38 +98,36 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng,time_start,tim
         marker.setIcon('/assets/periscope.png');
 
         marker.addListener('click', function() {
-          $('#padel-courts').empty();
-          $('#futbol-courts').empty();
-          $('#basket-courts').empty();
-          $('#golf-courts').empty();
-
-          map.setCenter(marker.getPosition());
           infowindow.open(map, marker);
-          $('.elemento2').addClass("hidden");
+          $('.padel-courts').empty();
+          $('.futbol-courts').empty();
+          $('.basket-courts').empty();
+          $('.golf-courts').empty();
 
-            Object.entries(this.club.Padel).forEach((entry, index) => {
-              if (index < 4) {
-                let data = moment.utc(entry[0]);
-                let time = data.format("HH:mm");
-                $('#padel-courts').append(
-                  '<div class="col-md-3"><button id="padel-button" data-time="'+entry[0]+'" data-court="'+entry[1]+'" type="button" class="reservation info-find btn btn btn-default button-standard">'+ time +'</button></div></div>'
-                );
-                $('#futbol-courts').append(
-                  '<div class="col-md-3"><button id="futbol-button" data-time="'+entry[0]+'" data-court="'+entry[1]+'" type="button" class="reservation info-find btn btn btn-default button-standard">'+ time +'</button></div></div>'
-                );
-                $('#basket-courts').append(
-                  '<div class="col-md-3"><button id="basket-button" data-time="'+entry[0]+'" data-court="'+entry[1]+'" type="button" class="reservation info-find btn btn btn-default button-standard">'+ time +'</button></div></div>'
-                );
-                $('#golf-courts').append(
-                  '<div class="col-md-3"><button id="golf-button" data-time="'+entry[0]+'" data-court="'+entry[1]+'" type="button" class="reservation info-find btn btn btn-default button-standard">'+ time +'</button></div></div>'
-                );
-              }
-            })
+          current_marker = marker;
+          map.setCenter(marker.getPosition());
+
+          $('.elemento2').addClass("hidden");
+          var sports = ["Golf", "Futbol", "Padel", "Basket"];
+
+          var club = this.club;
+          sports.forEach(sport => {
+            if (sport in club) {
+              Object.entries(club[sport]).forEach((entry, index) => {
+                if (index < 4) {
+                  let lowerSport = sport.toLowerCase();
+                  let data = moment.utc(entry[0]);
+                  let time = data.format("HH:mm");
+                  $('#' + lowerSport + '-courts').append(
+                    '<div class="col-md-3 '+lowerSport+'-courts"><button id="' + lowerSport + '-button" data-time="'+entry[0]+'" data-court="'+entry[1]+'" type="button" class="reservation info-find btn btn btn-default button-standard">'+ time +'</button></div></div>'
+                  );
+                }
+              })
+            }
+          });
         });
 
-
         google.maps.event.addListener(infowindow, 'domready', function() {
-
 
          var iwOuter = $('.gm-style-iw');
 

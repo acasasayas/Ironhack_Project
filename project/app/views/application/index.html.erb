@@ -4,16 +4,31 @@
   </div>
 
       </div>
-    <div id="intro" class="flex">
+    <div id="intro" class="flex hidden">
       <div class="center-box title-home">
         <h1 class="title_home"><strong>Reserva Pista de tu Deporte Favorito</strong></h1>
         <h3>Fútbol, Basket, Padel, Golf...</h3>
         <button id="enter" type="button" class="info-find btn btn-default button-standard home">Buscar</button>
+        <%= render "application/shared/counter" %>
 
       </div>
 
     </div> -->
   <!-- zzzzzz -->
+<!-- modal reservation inicio-->
+<div class="modal fade" id="reservation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div id="modal-login" class="modal-dialog" role="document">
+        <div class="modal-content color">
+          <div class="modal-body reserv">
+            <h2><strong>Confirmación de reserva</strong></h2>
+            <div class="confirmation">
+
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+<!-- modal reservation final-->
 <!-- modal login inicio-->
 <div class="modal fade" id="LogInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div id="modal-login" class="modal-dialog" role="document">
@@ -48,7 +63,7 @@
   </div>
 
 <!-- modal register final-->
-    <div id="menu" class="hidden">
+    <div id="menu" class="">
 
     <nav class="menu">
 
@@ -90,7 +105,7 @@
     </nav>
   </div>
   <!-- menu left inicio-->
-  <div id="left-bar" class="container hidden">
+  <div id="left-bar" class="container">
   	<div class="row">
           <ul>
             <li class="elemento1 hour-size">

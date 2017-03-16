@@ -77,3 +77,23 @@
 .title-sport {
     margin-left: 11px;
 }
+
+.reserv {
+    height: 267px;
+}
+
+.btn-reserv {
+    border: 3px solid white;
+    background-color: #78BC61;
+    color: white;
+    text-shadow: 0 0px 0 #fff;
+    border-radius: 14px!important;
+    margin-top: 15px;
+    margin-left: 0px!important;
+    width: 150px!important;
+    margin-bottom: 5px!important;
+}
+
+.red {
+    background-color: red;
+}
