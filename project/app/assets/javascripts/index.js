@@ -8,13 +8,13 @@ $document.ready(function(){
    });
 
 
-   $document.on("click", "#enter", function() {
-     event.preventDefault();
-     $("#intro").fadeOut(1500);
-     $(".main-home").fadeOut(1500);
+  //  $document.on("click", "#enter", function() {
+  //    event.preventDefault();
+  //    $("#intro").fadeOut(1500);
+  //    $(".main-home").fadeOut(1500);
      $("#left-bar").removeClass("hidden");
      $("#menu").removeClass("hidden");
-   });
+  //  });
 
 
 

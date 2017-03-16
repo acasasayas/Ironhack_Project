@@ -34,6 +34,8 @@ club1.club_images.create!(image: File.open(Rails.root + 'app/assets/images/clubs
 club1.courts.create!(court_name: "Pista Padel", sport: "Padel")
 club1.courts.create!(court_name: "Pista Tenis", sport: "Tenis")
 club1.courts.create!(court_name: "Pista Futbol", sport: "Futbol")
+club1.courts.create!(court_name: "Pista Golf", sport: "Golf")
+
 
 club2 = Club.create!(
   name: 'Real Club de Polo de Barcelona',
@@ -50,7 +52,9 @@ club2.club_images.create!(image: File.open(Rails.root + 'app/assets/images/clubs
 club2.courts.create!(court_name: "Central", sport: "Padel")
 club2.courts.create!(court_name: "Endesa", sport: "Padel")
 club2.courts.create!(court_name: "Pista Alex", sport: "Futbol")
-club2.courts.create!(court_name: "Pista Nadal", sport: "Tenis")
+club2.courts.create!(court_name: "Pista Basket", sport: "Basket")
+club2.courts.create!(court_name: "Pista Golf", sport: "Golf")
+
 
 
 club3 = Club.create!(
@@ -65,6 +69,9 @@ club3.club_images.create!(image: File.open(Rails.root + 'app/assets/images/clubs
 club3.courts.create!(court_name: "Pista 1", sport: "Padel")
 club3.courts.create!(court_name: "Pista 2", sport: "Padel")
 club3.courts.create!(court_name: "Pista Futbol", sport: "Futbol")
+club3.courts.create!(court_name: "Pista Golf", sport: "Golf")
+club3.courts.create!(court_name: "Pista Basket", sport: "Basket")
+
 
 club4 = Club.create!(
   name: 'Valldaura Sport',
@@ -79,6 +86,9 @@ club4.club_images.create!(image: File.open(Rails.root + 'app/assets/images/clubs
 
 club4.courts.create!(court_name: "Pista F7", sport: "Futbol")
 club4.courts.create!(court_name: "Pista principal", sport: "Padel")
+club4.courts.create!(court_name: "Pista Basket", sport: "Basket")
+club4.courts.create!(court_name: "Pista Golf", sport: "Golf")
+
 
 club5 = Club.create!(
   name: 'CEM Olimpia',
@@ -93,6 +103,9 @@ club5.club_images.create!(image: File.open(Rails.root + 'app/assets/images/clubs
 club5.courts.create!(court_name: "Central", sport: "Padel")
 club5.courts.create!(court_name: "Pista 1", sport: "Padel")
 club5.courts.create!(court_name: "Me gusta el Furbol!", sport: "Futbol")
+club5.courts.create!(court_name: "Pista Golf", sport: "Golf")
+club5.courts.create!(court_name: "Pista Basket", sport: "Basket")
+
 
 
 club6 = Club.create!(
@@ -108,6 +121,9 @@ club6.club_images.create!(image: File.open(Rails.root + 'app/assets/images/clubs
 
 club6.courts.create!(court_name: "Pista Padel", sport: "Padel")
 club6.courts.create!(court_name: "Pista Futbol", sport: "Futbol")
+club6.courts.create!(court_name: "Pista Basket", sport: "Basket")
+club6.courts.create!(court_name: "Pista Golf", sport: "Golf")
+
 
 
 club7 = Club.create!(
@@ -122,6 +138,11 @@ club7.club_images.create!(image: File.open(Rails.root + 'app/assets/images/clubs
 
 club7.courts.create!(court_name: "Pitch & Putt 1", sport: "Golf")
 club7.courts.create!(court_name: "Pitch & Putt 2", sport: "Golf")
+club7.courts.create!(court_name: "Pista Padel", sport: "Padel")
+club7.courts.create!(court_name: "Pista Basket", sport: "Basket")
+club7.courts.create!(court_name: "Pista Futbol", sport: "Futbol")
+
+
 
 club8 = Club.create!(
   name: 'Can Cuyàs Club',
@@ -134,8 +155,12 @@ club8.club_images.create!(image: File.open(Rails.root + 'app/assets/images/clubs
 
 club8.courts.create!(court_name: "Pitch & Putt 1", sport: "Golf")
 club8.courts.create!(court_name: "Pitch & Putt 2", sport: "Golf")
-club8.courts.create!(court_name: "Central", sport: "Padel")
+club8.courts.create!(court_name: "Central", sport: "Basket")
 club8.courts.create!(court_name: "Aquiarius", sport: "Padel")
+club8.courts.create!(court_name: "Pista Futbol", sport: "Futbol")
+
+
+
 
 club9 = Club.create!(
   name: 'Fair Play Padel',
@@ -148,7 +173,10 @@ club9.club_images.create!(image: File.open(Rails.root + 'app/assets/images/clubs
 club9.club_images.create!(image: File.open(Rails.root + 'app/assets/images/clubs/fairplay3.jpg'))
 
 club9.courts.create!(court_name: "Pista 1", sport: "Padel")
-club9.courts.create!(court_name: "Pista 2", sport: "Padel")
+club9.courts.create!(court_name: "Pista 2", sport: "Golf")
+club9.courts.create!(court_name: "Pista Basket", sport: "Basket")
+club9.courts.create!(court_name: "Pista Futbol", sport: "Futbol")
+
 
 club10 = Club.create!(
   name: 'Augusta Padel St. Cugat',
@@ -161,7 +189,10 @@ club10.club_images.create!(image: File.open(Rails.root + 'app/assets/images/club
 club10.club_images.create!(image: File.open(Rails.root + 'app/assets/images/clubs/augusta3.jpg'))
 
 club10.courts.create!(court_name: "Pista 1", sport: "Padel")
-club10.courts.create!(court_name: "Pista 2", sport: "Padel")
+club10.courts.create!(court_name: "Pista 2", sport: "Golf")
+club10.courts.create!(court_name: "Pista Futbol", sport: "Futbol")
+club10.courts.create!(court_name: "Pista Basket", sport: "Basket")
+
 
 club11 = Club.create!(
   name: "STAR'S PADEL",
@@ -175,3 +206,6 @@ club11.club_images.create!(image: File.open(Rails.root + 'app/assets/images/club
 
 club11.courts.create!(court_name: "Pista 1", sport: "Padel")
 club11.courts.create!(court_name: "Pista 2", sport: "Padel")
+club11.courts.create!(court_name: "Pista 2", sport: "Golf")
+club11.courts.create!(court_name: "Pista Futbol", sport: "Futbol")
+club11.courts.create!(court_name: "Pista Basket", sport: "Basket")

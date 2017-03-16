@@ -16,7 +16,8 @@ class ClubsController < ApplicationController
 
     if params[:center_lng] && params[:center_lat] && params[:corner_lat] && params[:corner_lng]
       distance = Geocoder::Calculations.distance_between([params[:center_lat],params[:center_lng]],[params[:corner_lat],params[:corner_lng]])
-      clubs = Club.near([params[:center_lat],params[:center_lng]],distance).includes(:courts).where("close >= ? AND ? >= open AND close >= ? AND ? >= open", minutes_start, minutes_start, minutes_end, minutes_end)
+      # clubs = Club.near([params[:center_lat],params[:center_lng]],distance).includes(:courts).where("close >= ? AND ? >= open AND close >= ? AND ? >= open", minutes_start, minutes_start, minutes_end, minutes_end)
+      clubs = Club.all
 
       reservations = Reservation.where("time_start <= ? AND time_end >= ?",params[:time_end].to_datetime,params[:time_start].to_datetime)
       reservations_by_court_id = {}
@@ -53,10 +54,12 @@ class ClubsController < ApplicationController
               output[club.id] = {:club => club}
             end
             unless output[club.id][court.sport]
-              output[club.id][court.sport] = {}
+              output[club.id][court.sport] = []
             end
             free_slots.each do |key,value|
-              output[club.id][court.sport][key] = court.id
+              # output[club.id][court.sport][key] = court.id
+              output[club.id][court.sport] << key
+              output[club.id][court.sport] << court.id
             end
           end
 
@@ -82,8 +85,14 @@ class ClubsController < ApplicationController
       :images => images,
       :clubs => output
     }
+    # prueba = {
+    #   :images => images,
+    #   :clubs => Club.all
+    # }
 
+    # respond_with(prueba.as_json)
     respond_with(full_output.as_json)
+
   end
 
   def create

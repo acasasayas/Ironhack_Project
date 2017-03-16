@@ -1,3 +1,6 @@
+var hora = 0;
+var court_id = 1;
+
 function getAllClubs (center_lat,center_lng,corner_lat,corner_lng,time_start,time_end) {
 
     var url = '/clubs'
@@ -60,13 +63,23 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng,time_start,tim
             '<h4><strong>Restaurante: </strong>' + marker.club.club.restaurant + '</h4>' +
             '</div>' +
             '</br>' +
-            '<div class="col-md-12 hours-disp">' +
-            '<h4><strong>Pistas Disponibles:</strong></h4>' +
-            '<button type="button" class="info-find btn btn btn-default button-standard">08:00</button>' +
-            '<button type="button" class="info-find btn btn btn-default button-standard">08:00</button>' +
-            '<button type="button" class="info-find btn btn btn-default button-standard">08:00</button>' +
-            '<button type="button" class="info-find btn btn btn-default button-standard">08:00</button>' +
+            '<div class="col-md-12  hours-disp">' +
+              '<h4><strong>Pistas Disponibles:</strong></h4>' +
+              '<div id="basket-courts" class="col-md-3 no-padding-left">' +
+                '<h5 class="title-sport"><strong>Basket</strong></h5>' +
+              '</div>' +
+              '<div id="futbol-courts" class="col-md-3 no-padding-left">' +
+                '<h5 class="title-sport"><strong>Futbol</strong></h5>' +
+              '</div>' +
+              '<div id="golf-courts" class="col-md-3 no-padding-left">' +
+                '<h5 class="title-sport"><strong>Golf</strong></h5>' +
+              '</div>' +
+              '<div id="padel-courts" class="col-md-3 no-padding-left">' +
+                '<h5 class="title-sport"><strong>Padel</strong></h5>' +
+              '</div>' +
             '</div>' +
+
+
             '<div class="col-md-12">' +
             '<h5>Los horarios están sujetos a disponibilidad del club</h5>' +
             '</div>'+
@@ -80,11 +93,37 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng,time_start,tim
         marker.setIcon('/assets/periscope.png');
 
         marker.addListener('click', function() {
+          $('#padel-courts').empty();
+          $('#futbol-courts').empty();
+          $('#basket-courts').empty();
+          $('#golf-courts').empty();
+
           map.setCenter(marker.getPosition());
           infowindow.open(map, marker);
+          $('#padel-courts').append(
+            '<div class="col-md-3"><a id="next-hour" data-sport="Padel" href="#" class="hour-plus-min"><i class="fa fa-2x fa-plus-circle" aria-hidden="true"></i></a></div>',
+            '<div class="col-md-6"><button id="padel-button" type="button" data-free_hours="'+this.club.Padel+'" data-sport="Padel" data-time="'+this.club.Padel[hora]+'" data-court="'+this.club.Padel[court_id]+'" class="info-find btn btn btn-default button-standard">'+this.club.Padel[hora].substring(16, 11)+'</button></div>',
+            '<div class="col-md-3"><a id="prev-hour" href="#" class="hour-plus-min"><i class="fa fa-2x fa-minus-circle" aria-hidden="true"></i></a></div>'
+          );
+          $('#futbol-courts').append(
+            '<div class="col-md-3"><a id="next-hour" data-sport="Futbol" href="#" class="hour-plus-min"><i class="fa fa-2x fa-plus-circle" aria-hidden="true"></i></a></div>',
+            '<div class="col-md-6"><button id="futbol-button" type="button" data-free_hours="'+this.club.Futbol+'" data-sport="Padel" data-time="'+this.club.Futbol[hora]+'" data-court="'+this.club.Futbol[court_id]+'" class="info-find btn btn btn-default button-standard">'+this.club.Padel[hora].substring(16, 11)+'</button></div>',
+            '<div class="col-md-3"><a id="prev-hour" href="#" class="hour-plus-min"><i class="fa fa-2x fa-minus-circle" aria-hidden="true"></i></a></div>'
+          );
+          $('#basket-courts').append(
+            '<div class="col-md-3"><a id="next-hour" data-sport="Basket" href="#" class="hour-plus-min"><i class="fa fa-2x fa-plus-circle" aria-hidden="true"></i></a></div>',
+            '<div class="col-md-6"><button id="basket-button" type="button" data-free_hours="'+this.club.Basket+'" data-sport="Padel" data-time="'+this.club.Basket[hora]+'" data-court="'+this.club.Basket[court_id]+'" class="info-find btn btn btn-default button-standard">'+this.club.Padel[hora].substring(16, 11)+'</button></div>',
+            '<div class="col-md-3"><a id="prev-hour" href="#" class="hour-plus-min"><i class="fa fa-2x fa-minus-circle" aria-hidden="true"></i></a></div>'
+          );
+          $('#golf-courts').append(
+            '<div class="col-md-3"><a id="next-hour" data-sport="Golf" href="#" class="hour-plus-min"><i class="fa fa-2x fa-plus-circle" aria-hidden="true"></i></a></div>',
+            '<div class="col-md-6"><button id="golf-button" type="button" data-free_hours="'+this.club.Golf+'" data-sport="Padel" data-time="'+this.club.Golf[hora]+'" data-court="'+this.club.Golf[court_id]+'" class="info-find btn btn btn-default button-standard">'+this.club.Padel[hora].substring(16, 11)+'</button></div>',
+            '<div class="col-md-3"><a id="prev-hour" href="#" class="hour-plus-min"><i class="fa fa-2x fa-minus-circle" aria-hidden="true"></i></a></div>'
+          );
         });
 
         google.maps.event.addListener(infowindow, 'domready', function() {
+
 
          var iwOuter = $('.gm-style-iw');
 
@@ -92,8 +131,8 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng,time_start,tim
 
          iwBackground.children(':nth-child(2)').css({'display' : 'none'});
          iwBackground.children(':nth-child(4)').css({'display' : 'none'});
-         iwOuter.parent().parent().css({left: '115px'});
-         iwBackground.children(':nth-child(1)').attr('style', function(i,s){ return s + 'left: 228px !important;'});
+         iwOuter.parent().parent().css({left: '0px'});
+         iwBackground.children(':nth-child(1)').attr('style', function(i,s){ return s + 'left: 22px !important;'});
          iwBackground.children(':nth-child(3)').attr('style', function(i,s){ return s + 'left: 228px !important;'});
          iwBackground.children(':nth-child(3)').find('div').children().css({'background-color': '#78bc61', 'z-index' : '100'});
          iwBackground.children(':nth-child(3)').find('div').children().css({'border-left': '1px solid white', 'z-index' : '100'});
@@ -109,7 +148,10 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng,time_start,tim
          iwCloseBtn.mouseout(function(){
            $(this).css({opacity: '1'});
          });
+
+
       });
+
       });
       console.log(markers);
 

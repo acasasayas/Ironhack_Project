@@ -21,6 +21,10 @@
     background-color: #78BC61;
     color: white;
     text-shadow: 0 0px 0 #fff;
+    border-radius: 25px!important;
+    margin-top: -7px;
+    margin-left: -5px!important;
+    width: auto!important;
 }
 
 .title {
@@ -63,4 +67,8 @@
 .hours-disp {
     margin-bottom: 10px;
     min-width: 675px;
+}
+
+.title-sport {
+    margin-left: 11px;
 }
