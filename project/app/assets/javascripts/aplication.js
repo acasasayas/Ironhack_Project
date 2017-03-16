@@ -104,6 +104,8 @@ $(document).ready(function(){
 
   initialize();
 
+  getAllReservations();
+
 });
 
 function requestClubs() {

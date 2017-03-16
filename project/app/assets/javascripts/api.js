@@ -172,3 +172,55 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng,time_start,tim
 
 
 }
+
+function getAllReservations (user) {
+  var url = '/reservationsUser'
+
+  if (user) {
+    url += `?user_id=${user.id}`
+  }
+
+  $.ajax({
+    type: "GET",
+    url: url,
+    success: allReservations,
+    error: handleReservationsError
+  });
+
+  function allReservations (response) {
+    var reservations = response
+    var reservations_alert = []
+    alert(reservations);
+    // reservations.forEach(function (thisReservation) {
+    //   thisReservation.
+    // })
+  }
+
+  function handleReservationsError (error) {
+    console.log(error)
+  }
+}
+
+function newReservation (user_id,court_id,time_start,time_end) {
+  var reservation = {
+    user_id: user_id,
+    court_id: court_id,
+    time_start: time_start,
+    time_end: time_end
+  }
+  $.ajax({
+    type: "POST",
+    url: '/createReservation',
+    data: reservation,
+    success: createReservation,
+    error: handleCreateError
+  });
+
+  function createReservation (response) {
+    alert("Reserva en:" + response.name + " de:" + time_start + "-" + time_end);
+  }
+
+  function handleCreateReservation (error) {
+    console.log(error)
+  }
+}

@@ -13,7 +13,7 @@ class ClubsController < ApplicationController
     if minutes_end == 0
       minutes_end = 1440
     end
-
+    
     if params[:center_lng] && params[:center_lat] && params[:corner_lat] && params[:corner_lng]
       distance = Geocoder::Calculations.distance_between([params[:center_lat],params[:center_lng]],[params[:corner_lat],params[:corner_lng]])
       # clubs = Club.near([params[:center_lat],params[:center_lng]],distance).includes(:courts).where("close >= ? AND ? >= open AND close >= ? AND ? >= open", minutes_start, minutes_start, minutes_end, minutes_end)
