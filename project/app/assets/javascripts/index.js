@@ -24,7 +24,7 @@ $document.ready(function(){
       event.preventDefault();
       var time = this.getAttribute('data-time')
       var courtId = this.getAttribute('court')
-      
+      newReservation(courtId,time);
   });
 
 
