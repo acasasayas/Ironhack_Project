@@ -10,15 +10,10 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    reservation = Reservation.new(safe_params)
+    reservation = Reservation.new(user_id: current_user.id,court_id: params[:court_id],time_start: params[:time_start].to_datetime, time_end: (params[:time_start].to_datetime + 1.hour))
     if reservation.save
       render json: reservation.court.club
     end
   end
 
-  private
-
-  def safe_params
-    params.require(:reservation).permit(:court_id, :user_id, :time_start, :time_end)
-  end
 end
