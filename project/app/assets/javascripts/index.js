@@ -42,6 +42,7 @@ $document.ready(function(){
       var courtId = this.getAttribute('data-court')
       var time = this.getAttribute('data-time')
 
+
       let data = moment.utc(time);
       let timeReservation = data.format("DD");
       let timeReservationHour = data.format("HH:mm");

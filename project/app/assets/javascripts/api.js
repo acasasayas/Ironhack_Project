@@ -22,6 +22,7 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng,time_start,tim
     function allClubs (response) {
       console.log(response);
 
+
       var clubs = response.clubs;
 
       markers.forEach( function (marker){
@@ -95,7 +96,8 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng,time_start,tim
           content: contentString
         });
 
-        marker.setIcon('/assets/periscope.png');
+
+        marker.setIcon("/assets/location-marker.png");
 
         marker.addListener('click', function() {
           infowindow.open(map, marker);
@@ -171,12 +173,12 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng,time_start,tim
 
 }
 
-function getAllReservations (user) {
+function getAllReservations () {
   var url = '/reservationsUser'
 
-  if (user) {
-    url += `?user_id=${user.id}`
-  }
+  // if (user) {
+  //   url += `?user_id=${user.id}`
+  // }
 
   $.ajax({
     type: "GET",
@@ -199,12 +201,11 @@ function getAllReservations (user) {
   }
 }
 
-function newReservation (user_id,court_id,time_start,time_end) {
+function newReservation (court_id,time_start) {
   var reservation = {
-    user_id: user_id,
     court_id: court_id,
     time_start: time_start,
-    time_end: time_end
+
   }
   $.ajax({
     type: "POST",
@@ -215,10 +216,15 @@ function newReservation (user_id,court_id,time_start,time_end) {
   });
 
   function createReservation (response) {
-    alert("Reserva en:" + response.name + " de:" + reservation.time_start + "-" + reservation.time_end);
+    if (response.club) {
+      alert("Reserva en:" + response.club.name + " a las:" + reservation.time_start);
+
+    } else {
+      alert(response.error)
+    }
   }
 
-  function handleCreateReservation (error) {
+  function handleCreateError (error) {
     console.log(error)
   }
 }
