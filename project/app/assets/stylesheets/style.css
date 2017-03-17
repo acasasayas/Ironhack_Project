@@ -28,6 +28,10 @@ body {
     font-family: Gidole!important;
 }
 
+.elemento1 {
+  font-family: Gidole!important;
+}
+
 .title-home {
     margin-top: 180px!important;
 }
@@ -346,14 +350,14 @@ span.img1:hover img {
 
 .where {
     height: 100%;
-    background-color: #62AB37;
-    color: white!important;
+    background-color: white;
+    color: #62AB37;
     font-weight: bold!important;
     font-size: 18px!important;
     line-height: 2.8em;
-    border: 1px solid #62AB37;
-    font-family: "Oswald", sans-serif!important;
-    text-shadow: rgba(0, 0, 0, 0.3) 1px 1px;
+
+    font-family: Gidole;
+    
     width: 250px;
 }
 
