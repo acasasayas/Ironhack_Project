@@ -13,7 +13,7 @@
 
       </div>
 
-    </div> -->
+    </div>
   <!-- zzzzzz -->
 
     <div id="menu" class="">
@@ -99,15 +99,15 @@
                 <div class="elemento1 label-menu"><label>Deporte:</label></div>
 
                 <div class="elemento2">
-                    <input type="radio" name="myRadio" value="todos" class="sport-radio radio" checked>
+                    <input type="radio" name="myRadio" value="Todos" class="sport-radio radio" checked>
                     <label class="sport-label ">Todos</label></input>
-                    <input type="radio" name="myRadio" value="futbol" class="sport-radio radio ">
+                    <input type="radio" name="myRadio" value="Futbol" class="sport-radio radio ">
                     <label class="sport-label ">Futbol</label></input>
-                    <input type="radio" name="myRadio" value="basket" class="sport-radio radio ">
+                    <input type="radio" name="myRadio" value="Basket" class="sport-radio radio ">
                     <label class="sport-label ">Basket</label></input>
-                    <input type="radio" name="myRadio" value="golf" class="sport-radio radio ">
+                    <input type="radio" name="myRadio" value="Golf" class="sport-radio radio ">
                     <label class="sport-label ">Golf</label></input>
-                    <input type="radio" name="myRadio" value="padel" class="sport-radio radio ">
+                    <input type="radio" name="myRadio" value="Padel" class="sport-radio radio ">
                     <label class="sport-label ">Padel</label></input>
                 </div>
 
@@ -121,11 +121,11 @@
   <!-- menu left final-->
   <div class="user-info">
     <label class="current-user flex"><%=current_user.email if current_user%></label>
-    <a id="acceder" href="#reservation-user-modal" data-toggle="modal" class="current-user user-view-reservations flex">
+    <a id="view-reservations" href="#reservation-user-modal" data-toggle="modal" class="current-user user-view-reservations flex">
       <span class="full-width">Reservas</span>
     </a>
     <!-- <label class="current-user user-close-sesion flex">Cerrar Sesión</label> -->
-    <a id="acceder" href="/users/sign_out" data-toggle="modal" class="current-user user-close-sesion flex">
+    <a id="close-sesion" href="/users/sign_out" class="current-user user-close-sesion flex">
       <span class="full-width">Cerrar Sesión</span>
     </a>
   </div>

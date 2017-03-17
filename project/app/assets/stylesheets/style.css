@@ -372,7 +372,7 @@ span.img1:hover img {
     padding: 20px;
     background-color: #62AB37;
     margin-left: 15px;
-    margin-top: -8px;
+    margin-top: 10px;
     font-size: 20px;
 }
 
@@ -400,10 +400,10 @@ span.img1:hover img {
 }
 
 .user-view-reservations {
-    top: 87px;
+    top: 67px;
 }
 
 .user-close-sesion {
-    top: 154px;
+    top: 135px;
     background-color: #b33939;
 }

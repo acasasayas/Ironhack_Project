@@ -1,4 +1,5 @@
 var $document = $(document);
+var sport_radio = "Todos";
 
 $document.ready(function(){
 
@@ -38,6 +39,13 @@ $document.ready(function(){
     location.reload();
   });
 
+  $document.on("click", "#close-sesion", function() {
+    location.reload();
+  });
+
+  $document.on("click", ".sport-radio", function() {
+    sport_radio = this.getAttribute('value');
+  });
 
   $document.on("click", ".reservation", function () {
       event.preventDefault();

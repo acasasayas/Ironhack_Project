@@ -111,6 +111,28 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng,time_start,tim
           var sports = ["Golf", "Futbol", "Padel", "Basket"];
 
           var club = this.club;
+
+          switch(sport_radio) {
+               case "Todos":
+                var sports = ["Golf", "Futbol", "Padel", "Basket"];
+                break;
+               case "Futbol":
+                var sports = ["Futbol"];
+                break;
+                case "Basket":
+                 var sports = ["Basket"];
+                 break;
+                case "Padel":
+                 var sports = ["Padel"];
+                 break;
+              }
+
+              if (sports.length == 4) {
+
+              } else (sports.length == 1) {
+                
+              }
+
           sports.forEach(sport => {
             if (sport in club) {
               Object.entries(club[sport]).forEach((entry, index) => {
