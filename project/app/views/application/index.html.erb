@@ -1,12 +1,13 @@
 <div id="map-container">
-
   <div id="map-canvas">
+
   </div>
 
       </div>
     <div id="intro" class="flex hidden">
       <div class="center-box title-home">
-        <h1 class="title_home"><strong>Reserva Pista de tu Deporte Favorito</strong></h1>
+        <img src="/assets/Mr.Courts_white.png" alt="Smiley face" height="250" width="320">
+
         <h3>Fútbol, Basket, Padel, Golf...</h3>
         <button id="enter" type="button" class="info-find btn btn-default button-standard home">Buscar</button>
         <%= render "application/shared/counter" %>
@@ -19,6 +20,7 @@
     <div id="menu" class="">
 
     <nav class="menu">
+
 
       <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open"/>
       <label class="menu-open-button principal" for="menu-open">
@@ -59,6 +61,7 @@
   </div>
   <!-- menu left inicio-->
   <div id="left-bar" class="container">
+
   	<div class="row">
           <ul>
             <li class="elemento1 hour-size">
@@ -119,7 +122,10 @@
   	  </div>
   </div>
   <!-- menu left final-->
+  <label class="logo flex"><img class="logo-index" src="/assets/Mr.Courts_white.png" alt="Smiley face" height="60" width="70"></label>
+
   <div class="user-info">
+
     <label class="current-user flex"><%=current_user.email if current_user%></label>
     <a id="view-reservations" href="#reservation-user-modal" data-toggle="modal" class="current-user user-view-reservations flex">
       <span class="full-width">Reservas</span>
@@ -128,6 +134,7 @@
     <a id="close-sesion" href="/users/sign_out" class="current-user user-close-sesion flex">
       <span class="full-width">Cerrar Sesión</span>
     </a>
+
   </div>
 
   <!-- modal reservation inicio-->
