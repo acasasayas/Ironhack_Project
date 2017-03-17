@@ -21,7 +21,7 @@
     background-color: #62AB37;
     color: white;
     text-shadow: 0 0px 0 #fff;
-    border-radius: 25px!important;
+    border-radius: 20px!important;
     margin-top: 5px;
     margin-left: -5px!important;
     width: auto!important;
@@ -35,10 +35,22 @@
     background-color: #62AB37;
     color: white;
     text-shadow: 0 0px 0 #fff;
-    border-radius: 25px!important;
+    border-radius: 20px!important;
     margin-top: -7px;
     margin-left: -5px!important;
-    width: auto!important;
+    width: 70px!important;
+    margin-bottom: 5px!important;
+}
+
+.button-standard-hour-1sport {
+    border: 3px solid white;
+    background-color: #62AB37;
+    color: white;
+    text-shadow: 0 0px 0 #fff;
+    border-radius: 20px!important;
+    margin-top: -7px;
+    margin-left: -14px!important;
+    width: 90px!important;
     margin-bottom: 5px!important;
 }
 
@@ -86,6 +98,7 @@
 .hours-disp {
     margin-bottom: 10px;
     min-width: 675px;
+    margin-left: -4px;
 }
 
 .title-sport {

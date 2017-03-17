@@ -64,30 +64,11 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng,time_start,tim
             '<h4>' + Gym(marker.club.club.gym) +' '+ Pool(marker.club.club.pool) +' '+ Restaurant(marker.club.club.restaurant) + '</h4>' +
             '</div>' +
             '</br>' +
-            '<div class="col-md-12  hours-disp">' +
-            '<h4><strong>Pistas Disponibles:</strong></h4>' +
-
-            '<div id="golf-courts" class="col-md-6 no-padding-left">' +
-              '<h5 class="title-sport"><strong>Golf</strong></h5>' +
-            '</div>' +
-            '<div id="padel-courts" class="col-md-6 no-padding-left">' +
-              '<h5 class="title-sport"><strong>Padel</strong></h5>' +
-            '</div>' +
-            '</div>' +
-            '<div class="col-md-12  hours-disp">' +
-              '<div id="basket-courts" class="col-md-6 no-padding-left">' +
-                '<h5 class="title-sport"><strong>Basket</strong></h5>' +
-              '</div>' +
-              '<div id="futbol-courts" class="col-md-6 no-padding-left">' +
-                '<h5 class="title-sport"><strong>Futbol</strong></h5>' +
-              '</div>' +
-
-            '</div>' +
-
-
+            '<div class="col-md-12 sport-hours">' +
+            // Horarios
+            '</div>'+
             '<div class="col-md-12">' +
             '<h5>Los horarios están sujetos a disponibilidad del club</h5>' +
-            '</div>'+
             '</div>'+
             '</div>';
 
@@ -99,6 +80,8 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng,time_start,tim
 
         marker.addListener('click', function() {
           infowindow.open(map, marker);
+          $('.sport-hours').empty();
+
           $('.padel-courts').empty();
           $('.futbol-courts').empty();
           $('.basket-courts').empty();
@@ -125,26 +108,64 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng,time_start,tim
                 case "Padel":
                  var sports = ["Padel"];
                  break;
-              }
+              };
 
-              if (sports.length == 4) {
-
-              } else (sports.length == 1) {
-                
-              }
+          if (sports.length == 1) {
+            $('.sport-hours').append(
+              '<h4><strong>Pistas Disponibles:</strong></h4>'+
+              '</br>'
+            );
+          } else {
+            $('.sport-hours').append(
+              '<div class="col-md-12 hours-disp no-padding-left">' +
+                  '<h4><strong>Pistas Disponibles:</strong></h4>'+
+                  '</br>' +
+                  '<div id="golf-courts" class="col-md-6 no-padding-left">' +
+                    '<h5 class="title-sport"><strong>Golf</strong></h5>' +
+                  '</div>' +
+                  '<div id="padel-courts" class="col-md-6 no-padding-left">' +
+                    '<h5 class="title-sport"><strong>Padel</strong></h5>' +
+                  '</div>' +
+                  '</div>' +
+                  '<div class="col-md-12 hours-disp no-padding-left">' +
+                    '<div id="basket-courts" class="col-md-6 no-padding-left">' +
+                      '<h5 class="title-sport"><strong>Basket</strong></h5>' +
+                    '</div>' +
+                    '<div id="futbol-courts" class="col-md-6 no-padding-left">' +
+                      '<h5 class="title-sport"><strong>Futbol</strong></h5>' +
+                    '</div>' +
+                  '</div>'+
+                '</div>'
+            );
+          }
 
           sports.forEach(sport => {
             if (sport in club) {
-              Object.entries(club[sport]).forEach((entry, index) => {
-                if (index < 4) {
-                  let lowerSport = sport.toLowerCase();
-                  let data = moment.utc(entry[0]);
-                  let time = data.format("HH:mm");
-                  $('#' + lowerSport + '-courts').append(
-                    '<div class="col-md-3 '+lowerSport+'-courts"><button id="' + lowerSport + '-button" data-time="'+entry[0]+'" data-court="'+entry[1]+'" type="button" class="reservation info-find btn btn btn-default button-standard-hour">'+ time +'</button></div></div>'
-                  );
-                }
-              })
+              if (sports.length == 1) {
+
+                Object.entries(club[sport]).forEach((entry, index) => {
+                  if (index < 6) {
+                    let lowerSport = sport.toLowerCase();
+                    let data = moment.utc(entry[0]);
+                    let time = data.format("HH:mm");
+                    $('.sport-hours').append(
+                      '<div class="col-md-2 '+lowerSport+'-courts"><button id="' + lowerSport + '-button" data-time="'+entry[0]+'" data-court="'+entry[1]+'" type="button" class="reservation info-find btn btn btn-default button-standard-hour-1sport">'+ time +'</button></div></div>'
+                    );
+                  }
+                })
+              } else {
+
+                Object.entries(club[sport]).forEach((entry, index) => {
+                  if (index < 4) {
+                    let lowerSport = sport.toLowerCase();
+                    let data = moment.utc(entry[0]);
+                    let time = data.format("HH:mm");
+                    $('#' + lowerSport + '-courts').append(
+                      '<div class="col-md-3 '+lowerSport+'-courts"><button id="' + lowerSport + '-button" data-time="'+entry[0]+'" data-court="'+entry[1]+'" type="button" class="reservation info-find btn btn btn-default button-standard-hour">'+ time +'</button></div></div>'
+                    );
+                  }
+                })
+              }
             }
           });
         });
