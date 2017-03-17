@@ -1,0 +1,18 @@
+<html>
+
+   <head>
+      <meta content = 'text/html; charset = UTF-8' http-equiv = 'Content-Type' />
+   </head>
+
+   <body>
+     <h1>Hola!</h1><h3><%=@current_user.email%></h3>
+     <%reservation = @current_user.reservations.last%>
+     <%=@current_user.reservations.last%>
+     <% court = Court.find_by(id: reservation.court_id) %>
+     <h4><strong>Club: <%=court.club.name%></strong></h4>
+     <h4><strong>Dirección: </strong><%=court.club.full_street_address%></h4>
+     <h4><strong>Dia: <%=reservation.time_start.day%>
+      <strong>De: <%=reservation.time_start.hour%>
+      <strong>A: <%=reservation.time_end.hour%></strong></h4>
+   </body>
+</html>

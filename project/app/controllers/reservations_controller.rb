@@ -18,6 +18,7 @@ class ReservationsController < ApplicationController
     reservation = Reservation.new(user_id: current_user.id,court_id: params[:court_id],time_start: params[:time_start].to_datetime, time_end: (params[:time_start].to_datetime + 1.hour))
     if reservation.save
       render json: {club: reservation.court.club}
+      MailMailer.send_email(@current_user).deliver_now
     else
       render json: {error: "No funciona"}
     end
