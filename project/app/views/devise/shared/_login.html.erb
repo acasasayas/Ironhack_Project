@@ -1,6 +1,5 @@
 <h1><span class="color-strong">Log In</span></h1>
-<%= link_to "Darme de alta como Club", "/clubs/new" %>
-
+<%= link_to "Darme de alta", "#RegisterModal", "data-toggle" => "modal" %>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 

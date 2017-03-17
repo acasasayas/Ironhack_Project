@@ -8,32 +8,32 @@
           <%= devise_error_messages! %>
           <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
-              <div class="field margin-top-min">
+              <div class="field margin-top-min flex">
                 <%= f.label :name, 'Nombre club:', :class => 'float label-user size-label' %>
                 <%= f.text_field :name, autofocus: true, class: 'form-control size-input' %>
               </div>
               <br>
-              <div class="field">
+              <div class="field flex">
                 <%= f.label :full_street_address, 'Dirección:', :class => 'float label-user size-label' %>
-                <%= f.text_field :full_street_address, id: 'autocomplete', autocomplete: "off", class: 'form-control size-input' %>
+                <%= f.text_field :full_street_address, id: 'where2',  class: 'form-control size-input' %>
               </div>
               <div class="field hidden">
                 <%= f.text_field :id_place, id: 'google-place', autocomplete: "off", class: 'form-control size-input' %>
               </div>
               <br>
 
-              <div class="field ">
+              <div class="field flex ">
                 <%= f.label :open, 'Hora apertura:', :class => 'float label-user size-label-hour' %>
                 <%= f.time_field :open, autocomplete: "off", class: 'form-control size-input-hour' %>
               </div>
               <br>
-              <div class="field ">
+              <div class="field flex">
                 <%= f.label :close, 'Hora cierre:', :class => 'float label-user size-label-hour' %>
                 <%= f.time_field :close, autocomplete: "off", class: 'form-control size-input-hour' %>
               </div>
               <br>
 
-              <div class="field ">
+              <div class="field flex">
                 <%= f.label :courts, 'Número de pistas:', :class => 'float label-user size-label-hour' %>
                 <%= f.text_field :courts, value: "", id: "num-courts", class: 'form-control size-input-hour' %>
               </div>

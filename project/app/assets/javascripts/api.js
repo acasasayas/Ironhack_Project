@@ -232,9 +232,6 @@ function getAllReservations() {
     var reservations = response
     var reservations_alert = []
     console.log(response)
-    // reservations.forEach(function (thisReservation) {
-    //   thisReservation.
-    // })
   }
 
   function handleReservationsError (error) {

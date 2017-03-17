@@ -13,11 +13,11 @@ class ClubsController < ApplicationController
     if minutes_end == 0
       minutes_end = 1440
     end
-    
+
     if params[:center_lng] && params[:center_lat] && params[:corner_lat] && params[:corner_lng]
       distance = Geocoder::Calculations.distance_between([params[:center_lat],params[:center_lng]],[params[:corner_lat],params[:corner_lng]])
-      # clubs = Club.near([params[:center_lat],params[:center_lng]],distance).includes(:courts).where("close >= ? AND ? >= open AND close >= ? AND ? >= open", minutes_start, minutes_start, minutes_end, minutes_end)
-      clubs = Club.all
+      clubs = Club.near([params[:center_lat],params[:center_lng]],distance).includes(:courts).where("close >= ? AND ? >= open AND close >= ? AND ? >= open", minutes_start, minutes_start, minutes_end, minutes_end)
+      # clubs = Club.all
 
       reservations = Reservation.where("time_start <= ? AND time_end >= ?",params[:time_end].to_datetime,params[:time_start].to_datetime)
       reservations_by_court_id = {}
@@ -84,12 +84,6 @@ class ClubsController < ApplicationController
       :images => images,
       :clubs => output
     }
-    # prueba = {
-    #   :images => images,
-    #   :clubs => Club.all
-    # }
-
-    # respond_with(prueba.as_json)
     respond_with(full_output.as_json)
 
   end
@@ -158,15 +152,6 @@ class ClubsController < ApplicationController
   end
 
   private
-
-  # def create_slots(id,club_id)
-  #   club = Club.find(club_id)
-  #   from = club.open
-  #   to = club.close
-  #
-  #
-  #
-  # end
 
   def club_params
     params.require(:club).permit(:name, :full_street_address, :gym, :restaurant, :pool, :open, :close )

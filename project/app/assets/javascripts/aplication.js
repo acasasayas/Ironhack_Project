@@ -53,11 +53,13 @@ $(document).ready(function(){
 
 
 
-      // var autocomplete = new google.maps.places.Autocomplete(
-      // (document.getElementById('autocomplete')), {
-      //     types: ['geocode']
-      // });
+      var where2 = new google.maps.places.Autocomplete(
+      (document.getElementById('where2')), {
+          types: ['geocode']
+      });
       //
+      // var where2 = document.getElementById('where2');
+      // var autocomplete2 = new google.maps.places.Autocomplete(where2);
 
 
       var where = document.getElementById('where');
@@ -98,6 +100,8 @@ $(document).ready(function(){
     $('#image-club').empty();
     $('#image-club').html('<img class="image-gal" src="'+dataId[photo]+'">');
   });
+  // filters.time_start = 480
+  // filters.time_end = 1440
   filters.time_start = 480
   filters.time_end = 1440
   filters.day = new Date().getDate()
