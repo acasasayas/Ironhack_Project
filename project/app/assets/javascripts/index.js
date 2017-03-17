@@ -12,8 +12,8 @@ $document.ready(function(){
   }
 
   jQuery('.statistic-counter').counterUp({
-     delay: 10,
-     time: 2000
+     delay: 30,
+     time: 2500
    });
 
 
@@ -33,6 +33,8 @@ $document.ready(function(){
     event.preventDefault();
     var time = this.getAttribute('data-time');
     var courtId = this.getAttribute('court');
+    alert(time);
+    // newReservation(courtId,time);
   });
 
 
@@ -41,6 +43,15 @@ $document.ready(function(){
       $('.confirmation').empty();
       var courtId = this.getAttribute('data-court')
       var time = this.getAttribute('data-time')
+
+      // Aquí creo la reserva y se crea correctamente.
+      newReservation(courtId,time);
+      // luego viene tu codigo, que pone el nuevo modal, pero esta mal definido
+      // o no funciona porque no puedo acceder al boton ese. Cuando clico desaparece y nunca hace nada
+      // con lo cual el click on confirm_reservation nunca sucede.
+
+      //Intenta arreglar eso, porque la creacion de reservas funciona.
+
 
       let data = moment.utc(time);
       let timeReservation = data.format("DD");
@@ -53,7 +64,7 @@ $document.ready(function(){
         '<div class="col-md-12"><h4><strong>Día: </strong> '+timeReservation+'</h4><h4><strong>Hora: </strong> '+timeReservationHour+'</h4></div>'
         );
         if ($('.current-user')["0"].textContent == "") {
-          $('.confirmation').append('<div class="col-md-6"><button id="register-btn" data-time="'+time+'" data-court="'+courtId+'"  type="button" class="reservation info-find btn btn btn-default btn-reserv">Registrarse</button></div>')
+          $('.confirmation').append('<div class="col-md-6"><button id="no-logged" data-time="'+time+'" data-court="'+courtId+'"  type="button" class="reservation info-find btn btn btn-default btn-reserv">Log in!</button></div>')
         } else {
           $('.confirmation').append('<div class="col-md-6"><button id="confirm-reservation" data-time="'+time+'" data-court="'+courtId+'"  type="button" class="reservation info-find btn btn btn-default btn-reserv">Confirmar</button></div>')
         }

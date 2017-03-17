@@ -20,7 +20,7 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng,time_start,tim
     });
 
     function allClubs (response) {
-      console.log(response);
+
 
       var clubs = response.clubs;
 
@@ -59,9 +59,9 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng,time_start,tim
             '<h4><strong>Dirección: </strong>' + marker.club.club.full_street_address + '</h4>' +
             '<h4><strong>Abierto: </strong>' + minToTime(marker.club.club.open) +' - '+ minToTime(marker.club.club.close) +'</h4>' +
 
-            '<h4><strong>Gimnasio: </strong>' + marker.club.club.gym + '</h4>' +
-            '<h4><strong>Piscina: </strong>' + marker.club.club.pool + '</h4>' +
-            '<h4><strong>Restaurante: </strong>' + marker.club.club.restaurant + '</h4>' +
+            '<h4> <strong>Instalaciones: </strong> </h4>' +
+
+            '<h4>' + Gym(marker.club.club.gym) +' '+ Pool(marker.club.club.pool) +' '+ Restaurant(marker.club.club.restaurant) + '</h4>' +
             '</div>' +
             '</br>' +
             '<div class="col-md-12  hours-disp">' +
@@ -95,7 +95,7 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng,time_start,tim
           content: contentString
         });
 
-        marker.setIcon('/assets/periscope.png');
+        marker.setIcon('/assets/location-marker.png');
 
         marker.addListener('click', function() {
           infowindow.open(map, marker);
@@ -157,7 +157,7 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng,time_start,tim
       });
 
       });
-      console.log(markers);
+
 
 
     }
@@ -171,16 +171,12 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng,time_start,tim
 
 }
 
-function getAllReservations (user) {
-  var url = '/reservationsUser'
+function getAllReservations() {
 
-  if (user) {
-    url += `?user_id=${user.id}`
-  }
 
   $.ajax({
     type: "GET",
-    url: url,
+    url: "/reservationsUser",
     success: allReservations,
     error: handleReservationsError
   });
@@ -188,7 +184,7 @@ function getAllReservations (user) {
   function allReservations (response) {
     var reservations = response
     var reservations_alert = []
-    alert(reservations);
+    console.log(response)
     // reservations.forEach(function (thisReservation) {
     //   thisReservation.
     // })
@@ -199,12 +195,10 @@ function getAllReservations (user) {
   }
 }
 
-function newReservation (user_id,court_id,time_start,time_end) {
+function newReservation (court_id,time_start) {
   var reservation = {
-    user_id: user_id,
     court_id: court_id,
-    time_start: time_start,
-    time_end: time_end
+    time_start: time_start
   }
   $.ajax({
     type: "POST",
@@ -215,10 +209,11 @@ function newReservation (user_id,court_id,time_start,time_end) {
   });
 
   function createReservation (response) {
+    console.log(response)
     alert("Reserva en:" + response.name + " de:" + reservation.time_start + "-" + reservation.time_end);
   }
 
-  function handleCreateReservation (error) {
+  function handleCreateError (error) {
     console.log(error)
   }
 }

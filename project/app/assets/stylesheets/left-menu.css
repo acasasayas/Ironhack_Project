@@ -70,13 +70,13 @@ li .elemento1 {
     -moz-transition: all 0.1s ease-in-out;
     -ms-transition: all 0.1s ease-in-out;
     transition: all 0.1s ease-in-out;
-    text-shadow: rgba(0, 0, 0, 0.3) 1px 1px;
+    /*text-shadow: rgba(0, 0, 0, 0.3) 1px 1px;*/
 }
 
 li .elemento2 {
     float: left;
     /*margin-left: 140px;*/
-    background-color: #78BC61;
+    background-color: #62AB37;
     border-radius: 0 26px 26px 0;
     color: #fff;
     display: flex;
@@ -95,27 +95,27 @@ li .elemento2 {
     -moz-transition: all 0.1s ease-in-out;
     -ms-transition: all 0.1s ease-in-out;
     transition: all 0.1s ease-in-out;
-    text-shadow: rgba(0, 0, 0, 0.3) 1px 1px;
+    /*text-shadow: rgba(0, 0, 0, 0.3) 1px 1px;*/
 }
 
 ul li:nth-child(1) .elemento1 {
-    background: #78BC61;
+    background: #62AB37;
 }
 
 ul li:nth-child(2) .elemento1 {
-    background: #78BC61;
+    background: #62AB37;
 }
 
 ul li:nth-child(3) .elemento1 {
-    background: #78BC61;
+    background: #62AB37;
 }
 
 ul li:nth-child(4) .elemento1 {
-    background: #78BC61;
+    background: #62AB37;
 }
 
 ul li:nth-child(5) a {
-    background: #78BC61;
+    background: #62AB37;
 }
 
 li .elemento1:hover {
