@@ -210,7 +210,7 @@ function newReservation (court_id,time_start) {
 
   function createReservation (response) {
     console.log(response)
-    alert("Reserva en:" + response.name + " de:" + reservation.time_start + "-" + reservation.time_end);
+    // alert("Reserva en:" + response.name + " de:" + reservation.time_start + "-" + reservation.time_end);
   }
 
   function handleCreateError (error) {

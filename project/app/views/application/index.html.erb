@@ -15,54 +15,7 @@
 
     </div> -->
   <!-- zzzzzz -->
-<!-- modal reservation inicio-->
-<div class="modal fade" id="reservation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div id="modal-login" class="modal-dialog" role="document">
-        <div class="modal-content color">
-          <div class="modal-body reserv">
-            <h2><strong>Confirmación de reserva</strong></h2>
-            <div class="confirmation">
 
-            </div>
-          </div>
-        </div>
-      </div>
-  </div>
-<!-- modal reservation final-->
-<!-- modal login inicio-->
-<div class="modal fade" id="LogInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div id="modal-login" class="modal-dialog" role="document">
-        <div class="modal-content color">
-          <div class="modal-body">
-            <%= render "devise/shared/login" %>
-          </div>
-        </div>
-      </div>
-  </div>
-<!-- modal login final-->
-<!-- modal register inicio-->
-<div class="modal fade" id="RegisterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div id="modal-login" class="modal-dialog" role="document">
-        <div class="modal-content color">
-          <div class="modal-body">
-            <%= render "devise/shared/newUser" %>
-          </div>
-        </div>
-      </div>
-  </div>
-<!-- modal register final-->
-<!-- modal register inicio-->
-<div class="modal fade" id="NewClubModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div id="modal-new-club" class="modal-dialog" role="document">
-        <div class="modal-content color">
-          <div class="modal-body">
-            <%= render "clubs/shared/newClub" %>
-          </div>
-        </div>
-      </div>
-  </div>
-
-<!-- modal register final-->
     <div id="menu" class="">
 
     <nav class="menu">
@@ -168,7 +121,87 @@
   <!-- menu left final-->
   <div class="user-info">
     <label class="current-user flex"><%=current_user.email if current_user%></label>
+    <a id="acceder" href="#reservation-user-modal" data-toggle="modal" class="current-user user-view-reservations flex">
+      <span class="full-width">Reservas</span>
+    </a>
+    <!-- <label class="current-user user-close-sesion flex">Cerrar Sesión</label> -->
+    <a id="acceder" href="/users/sign_out" data-toggle="modal" class="current-user user-close-sesion flex">
+      <span class="full-width">Cerrar Sesión</span>
+    </a>
   </div>
+
+  <!-- modal reservation inicio-->
+  <div class="modal fade" id="reservation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div id="modal-login" class="modal-dialog" role="document">
+          <div class="modal-content color">
+            <div class="modal-body reserv">
+              <h2><strong>Confirmación de reserva</strong></h2>
+              <div class="confirmation">
+
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  <!-- modal reservation final-->
+  <!-- modal reservas_user inicio-->
+  <div class="modal fade" id="reservation-user-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div id="modal-login" class="modal-dialog" role="document">
+          <div class="modal-content color">
+            <div class="modal-body">
+              <h2><strong>Reservas actuales</strong></h2>
+              <div class="confirmation">
+                <%if current_user%>
+                  <%current_user.reservations.each do |reservation|%>
+                     <% court = Court.find_by(id: reservation.court_id) %>
+                     <h4><strong>Club: <%=court.club.name%></strong></h4>
+                     <h4><strong>Dirección: </strong><%=court.club.full_street_address%></h4>
+                     <h4><strong>Dia: <%=reservation.time_start.day%>
+                      <strong>De: <%=reservation.time_start.hour%>
+                      <strong>A: <%=reservation.time_end.hour%></strong></h4>
+                      <h4>-</h4>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  <!-- modal reservas_user final-->
+  <!-- modal login inicio-->
+  <div class="modal fade" id="LogInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div id="modal-login" class="modal-dialog" role="document">
+          <div class="modal-content color">
+            <div class="modal-body">
+              <%= render "devise/shared/login" %>
+            </div>
+          </div>
+        </div>
+    </div>
+  <!-- modal login final-->
+  <!-- modal register inicio-->
+  <div class="modal fade" id="RegisterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div id="modal-login" class="modal-dialog" role="document">
+          <div class="modal-content color">
+            <div class="modal-body">
+              <%= render "devise/shared/newUser" %>
+            </div>
+          </div>
+        </div>
+    </div>
+  <!-- modal register final-->
+  <!-- modal register inicio-->
+  <div class="modal fade" id="NewClubModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div id="modal-new-club" class="modal-dialog" role="document">
+          <div class="modal-content color">
+            <div class="modal-body">
+              <%= render "clubs/shared/newClub" %>
+            </div>
+          </div>
+        </div>
+    </div>
+
+  <!-- modal register final-->
 
 
 

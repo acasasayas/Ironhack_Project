@@ -36,10 +36,10 @@
     color: white;
     text-shadow: 0 0px 0 #fff;
     border-radius: 25px!important;
-    margin-top: 5px;
+    margin-top: -7px;
     margin-left: -5px!important;
     width: auto!important;
-    margin-bottom: 0px!important;
+    margin-bottom: 5px!important;
 }
 
 .no-padding-right {

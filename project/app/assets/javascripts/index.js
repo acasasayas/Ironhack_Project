@@ -35,6 +35,7 @@ $document.ready(function(){
     var time = this.getAttribute('data-time');
     var courtId = this.getAttribute('data-court');
     newReservation(courtId,time);
+    location.reload();
   });
 
 

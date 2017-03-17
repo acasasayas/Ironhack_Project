@@ -398,3 +398,12 @@ span.img1:hover img {
 #where:-ms-input-placeholder {
     color: #0085c0;
 }
+
+.user-view-reservations {
+    top: 87px;
+}
+
+.user-close-sesion {
+    top: 154px;
+    background-color: #b33939;
+}
