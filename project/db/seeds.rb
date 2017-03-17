@@ -52,7 +52,6 @@ club2.courts.create!(court_name: "Central", sport: "Padel")
 club2.courts.create!(court_name: "Endesa", sport: "Padel")
 club2.courts.create!(court_name: "Pista Alex", sport: "Futbol")
 club2.courts.create!(court_name: "Pista Basket", sport: "Basket")
-club2.courts.create!(court_name: "Pista Golf", sport: "Golf")
 
 
 

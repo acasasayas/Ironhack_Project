@@ -154,7 +154,6 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng,time_start,tim
                   }
                 })
               } else {
-
                 Object.entries(club[sport]).forEach((entry, index) => {
                   if (index < 4) {
                     let lowerSport = sport.toLowerCase();
@@ -166,6 +165,11 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng,time_start,tim
                   }
                 })
               }
+            } else {
+              let lowerSport = sport.toLowerCase();
+              $('#' + lowerSport + '-courts').append(
+                '<div class="col-md-12 '+lowerSport+'-courts"><span>No hay pistas disponibles de este deporte</span></div>'
+              );
             }
           });
         });
