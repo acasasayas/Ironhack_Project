@@ -53,7 +53,7 @@ $document.ready(function(){
         '<div class="col-md-12"><h4><strong>Día: </strong> '+timeReservation+'</h4><h4><strong>Hora: </strong> '+timeReservationHour+'</h4></div>'
         );
         if ($('.current-user')["0"].textContent == "") {
-          $('.confirmation').append('<div class="col-md-6"><button id="confirm-reservation" data-time="'+time+'" data-court="'+courtId+'"  type="button" class="reservation info-find btn btn btn-default btn-reserv">Registrarse</button></div>')
+          $('.confirmation').append('<div class="col-md-6"><button id="register-btn" data-time="'+time+'" data-court="'+courtId+'"  type="button" class="reservation info-find btn btn btn-default btn-reserv">Registrarse</button></div>')
         } else {
           $('.confirmation').append('<div class="col-md-6"><button id="confirm-reservation" data-time="'+time+'" data-court="'+courtId+'"  type="button" class="reservation info-find btn btn btn-default btn-reserv">Confirmar</button></div>')
         }
