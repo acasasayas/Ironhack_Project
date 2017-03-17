@@ -29,12 +29,12 @@ $document.ready(function(){
     $('#left-bar .elemento2').removeClass("hidden");
   });
 
-  $document.on("click", ".confirm-reservation", function() {
+  $document.on("click", "#confirm-reservation", function() {
     event.preventDefault();
+    debugger;
     var time = this.getAttribute('data-time');
-    var courtId = this.getAttribute('court');
-    alert(time);
-    // newReservation(courtId,time);
+    var courtId = this.getAttribute('data-court');
+    newReservation(courtId,time);
   });
 
 
@@ -45,7 +45,7 @@ $document.ready(function(){
       var time = this.getAttribute('data-time')
 
       // Aquí creo la reserva y se crea correctamente.
-      newReservation(courtId,time);
+      // newReservation(courtId,time);
       // luego viene tu codigo, que pone el nuevo modal, pero esta mal definido
       // o no funciona porque no puedo acceder al boton ese. Cuando clico desaparece y nunca hace nada
       // con lo cual el click on confirm_reservation nunca sucede.
