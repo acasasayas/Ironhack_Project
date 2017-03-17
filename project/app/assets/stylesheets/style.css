@@ -1,11 +1,16 @@
 /*top menu*/
 
 .material-icons.md-24 {
-  font-size: 24px;
+    font-size: 24px;
 }
 
-.material-icons.md-light { color: rgba(255, 255, 255, 1); }
-.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+.material-icons.md-light {
+    color: rgba(255, 255, 255, 1);
+}
+
+.material-icons.md-light.md-inactive {
+    color: rgba(255, 255, 255, 0.3);
+}
 
 .main-home {
     position: absolute;
@@ -29,7 +34,7 @@ body {
 }
 
 .elemento1 {
-  font-family: Gidole!important;
+    font-family: Gidole!important;
 }
 
 .title-home {
@@ -96,6 +101,7 @@ body {
 
 .size-input-hour {
     width: 40%;
+    border-radius: 20px;
 }
 
 .size-label {
@@ -333,7 +339,6 @@ span.img1:hover img {
     padding-left: 30px;
 }
 
-
 .color {
     background-color: #62AB37;
 }
@@ -355,9 +360,7 @@ span.img1:hover img {
     font-weight: bold!important;
     font-size: 18px!important;
     line-height: 2.8em;
-
     font-family: Gidole;
-    
     width: 250px;
 }
 
@@ -369,6 +372,29 @@ span.img1:hover img {
     padding: 20px;
     background-color: #62AB37;
     margin-left: 15px;
-    margin-top: 10px;
+    margin-top: -8px;
     font-size: 20px;
+}
+
+#where {
+    background-color: #62AB37;
+    font-family: Gidole!important;
+    border: 1px solid #62AB37;
+    color: #ffffff!important;
+}
+
+#where::-webkit-input-placeholder {
+    color: #0085c0;
+}
+
+#where:-moz-placeholder {
+    color: #0085c0;
+}
+
+#where::-moz-placeholder {
+    color: #0085c0;
+}
+
+#where:-ms-input-placeholder {
+    color: #0085c0;
 }

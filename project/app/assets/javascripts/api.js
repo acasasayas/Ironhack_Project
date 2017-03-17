@@ -119,7 +119,7 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng,time_start,tim
                   let data = moment.utc(entry[0]);
                   let time = data.format("HH:mm");
                   $('#' + lowerSport + '-courts').append(
-                    '<div class="col-md-3 '+lowerSport+'-courts"><button id="' + lowerSport + '-button" data-time="'+entry[0]+'" data-court="'+entry[1]+'" type="button" class="reservation info-find btn btn btn-default button-standard">'+ time +'</button></div></div>'
+                    '<div class="col-md-3 '+lowerSport+'-courts"><button id="' + lowerSport + '-button" data-time="'+entry[0]+'" data-court="'+entry[1]+'" type="button" class="reservation info-find btn btn btn-default button-standard-hour">'+ time +'</button></div></div>'
                   );
                 }
               })

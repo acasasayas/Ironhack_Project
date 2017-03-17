@@ -44,15 +44,6 @@ $document.ready(function(){
       var courtId = this.getAttribute('data-court')
       var time = this.getAttribute('data-time')
 
-      // Aquí creo la reserva y se crea correctamente.
-      // newReservation(courtId,time);
-      // luego viene tu codigo, que pone el nuevo modal, pero esta mal definido
-      // o no funciona porque no puedo acceder al boton ese. Cuando clico desaparece y nunca hace nada
-      // con lo cual el click on confirm_reservation nunca sucede.
-
-      //Intenta arreglar eso, porque la creacion de reservas funciona.
-
-
       let data = moment.utc(time);
       let timeReservation = data.format("DD");
       let timeReservationHour = data.format("HH:mm");
