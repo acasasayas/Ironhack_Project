@@ -157,7 +157,7 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng,time_start,tim
       });
 
       });
-      console.log(markers);
+
 
 
     }
@@ -171,16 +171,12 @@ function getAllClubs (center_lat,center_lng,corner_lat,corner_lng,time_start,tim
 
 }
 
-function getAllReservations (user) {
-  var url = '/reservationsUser'
+function getAllReservations() {
 
-  if (user) {
-    url += `?user_id=${user.id}`
-  }
 
   $.ajax({
     type: "GET",
-    url: url,
+    url: "/reservationsUser",
     success: allReservations,
     error: handleReservationsError
   });
@@ -188,7 +184,7 @@ function getAllReservations (user) {
   function allReservations (response) {
     var reservations = response
     var reservations_alert = []
-    alert(reservations);
+    console.log(response)
     // reservations.forEach(function (thisReservation) {
     //   thisReservation.
     // })

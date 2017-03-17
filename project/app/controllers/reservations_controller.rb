@@ -1,11 +1,16 @@
 class ReservationsController < ApplicationController
-  def user_reservations
-    @reservations = Reservation.where(user_id: 1).includes(:user, :court)
 
-    if @reservations.empty?
-      @reservations = "No tienes ninguna reserva aún"
+  def user_reservations
+
+    if current_user
+      reservations = Reservation.where(user_id: current_user.id).includes(:court)
+      if reservations.empty?
+        reservations = "No tienes ninguna reserva aún"
+      end
+    else
+      reservations = "No user Logged In"
     end
-    render json: @reservations
+    render json: reservations
 
   end
 
