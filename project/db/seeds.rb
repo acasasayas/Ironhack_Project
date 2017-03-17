@@ -68,8 +68,8 @@ club3.courts.create!(court_name: "Pista Basket", sport: "Basket")
 club4 = Club.create!(
   name: 'Valldaura Sport',
   full_street_address: 'Plaza Karl Max 08033 Barcelona',
-  open: 480,
-  close: 1440,
+  open: 700,
+  close: 1200,
   id_place: 'ChIJTRdpM0C9pBIReY1prUOOuRk',
   gym: true,
   pool: true,
@@ -88,8 +88,8 @@ club4.courts.create!(court_name: "Pista Golf", sport: "Golf")
 club5 = Club.create!(
   name: 'CEM Olimpia',
   full_street_address: 'Calle Perú 215 08020 Barcelona',
-  open: 480,
-  close: 1440,
+  open: 700,
+  close: 1200,
   id_place: 'ChIJwSpSVTajpBIRlHyx9QzkDKQ',
   gym: true,
   pool: true,
@@ -151,8 +151,8 @@ club7.courts.create!(court_name: "Pista Futbol", sport: "Futbol")
 club8 = Club.create!(
   name: 'Can Cuyàs Club',
   full_street_address: 'Calle Granollers 61 08980 Sant Feliu de Llobregat',
-  open: 480,
-  close: 1440,
+  open: 700,
+  close: 1200,
   gym: false,
   pool: true,
   restaurant: false
