@@ -8,10 +8,6 @@
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:name => 'user'}) do |f| %>
         <%= devise_error_messages! %>
-        <div class="field margin-top-min">
-          <%= f.label :name, "Nombre: " %><br />
-          <%= f.text_field :name, autofocus: true, class: 'form-control full-width' %>
-        </div>
 
         <div class="field margin-top-min">
           <%= f.label :email, "Email: " %><br />
